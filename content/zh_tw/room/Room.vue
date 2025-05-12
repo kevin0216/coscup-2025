@@ -1,9 +1,9 @@
 <script>
-import status from './status.vue'
+import Status from './Status.vue'
 
 export default {
   components: {
-    Status: status,
+    Status,
   },
   data() {
     return {
