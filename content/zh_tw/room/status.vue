@@ -1,23 +1,21 @@
-<script>
-export default {
-  props: {
-    data: { required: true, type: Object },
-    currentTime: { required: true, type: Date },
-  },
-  methods: {
-    getProgress(startTime, endTime) {
-      const start = new Date(startTime)
-      const end = new Date(endTime)
+<script setup>
+const props = defineProps({
+  data: Object,
+  currentTime: Date,
+})
 
-      const total = end - start
-      const passed = this.currentTime - start
-      return Math.round((passed / total) * 100)
-    },
-    formatTime(time) {
-      const d = new Date(time)
-      return `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
-    },
-  },
+function getProgress(startTime, endTime) {
+  const start = new Date(startTime)
+  const end = new Date(endTime)
+
+  const total = end - start
+  const passed = props.currentTime - start
+  return Math.round((passed / total) * 100)
+}
+
+function formatTime(time) {
+  const d = new Date(time)
+  return `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
 }
 </script>
 
@@ -25,16 +23,16 @@ export default {
   <div class="status">
     <div
       class="progress-bar"
-      :style="{ width: `${getProgress(data.start, data.end)}%` }"
+      :style="{ width: `${getProgress(props.data.start, props.data.end)}%` }"
     />
     <p class="start">
-      {{ formatTime(data.start) }}
+      {{ formatTime(props.data.start) }}
     </p>
     <p class="title">
-      {{ data.title }}
+      {{ props.data.title }}
     </p>
     <p class="end">
-      {{ formatTime(data.end) }}
+      {{ formatTime(props.data.end) }}
     </p>
   </div>
 </template>
