@@ -10,7 +10,7 @@ interface SpreadsheetData {
   values: string[][]
 }
 
-type groupedCommunities = Record<string, Community[]>
+type groupedCommunities = Record<string, Record<string, string>[]>
 
 export interface Community {
   'id': string
