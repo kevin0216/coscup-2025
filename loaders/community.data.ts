@@ -91,9 +91,11 @@ export declare const data: CommunityData
 
 export default defineLoader({
   async load(): Promise<CommunityData> {
-    const communities = await fetchCommunities()
-    const community_topics = await fetchGroupedCommunities('Topics')
-    const community_booths = await fetchGroupedCommunities('Booths')
+    const [communities, community_topics, community_booths] = await Promise.all([
+      fetchCommunities(),
+      fetchGroupedCommunities('Topics'),
+      fetchGroupedCommunities('Booths'),
+    ])
 
     return {
       communities,
