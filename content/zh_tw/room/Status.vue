@@ -47,7 +47,7 @@ function formatTime(time) {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgb(0, 0, 0, 0.05);
+  background-color: var(--vp-c-default-soft);
   height: 100%;
 }
 p {

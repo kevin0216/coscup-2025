@@ -123,7 +123,11 @@ table th {
   padding: 0;
 }
 table th:first-child {
-  width: 7em;
+  width: 15%;
+  min-width: 7em;
+}
+table th:nth-child(2) {
+  width: 85%;
 }
 .empty-room {
   text-align: center;
