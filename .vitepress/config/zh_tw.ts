@@ -11,6 +11,7 @@ export const zh_tw = defineConfig({
       { text: '議程表', link: '/sessions' },
       { text: '贊助', link: '/sponsor' },
       { text: '工作人員', link: '/staff' },
+      { text: '社群夥伴', link: '/community' },
     ],
     sidebar: {},
     socialLinks: [
