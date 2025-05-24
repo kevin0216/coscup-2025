@@ -15,31 +15,38 @@ function getProgress(startTime, endTime) {
 
 function formatTime(time) {
   const d = new Date(time)
-  return `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
+  const hh = String(d.getHours()).padStart(2, '0')
+  const mm = String(d.getMinutes()).padStart(2, '0')
+
+  return `${hh}:${mm}`
 }
 </script>
 
 <template>
-  <div class="status">
-    <div
-      class="progress-bar"
-      :style="{ width: `${getProgress(props.data.start, props.data.end)}%` }"
-    />
-    <p class="start">
-      {{ formatTime(props.data.start) }}
-    </p>
-    <p class="title">
-      {{ props.data.title }}
-    </p>
-    <p class="end">
-      {{ formatTime(props.data.end) }}
-    </p>
-  </div>
+  <a :href="props.data.uri">
+    <div class="status">
+      <div
+        class="progress-bar"
+        :style="{ width: `${getProgress(props.data.start, props.data.end)}%` }"
+      />
+      <p class="start">
+        {{ formatTime(props.data.start) }}
+      </p>
+      <p class="title">
+        {{ props.data.title }}
+      </p>
+      <p class="end">
+        {{ formatTime(props.data.end) }}
+      </p>
+    </div>
+  </a>
 </template>
 
 <style scoped>
 .status {
+  height: 100%;
   display: flex;
+  align-items: center;
   position: relative;
   padding: 8px 16px;
 }
@@ -58,11 +65,15 @@ p {
   text-align: left;
 }
 .title {
-  flex: 8;
+  flex: 5;
   text-align: center;
 }
 .end {
   flex: 1;
   text-align: right;
+}
+a {
+  text-decoration: none;
+  color: var(--vp-custom-block-tip-text);
 }
 </style>
