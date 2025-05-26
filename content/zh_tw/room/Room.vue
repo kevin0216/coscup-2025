@@ -1,18 +1,17 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { data } from '#loaders/room.data'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import Status from './Status.vue'
 
-const sessions = ref([])
-const session_types = ref([])
-const rooms = ref([])
+const { sessions, rooms, session_types } = data
 const testMode = ref(false)
 const currentTime = ref(new Date())
 const timer = ref(null)
 const crowd = ref([])
 
 const roomStatus = computed(() => {
-  return rooms.value.map((room) => {
-    const roomSessions = sessions.value[room]
+  return rooms.map((room) => {
+    const roomSessions = sessions[room]
     const now = currentTime.value
 
     const currentSession = roomSessions.find((session) => {
@@ -52,7 +51,7 @@ const roomStatus = computed(() => {
     // no nextSession
     return {
       room,
-      course: '今日議程已結束',
+      course: null,
       type: '',
     }
   })
@@ -62,24 +61,16 @@ onMounted(() => {
   const query = new URLSearchParams(window.location.search)
   testMode.value = query.get('test') === 'true'
   startClock()
-  fetch('https://coscup.org/2024/json/session.json')
-    .then((res) => res.json())
-    .then((data) => {
-      session_types.value = data.session_types.reduce((acc, item) => {
-        acc[item.id] = item.zh.name
-        return acc
-      }, {})
-      rooms.value = new Set(data.sessions.map((session) => session.room))
-      rooms.value = [...rooms.value].sort((a, b) => a.localeCompare(b))
-      crowd.value = rooms.value.reduce((acc, item) => {
-        acc[item] = Math.round(Math.random() * 100)
-        return acc
-      }, {})
-      sessions.value = rooms.value.reduce((acc, item) => {
-        acc[item] = data.sessions.filter((session) => session.room === item).sort((a, b) => new Date(a.start) - new Date(b.start))
-        return acc
-      }, {})
-    })
+  crowd.value = rooms.reduce((acc, item) => {
+    acc[item] = Math.round(Math.random() * 100)
+    return acc
+  }, {})
+})
+
+onUnmounted(() => {
+  if (timer.value !== null) {
+    clearInterval(timer.value)
+  }
 })
 
 function startClock() {
@@ -113,17 +104,33 @@ function formatTime(time, date = true) {
 }
 
 function interpolateColor(color1, color2, factor) {
-  const result = color1.map((c, i) => Math.round(c + factor * (color2[i] - c)))
-  return `rgb(${result[0]}, ${result[1]}, ${result[2]}, 0.6)`
+  const r = Math.round(color1.r + factor * (color2.r - color1.r))
+  const g = Math.round(color1.g + factor * (color2.g - color1.g))
+  const b = Math.round(color1.b + factor * (color2.b - color1.b))
+  const a = color1.a + factor * (color2.a - color1.a)
+  return `rgba(${r}, ${g}, ${b}, ${a})`
+}
+
+function getCssVar(name) {
+  const rgba = getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+  const parts = rgba.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/)
+
+  return {
+    r: Number(parts[1]),
+    g: Number(parts[2]),
+    b: Number(parts[3]),
+    a: Number(parts[4]),
+  }
 }
 
 function getColor(type, value) {
   if (typeof type === 'string') {
     return 'transparent'
   }
-  const green = [189, 252, 201]
-  const yellow = [255, 255, 153]
-  const red = [255, 181, 181]
+
+  const yellow = getCssVar('--vp-c-warning-soft')
+  const red = getCssVar('--vp-c-danger-soft')
+  const green = getCssVar('--vp-c-success-soft')
 
   if (value <= 50) {
     return interpolateColor(green, yellow, value / 50)
@@ -169,25 +176,25 @@ function getStatusText(type, value) {
           {{ session.type ? session_types[session.type] : session.type }}
         </div>
         <div
-          class="cell"
+          class="cell tag"
           :style="{ 'background-color': `${getColor(session.course, crowd[session.room])}` }"
         >
           {{ getStatusText(session.course, crowd[session.room]) }}
         </div>
         <div class="cell session-room">
+          <span
+            v-if="session.course === null"
+            class="empty-room"
+          > 今日議程已結束 </span>
+          <span
+            v-else-if="typeof session.course === 'string'"
+            class="empty-room"
+          ><a :href="session.uri">{{ session.course }}</a></span>
           <Status
-            v-if="typeof session.course !== 'string'"
+            v-else
             :current-time="currentTime"
             :data="session.course"
           />
-          <span
-            v-else-if="session.course === '今日議程已結束'"
-            class="empty-room"
-          >{{ session.course }}</span>
-          <span
-            v-else
-            class="empty-room"
-          ><a :href="session.uri">{{ session.course }}</a></span>
         </div>
       </template>
     </div>
@@ -243,5 +250,15 @@ function getStatusText(type, value) {
 a {
   text-decoration: none;
   color: var(--vp-custom-block-tip-text);
+}
+
+@media (max-width: 600px) {
+  .grid-table {
+    grid-template-columns: 6em 6em auto;
+  }
+  .cell:nth-child(4n + 2),
+  .header:nth-child(4n + 2) {
+    display: none;
+  }
 }
 </style>
