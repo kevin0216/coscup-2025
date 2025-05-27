@@ -111,26 +111,45 @@ function interpolateColor(color1, color2, factor) {
   return `rgba(${r}, ${g}, ${b}, ${a})`
 }
 
-function getCssVar(name) {
-  const rgba = getComputedStyle(document.documentElement).getPropertyValue(name).trim()
-  const parts = rgba.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/)
+function getCssVar(name, soft = true) {
+  if (soft) {
+    const rgba = getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+    const parts = rgba.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/)
 
-  return {
-    r: Number(parts[1]),
-    g: Number(parts[2]),
-    b: Number(parts[3]),
-    a: Number(parts[4]),
+    return {
+      r: Number(parts[1]),
+      g: Number(parts[2]),
+      b: Number(parts[3]),
+      a: Number(parts[4]),
+    }
+  } else {
+    const hex = getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+    return {
+      r: Number.parseInt(result[1], 16),
+      g: Number.parseInt(result[2], 16),
+      b: Number.parseInt(result[3], 16),
+      a: 1,
+    }
   }
 }
 
-function getColor(type, value) {
-  if (typeof type === 'string') {
+function getColor(type, value, soft = true) {
+  if (typeof type === 'string' || type === null) {
     return 'transparent'
   }
 
-  const yellow = getCssVar('--vp-c-warning-soft')
-  const red = getCssVar('--vp-c-danger-soft')
-  const green = getCssVar('--vp-c-success-soft')
+  let yellow, red, green
+
+  if (soft) {
+    yellow = getCssVar('--vp-c-warning-soft')
+    red = getCssVar('--vp-c-danger-soft')
+    green = getCssVar('--vp-c-success-soft')
+  } else {
+    yellow = getCssVar('--vp-c-warning-3', false)
+    red = getCssVar('--vp-c-danger-3', false)
+    green = getCssVar('--vp-c-success-3', false)
+  }
 
   if (value <= 50) {
     return interpolateColor(green, yellow, value / 50)
@@ -140,7 +159,7 @@ function getColor(type, value) {
 }
 
 function getStatusText(type, value) {
-  if (typeof type === 'string') {
+  if (typeof type === 'string' || type === null) {
     return ''
   }
   const words = ['空曠', '寬敞', '適中', '熱絡', '滿座']
@@ -169,14 +188,18 @@ function getStatusText(type, value) {
         v-for="session in roomStatus"
         :key="session.room"
       >
-        <div class="cell">
+        <div
+          class="cell"
+          :style="{ '--tag-color': getColor(session.course, crowd[session.room], false) }"
+          :tag-text="getStatusText(session.course, crowd[session.room])"
+        >
           {{ session.room }}
         </div>
         <div class="cell">
           {{ session.type ? session_types[session.type] : session.type }}
         </div>
         <div
-          class="cell tag"
+          class="cell"
           :style="{ 'background-color': `${getColor(session.course, crowd[session.room])}` }"
         >
           {{ getStatusText(session.course, crowd[session.room]) }}
@@ -224,6 +247,7 @@ function getStatusText(type, value) {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .session-room {
@@ -254,11 +278,29 @@ a {
 
 @media (max-width: 600px) {
   .grid-table {
-    grid-template-columns: 6em 6em auto;
+    grid-template-columns: 6em auto;
   }
   .cell:nth-child(4n + 2),
-  .header:nth-child(4n + 2) {
+  .cell:nth-child(4n + 3),
+  .header:nth-child(4n + 2),
+  .header:nth-child(4n + 3) {
     display: none;
+  }
+  .cell:nth-child(4n + 1)::before {
+    content: attr(tag-text);
+    position: absolute;
+    bottom: 0.6em;
+    width: 4em;
+    background-color: var(--tag-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+  }
+  .cell:nth-child(4n + 1) {
+    box-sizing: border-box;
+    padding-bottom: 35px;
   }
 }
 </style>
