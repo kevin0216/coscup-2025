@@ -189,7 +189,7 @@ function getStatusText(type, value) {
         :key="session.room"
       >
         <div
-          class="cell"
+          :class="(session.course === null || typeof session.course === 'string') ? 'cell' : 'cell tag-padding'"
           :style="{ '--tag-color': getColor(session.course, crowd[session.room], false) }"
           :tag-text="getStatusText(session.course, crowd[session.room])"
         >
@@ -298,7 +298,7 @@ a {
     color: white;
     white-space: nowrap;
   }
-  .cell:nth-child(4n + 1) {
+  .tag-padding {
     box-sizing: border-box;
     padding-bottom: 35px;
   }
