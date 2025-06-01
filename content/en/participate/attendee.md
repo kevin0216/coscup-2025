@@ -1,5 +1,11 @@
 <script setup lang='ts'>
-import Tab from '/@/components/Tab.vue';
+import Actions from '#components/Actions.vue'
+
+const scheduleActions = [
+    {href:"https://coscup.org/2024/en/session", display: 'Offcial Schedule'},
+    {href:"https://pretalx.coscup.org/coscup-2024/schedule", display: 'Pretalx Submission System'},
+    {href:"https://volunteer.coscup.org/schedule/2024", display: 'Schedule from Volunteer Platform'}
+]
 </script>
 
 # Attendee
@@ -68,9 +74,7 @@ Currently, there are two ways to view the schedule. Please choose the one that s
 2. [Pretalx Submission System](https://pretalx.coscup.org/coscup-2024/schedule/)：Offers various ways to view by "Schedule," "Sessions," or "Speakers." It's slightly more suited for mobile devices, tablets, or those who prefer a listed format.
 3. [Schedule from Volunteer Platform](https://volunteer.coscup.org/schedule/2024): Displays session tracks in a listed format, allowing you to bookmark, add to your calendar, and discuss sessions.
 
-<VPButton href="https://coscup.org/2024/en/session">Offcial Schedule</VPButton>
-<VPButton href="https://pretalx.coscup.org/coscup-2024/schedule/">Pretalx Submission System</VPButton>
-<VPButton href="https://volunteer.coscup.org/schedule/2024">Schedule from Volunteer Platform</VPButton>
+<Actions :actionsList="scheduleActions" />
 
 ## BoF
 
