@@ -28,4 +28,8 @@ defineProps<{
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.actions .VPButton {
+  text-decoration: none;
+}
 </style>
