@@ -25,18 +25,7 @@ defineProps<{
 .actions {
   display: flex;
   flex-direction: row;
-}
-
-.VPButton {
-  margin: 0 1rem;
-}
-
-@media (max-width: 960px) {
-  .actions {
-    flex-direction: column;
-  }
-  .VPButton {
-    margin: 1rem 0;
-  }
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 </style>
