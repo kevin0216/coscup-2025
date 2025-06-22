@@ -9,7 +9,7 @@ const route = useRoute()
 const hasSidebar = computed(() => {
   if (frontmatter.value.sidebar === false) return false
 
-  const sidebar = theme.value.sidebar
+  const sidebar: Record<string, string> = theme.value.sidebar
   if (Array.isArray(sidebar)) return sidebar.length > 0
 
   const base = site.value.base || '/'
