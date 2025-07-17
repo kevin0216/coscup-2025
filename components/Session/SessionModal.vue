@@ -131,15 +131,17 @@ const collaborationUrl = null
                 />
               </section>
 
-              <a
-                v-if="advertisement"
-                :href="advertisement.link"
-              >
-                <img
-                  :alt="`橫式廣告 – ${advertisement.id}`"
-                  :src="advertisement.horizontal"
+              <section class="ad-horizontal-area">
+                <a
+                  v-if="advertisement"
+                  :href="advertisement.link"
                 >
-              </a>
+                  <img
+                    :alt="`橫式廣告 – ${advertisement.id}`"
+                    :src="advertisement.horizontal"
+                  >
+                </a>
+              </section>
 
               <section class="session-description">
                 <h2>{{ messages[locale].aboutSpeaker }}</h2>
@@ -213,6 +215,7 @@ const collaborationUrl = null
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -292,13 +295,16 @@ const collaborationUrl = null
   justify-content: center;
   padding: 0.25rem;
 }
+
 .dialog-close:hover {
   opacity: 1;
 }
+
 .dialog-close:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--ring-color, #3b82f6);
 }
+
 .dialog-close:disabled {
   pointer-events: none;
 }
@@ -308,6 +314,7 @@ const collaborationUrl = null
     flex-direction: row;
   }
 }
+
 /* #endregion component */
 
 .dialog-title {
@@ -389,10 +396,19 @@ const collaborationUrl = null
   display: none;
 }
 
+.ad-horizontal-area {
+  display: block;
+  width: 100%;
+}
+
 @media (min-width: 500px) {
   .ad-vertical-area {
     display: block;
     width: 100%;
+  }
+
+  .ad-horizontal-area {
+    display: none;
   }
 }
 
