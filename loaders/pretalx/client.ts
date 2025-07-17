@@ -3,7 +3,7 @@ import type { MultiLingualString, OptionalMultiLingualString, Room, Speaker, Sub
 import { BadServerSideDataException } from './exception'
 import { createClient } from './oapi/client'
 import { coscupSubmissionsQuestionIdMap } from './pretalx-types'
-import { formatMultiLingualString, getAnswer } from './utils'
+import { formatMultiLingualString, generateGravatarUrl, getAnswer } from './utils'
 
 interface PaginatedResponse<T> {
   count: number
@@ -102,10 +102,12 @@ export class PretalxApiClient {
     const speakers = await this.#getPaginatedResources<SpeakerReadable>(url)
 
     return speakers.map((speaker) => {
+      const avatar = speaker.avatar_url ??
+        generateGravatarUrl((speaker as any).email) // OpenAPI does not document email field
+
       return {
         code: speaker.code,
-        avatar: speaker.avatar_url ??
-          `https://avatar.iran.liara.run/username?username=${speaker.code}`,
+        avatar,
         name: speaker.name,
         bio: speaker.biography ?? undefined,
       } satisfies Speaker
