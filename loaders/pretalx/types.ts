@@ -56,6 +56,10 @@ export interface Submission {
   end: string // ISO8601
   language: string
   difficulty: string
+  co_write?: string
+  qa?: string
+  slide?: string
+  record?: string
 }
 
 export interface LocalizedSubmission {
@@ -69,6 +73,10 @@ export interface LocalizedSubmission {
   end: string // ISO8601
   language: string
   difficulty: string
+  co_write?: string
+  qa?: string
+  slide?: string
+  record?: string
 }
 
 export interface Track {

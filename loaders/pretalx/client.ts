@@ -1,5 +1,5 @@
 import type { AnswerReadable, RoomReadable, RoomsListData, SpeakerReadable, SpeakersListData, SubmissionReadable, SubmissionsListData, SubmissionTypeReadable, SubmissionTypesListData, TalkSlotReadable, TrackReadable, TracksListData } from './oapi'
-import type { MultiLingualString, OptionalMultiLingualString, Room, Speaker, Submission, Track } from './types'
+import type { Room, Speaker, Submission, Track } from './types'
 import { BadServerSideDataException } from './exception'
 import { createClient } from './oapi/client'
 import { coscupSubmissionsQuestionIdMap } from './pretalx-types'
@@ -184,6 +184,10 @@ export class PretalxApiClient {
       const language = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Language)
       const languageOther = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.LanguageOther)
       const difficulty = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Difficulty)
+      const coWrite = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.CoWrite)
+      const qa = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Qa)
+      const slide = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Slide)
+      const record = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Record)
 
       const start = submission.slots[0]?.start ? new Date(submission.slots[0].start) : undefined
       const end = submission.slots[0]?.end ? new Date(submission.slots[0].end) : undefined
@@ -208,11 +212,11 @@ export class PretalxApiClient {
         title: {
           'zh-tw': submission.title,
           'en': enTitle ?? submission.title,
-        } satisfies MultiLingualString,
+        },
         abstract: {
           'zh-tw': submission.abstract ?? undefined,
           'en': enDesc ?? submission.abstract ?? undefined,
-        } satisfies OptionalMultiLingualString,
+        },
         speakers: submission.speakers,
         track: submission.track,
         room: submission.slots[0]?.room,
@@ -220,6 +224,10 @@ export class PretalxApiClient {
         end: end.toISOString(),
         language: language === '其他' ? languageOther ?? '其他' : language ?? '其他',
         difficulty: difficulty ?? '未知',
+        co_write: coWrite,
+        qa,
+        slide,
+        record,
       } satisfies Submission
     }).filter((submission) => submission !== undefined)
   }
