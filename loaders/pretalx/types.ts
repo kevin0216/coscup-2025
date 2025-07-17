@@ -54,8 +54,8 @@ export interface Submission {
   room: number
   start: string // ISO8601
   end: string // ISO8601
-  language: string
-  difficulty: string
+  language: MultiLingualString
+  difficulty: MultiLingualString
   co_write?: string
   qa?: string
   slide?: string
