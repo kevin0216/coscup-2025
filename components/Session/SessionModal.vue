@@ -131,15 +131,17 @@ const collaborationUrl = null
                 />
               </section>
 
-              <a
-                v-if="advertisement"
-                :href="advertisement.link"
-              >
-                <img
-                  :alt="`橫式廣告 – ${advertisement.id}`"
-                  :src="advertisement.horizontal"
+              <section :class="$style['cool-sponsor-horizontal-area']">
+                <a
+                  v-if="advertisement"
+                  :href="advertisement.link"
                 >
-              </a>
+                  <img
+                    :alt="`橫式廣告 – ${advertisement.id}`"
+                    :src="advertisement.horizontal"
+                  >
+                </a>
+              </section>
 
               <section
                 v-if="session.speakers.length > 0"
@@ -165,8 +167,8 @@ const collaborationUrl = null
             </section>
           </div>
         </main>
-        <aside class="ad-sidebar">
-          <div class="ad-vertical-area">
+        <aside>
+          <div :class="$style['cool-sponsor-vertical-area']">
             <a
               v-if="advertisement"
               :href="advertisement.link"
@@ -196,6 +198,28 @@ const collaborationUrl = null
 }
 </style>
 
+<style lang="css" module>
+.cool-sponsor-vertical-area {
+  display: none;
+}
+
+.cool-sponsor-horizontal-area {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .cool-sponsor-vertical-area {
+    display: block;
+    width: 100%;
+  }
+
+  .cool-sponsor-horizontal-area {
+    display: none;
+  }
+}
+</style>
+
 <style scoped>
 /* #region component */
 .dialog {
@@ -216,6 +240,7 @@ const collaborationUrl = null
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -295,13 +320,16 @@ const collaborationUrl = null
   justify-content: center;
   padding: 0.25rem;
 }
+
 .dialog-close:hover {
   opacity: 1;
 }
+
 .dialog-close:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--ring-color, #3b82f6);
 }
+
 .dialog-close:disabled {
   pointer-events: none;
 }
@@ -311,6 +339,7 @@ const collaborationUrl = null
     flex-direction: row;
   }
 }
+
 /* #endregion component */
 
 .dialog-title {
@@ -385,17 +414,6 @@ const collaborationUrl = null
       font-weight: 600;
       margin-top: 6px;
     }
-  }
-}
-
-.ad-vertical-area {
-  display: none;
-}
-
-@media (min-width: 500px) {
-  .ad-vertical-area {
-    display: block;
-    width: 100%;
   }
 }
 
