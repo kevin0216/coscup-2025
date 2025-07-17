@@ -38,6 +38,9 @@ export const languageGeneralizeMap: Record<string, 'zh-tw' | 'en' | 'ja-JP' | 't
   Taiwanese: 'taiwanese',
   其他: 'others',
   Others: 'others',
+  中国語: 'zh-tw',
+  英語: 'en',
+  その他: 'others',
 }
 
 type LanguageLocalizeKey = typeof languageGeneralizeMap extends Record<string, infer K> ? K : never
@@ -62,6 +65,9 @@ export const difficultyGeneralizeMap: Record<string, 'Elementary' | 'Middle' | '
   advance: 'Advance',
   advanced: 'Advance',
   professional: 'Professional',
+  初級: 'Elementary',
+  中級: 'Middle',
+  上級: 'Advance',
 }
 
 type DifficultyLocalizeKey = typeof difficultyGeneralizeMap extends Record<string, infer K> ? K : never
@@ -69,7 +75,7 @@ type DifficultyLocalizeKey = typeof difficultyGeneralizeMap extends Record<strin
 export const tagTranslations: Record<'en' | 'zh-tw', Record<LanguageLocalizeKey | DifficultyLocalizeKey | 'others', string>> = {
   'en': {
     'Elementary': 'Elementary',
-    'Middle': 'Middle',
+    'Middle': 'Intermediate',
     'Advance': 'Advance',
     'Professional': 'Professional',
     'zh-tw': 'Mandarin',
