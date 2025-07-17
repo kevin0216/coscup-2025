@@ -19,4 +19,8 @@ export const coscupSubmissionsQuestionIdMap = {
   EnTitle: 257, // 翻譯成英文的標題
   EnDesc: 259, // 翻譯成英文的摘要
   Difficulty: 270,
+  CoWrite: null,
+  Qa: null,
+  Slide: null,
+  Record: null,
 } as const

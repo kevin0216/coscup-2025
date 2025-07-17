@@ -22,7 +22,10 @@ export function formatMultiLingualString(input: PretalxMultiLingualString): Mult
   }
 }
 
-export function getAnswer(answers: PretalxAnswer[], questionId: number): string | undefined {
+export function getAnswer(answers: PretalxAnswer[], questionId: number | null): string | undefined {
+  if (questionId === null) {
+    return undefined
+  }
   const answer = answers.find((answer) => answer.question === questionId)?.answer
   if (!answer || answer === '-') {
     return undefined

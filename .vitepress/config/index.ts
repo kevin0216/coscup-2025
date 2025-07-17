@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import { resolve } from 'node:path'
 // @ts-expect-error - No type definitions available
 import markdownItContainer from 'markdown-it-container'
@@ -99,4 +100,122 @@ export default defineConfig({
     en: { label: 'English', ...en },
   },
   appearance: false,
+  async buildEnd(_) {
+    const enSubmissionLoader = (await import('../../loaders/allSubmissions.en.data')).default
+    const zhTwSubmissionsLoader = (await import('../../loaders/allSubmissions.zh-tw.data')).default
+
+    const enData = await enSubmissionLoader.load([])
+    const zhTwData = await zhTwSubmissionsLoader.load([])
+
+    const sessions = enData.map((enSession) => {
+      const zhTwSession = zhTwData.find((s) => s.code === enSession.code)
+      return {
+        id: enSession.code,
+        type: enSession.track.id.toString(),
+        room: enSession.room.name,
+        start: enSession.start,
+        end: enSession.end,
+        language: enSession.language,
+        zh: {
+          title: zhTwSession?.title ?? enSession.title,
+          description: zhTwSession?.abstract ?? enSession.abstract ?? '',
+        },
+        en: {
+          title: enSession.title,
+          description: enSession.abstract ?? '',
+        },
+        speakers: enSession.speakers.map((s) => s.code),
+        tags: [],
+        co_write: enSession.co_write ?? null,
+        qa: enSession.qa ?? null,
+        slide: enSession.slide ?? null,
+        record: enSession.record ?? null,
+        uri: `https://coscup.org/2024/session/${enSession.code}`,
+      }
+    })
+
+    const speakers = [
+      ...new Map(
+        [
+          ...enData.flatMap((s) => s.speakers),
+          ...zhTwData.flatMap((s) => s.speakers),
+        ].map((s) => [s.code, s]),
+      ).values(),
+    ].map((s) => {
+      const enSpeaker = enData.flatMap((s) => s.speakers).find((speaker) => speaker.code === s.code)
+      const zhTwSpeaker = zhTwData.flatMap((s) => s.speakers).find((speaker) => speaker.code === s.code)
+      return {
+        id: s.code,
+        avatar: s.avatar,
+        zh: {
+          name: zhTwSpeaker?.name ?? enSpeaker?.name ?? '',
+          bio: zhTwSpeaker?.bio ?? enSpeaker?.bio ?? '',
+        },
+        en: {
+          name: enSpeaker?.name ?? zhTwSpeaker?.name ?? '',
+          bio: enSpeaker?.bio ?? zhTwSpeaker?.bio ?? '',
+        },
+      }
+    })
+
+    const session_types = [
+      ...new Map(
+        [
+          ...enData.map((s) => s.track),
+          ...zhTwData.map((s) => s.track),
+        ].map((t) => [t.id, t]),
+      ).values(),
+    ].map((t) => {
+      const enTrack = enData.map((s) => s.track).find((track) => track.id === t.id)
+      const zhTwTrack = zhTwData.map((s) => s.track).find((track) => track.id === t.id)
+      return {
+        id: t.id.toString(),
+        zh: {
+          name: zhTwTrack?.name ?? enTrack?.name ?? '',
+        },
+        en: {
+          name: enTrack?.name ?? zhTwTrack?.name ?? '',
+        },
+      }
+    })
+
+    const rooms = [
+      ...new Map(
+        [
+          ...enData.map((s) => s.room),
+          ...zhTwData.map((s) => s.room),
+        ].map((r) => [r.id, r]),
+      ).values(),
+    ].map((r) => {
+      const enRoom = enData.map((s) => s.room).find((room) => room.id === r.id)
+      const zhTwRoom = zhTwData.map((s) => s.room).find((room) => room.id === r.id)
+      return {
+        id: r.id.toString(),
+        zh: {
+          name: zhTwRoom?.name ?? enRoom?.name ?? '',
+        },
+        en: {
+          name: enRoom?.name ?? zhTwRoom?.name ?? '',
+        },
+      }
+    })
+
+    // TODO: Handle tags
+    const tags: unknown[] = []
+
+    const exportData = {
+      sessions,
+      speakers,
+      session_types,
+      rooms,
+      tags,
+    }
+
+    fs.mkdirSync(resolve(__dirname, '../dist/json'), { recursive: true })
+
+    fs.writeFileSync(
+      resolve(__dirname, '../dist/json/sessions.json'),
+      JSON.stringify(exportData, null, 2),
+    )
+  },
 })
