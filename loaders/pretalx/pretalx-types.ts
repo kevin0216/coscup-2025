@@ -45,29 +45,29 @@ export const languageGeneralizeMap: Record<string, 'zh-tw' | 'en' | 'ja-JP' | 't
 
 type LanguageLocalizeKey = typeof languageGeneralizeMap extends Record<string, infer K> ? K : never
 
-export const difficultyGeneralizeMap: Record<string, 'Elementary' | 'Middle' | 'Advance' | 'Professional'> = {
+export const difficultyGeneralizeMap: Record<string, 'Elementary' | 'Intermediate' | 'Advanced' | 'Professional'> = {
   初學者: 'Elementary',
   入門: 'Elementary',
-  中階: 'Middle',
-  進階: 'Advance',
+  中階: 'Intermediate',
+  進階: 'Advanced',
   專業: 'Professional',
   Beginner: 'Elementary',
   Elementary: 'Elementary',
-  Middle: 'Middle',
-  Intermediate: 'Middle',
-  Advance: 'Advance',
-  Advanced: 'Advance',
+  Middle: 'Intermediate',
+  Intermediate: 'Intermediate',
+  Advance: 'Advanced',
+  Advanced: 'Advanced',
   Professional: 'Professional',
   beginner: 'Elementary',
   elementary: 'Elementary',
-  intermediate: 'Middle',
-  middle: 'Middle',
-  advance: 'Advance',
-  advanced: 'Advance',
+  intermediate: 'Intermediate',
+  middle: 'Intermediate',
+  advance: 'Advanced',
+  advanced: 'Advanced',
   professional: 'Professional',
   初級: 'Elementary',
-  中級: 'Middle',
-  上級: 'Advance',
+  中級: 'Intermediate',
+  上級: 'Advanced',
 }
 
 type DifficultyLocalizeKey = typeof difficultyGeneralizeMap extends Record<string, infer K> ? K : never
@@ -75,8 +75,8 @@ type DifficultyLocalizeKey = typeof difficultyGeneralizeMap extends Record<strin
 export const tagTranslations: Record<'en' | 'zh-tw', Record<LanguageLocalizeKey | DifficultyLocalizeKey | 'others', string>> = {
   'en': {
     'Elementary': 'Elementary',
-    'Middle': 'Intermediate',
-    'Advance': 'Advance',
+    'Intermediate': 'Intermediate',
+    'Advanced': 'Advanced',
     'Professional': 'Professional',
     'zh-tw': 'Mandarin',
     'en': 'English',
@@ -86,8 +86,8 @@ export const tagTranslations: Record<'en' | 'zh-tw', Record<LanguageLocalizeKey 
   },
   'zh-tw': {
     'Elementary': '入門',
-    'Middle': '中階',
-    'Advance': '進階',
+    'Intermediate': '中階',
+    'Advanced': '進階',
     'Professional': '專業',
     'zh-tw': '漢語',
     'en': '英語',
