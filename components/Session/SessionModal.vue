@@ -131,7 +131,7 @@ const collaborationUrl = null
                 />
               </section>
 
-              <section class="ad-horizontal-area">
+              <section :class="$style['cool-sponsor-horizontal-area']">
                 <a
                   v-if="advertisement"
                   :href="advertisement.link"
@@ -164,8 +164,8 @@ const collaborationUrl = null
             </section>
           </div>
         </main>
-        <aside class="ad-sidebar">
-          <div class="ad-vertical-area">
+        <aside>
+          <div :class="$style['cool-sponsor-vertical-area']">
             <a
               v-if="advertisement"
               :href="advertisement.link"
@@ -192,6 +192,28 @@ const collaborationUrl = null
 .content-container a {
   color: var(--color-primary-400);
   text-decoration: underline;
+}
+</style>
+
+<style lang="css" module>
+.cool-sponsor-vertical-area {
+  display: none;
+}
+
+.cool-sponsor-horizontal-area {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .cool-sponsor-vertical-area {
+    display: block;
+    width: 100%;
+  }
+
+  .cool-sponsor-horizontal-area {
+    display: none;
+  }
 }
 </style>
 
@@ -389,26 +411,6 @@ const collaborationUrl = null
       font-weight: 600;
       margin-top: 6px;
     }
-  }
-}
-
-.ad-vertical-area {
-  display: none;
-}
-
-.ad-horizontal-area {
-  display: block;
-  width: 100%;
-}
-
-@media (min-width: 500px) {
-  .ad-vertical-area {
-    display: block;
-    width: 100%;
-  }
-
-  .ad-horizontal-area {
-    display: none;
   }
 }
 
