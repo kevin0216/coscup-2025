@@ -33,10 +33,6 @@ export default defineLoader({
         room: localizedRoom,
         speakers: localizedSpeakers,
         track: localizedTrack,
-        start: submission.start,
-        end: submission.end,
-        language: submission.language,
-        difficulty: submission.difficulty,
       } satisfies SubmissionResponse)
     })
   },

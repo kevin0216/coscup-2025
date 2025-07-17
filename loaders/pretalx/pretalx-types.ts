@@ -24,3 +24,69 @@ export const coscupSubmissionsQuestionIdMap = {
   Slide: null,
   Record: null,
 } as const
+
+export const languageGeneralizeMap: Record<string, 'zh-tw' | 'en' | 'ja-JP' | 'taiwanese' | 'others'> = {
+  中文: 'zh-tw',
+  漢語: 'zh-tw',
+  Chinese: 'zh-tw',
+  Mandarin: 'zh-tw',
+  英文: 'en',
+  English: 'en',
+  Japanese: 'ja-JP',
+  日本語: 'ja-JP',
+  台語: 'taiwanese',
+  Taiwanese: 'taiwanese',
+  其他: 'others',
+  Others: 'others',
+}
+
+type LanguageLocalizeKey = typeof languageGeneralizeMap extends Record<string, infer K> ? K : never
+
+export const difficultyGeneralizeMap: Record<string, 'Elementary' | 'Middle' | 'Advance' | 'Professional'> = {
+  初學者: 'Elementary',
+  入門: 'Elementary',
+  中階: 'Middle',
+  進階: 'Advance',
+  專業: 'Professional',
+  Beginner: 'Elementary',
+  Elementary: 'Elementary',
+  Middle: 'Middle',
+  Intermediate: 'Middle',
+  Advance: 'Advance',
+  Advanced: 'Advance',
+  Professional: 'Professional',
+  beginner: 'Elementary',
+  elementary: 'Elementary',
+  intermediate: 'Middle',
+  middle: 'Middle',
+  advance: 'Advance',
+  advanced: 'Advance',
+  professional: 'Professional',
+}
+
+type DifficultyLocalizeKey = typeof difficultyGeneralizeMap extends Record<string, infer K> ? K : never
+
+export const tagTranslations: Record<'en' | 'zh-tw', Record<LanguageLocalizeKey | DifficultyLocalizeKey | 'others', string>> = {
+  'en': {
+    'Elementary': 'Elementary',
+    'Middle': 'Middle',
+    'Advance': 'Advance',
+    'Professional': 'Professional',
+    'zh-tw': 'Mandarin',
+    'en': 'English',
+    'ja-JP': '日本語',
+    'taiwanese': '台語',
+    'others': '其他',
+  },
+  'zh-tw': {
+    'Elementary': '入門',
+    'Middle': '中階',
+    'Advance': '進階',
+    'Professional': '專業',
+    'zh-tw': '漢語',
+    'en': '英語',
+    'ja-JP': '日本語',
+    'taiwanese': '台語',
+    'others': '其他',
+  },
+}

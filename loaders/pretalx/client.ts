@@ -1,8 +1,8 @@
 import type { AnswerReadable, RoomReadable, RoomsListData, SpeakerReadable, SpeakersListData, SubmissionReadable, SubmissionsListData, SubmissionTypeReadable, SubmissionTypesListData, TalkSlotReadable, TrackReadable, TracksListData } from './oapi'
-import type { Room, Speaker, Submission, Track } from './types'
+import type { MultiLingualString, Room, Speaker, Submission, Track } from './types'
 import { BadServerSideDataException } from './exception'
 import { createClient } from './oapi/client'
-import { coscupSubmissionsQuestionIdMap } from './pretalx-types'
+import { coscupSubmissionsQuestionIdMap, difficultyGeneralizeMap, languageGeneralizeMap, tagTranslations } from './pretalx-types'
 import { formatMultiLingualString, generateGravatarUrl, getAnswer } from './utils'
 
 interface PaginatedResponse<T> {
@@ -207,6 +207,35 @@ export class PretalxApiClient {
         return undefined
       }
 
+      function getLocalizedValue(
+        value: string | undefined,
+        other: string | undefined,
+        translations: Record<'zh-tw' | 'en', Record<string, string>>,
+        fallback: { 'zh-tw': string, 'en': string },
+      ): MultiLingualString {
+        return {
+          'zh-tw': other || (value ? (translations['zh-tw'][value] ?? value) : undefined) || value || fallback['zh-tw'],
+          'en': other || (value ? (translations.en[value] ?? value) : undefined) || value || fallback.en,
+        }
+      }
+
+      const generalizedLanguage = language ? languageGeneralizeMap[language] : undefined
+      const generalizedDifficulty = difficulty ? difficultyGeneralizeMap[difficulty] : undefined
+
+      const localizedLanguage = getLocalizedValue(
+        generalizedLanguage,
+        languageOther,
+        tagTranslations,
+        { 'zh-tw': '其他', 'en': 'Others' },
+      )
+
+      const localizedDifficulty = getLocalizedValue(
+        generalizedDifficulty,
+        undefined,
+        tagTranslations,
+        { 'zh-tw': '未知', 'en': 'Unknown' },
+      )
+
       return {
         code: submission.code,
         title: {
@@ -222,8 +251,8 @@ export class PretalxApiClient {
         room: submission.slots[0]?.room,
         start: start.toISOString(),
         end: end.toISOString(),
-        language: language === '其他' ? languageOther ?? '其他' : language ?? '其他',
-        difficulty: difficulty ?? '未知',
+        language: localizedLanguage,
+        difficulty: localizedDifficulty,
         co_write: coWrite,
         qa,
         slide,
