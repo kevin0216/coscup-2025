@@ -214,8 +214,12 @@ export class PretalxApiClient {
         fallback: { 'zh-tw': string, 'en': string },
       ): MultiLingualString {
         return {
-          'zh-tw': other || (value ? (translations['zh-tw'][value] ?? value) : undefined) || value || fallback['zh-tw'],
-          'en': other || (value ? (translations.en[value] ?? value) : undefined) || value || fallback.en,
+          'zh-tw': other
+            ? (translations['zh-tw'][other] ?? other)
+            : (value ? (translations['zh-tw'][value] ?? value) : undefined) || value || fallback['zh-tw'],
+          'en': other
+            ? (translations.en[other] ?? other)
+            : (value ? (translations.en[value] ?? value) : undefined) || value || fallback.en,
         }
       }
 
