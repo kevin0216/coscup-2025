@@ -164,7 +164,7 @@ export class PretalxApiClient {
         event: this.event,
       },
       query: {
-        state: ['accepted', 'confirmed'],
+        state: ['confirmed'],
         expand: ['answers', 'slots'],
         page_size: 25,
         page: 1,
