@@ -214,7 +214,7 @@ export default defineConfig({
     fs.mkdirSync(resolve(__dirname, '../dist/json'), { recursive: true })
 
     fs.writeFileSync(
-      resolve(__dirname, '../dist/json/sessions.json'),
+      resolve(__dirname, '../dist/json/session.json'),
       JSON.stringify(exportData, null, 2),
     )
   },
