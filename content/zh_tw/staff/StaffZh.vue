@@ -63,7 +63,7 @@ const { staffData } = data
 
 .group-section-1 {
   color: var(--vp-c-text-2);
-  background-color: var(--vp-c-bg-soft);
+  background-color: var(--vp-c-default-4);
 }
 
 .group-content {
