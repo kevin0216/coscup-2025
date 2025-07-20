@@ -41,7 +41,12 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>Learn More</CButton>
+                <CButton
+                  href="https://volunteer.coscup.org/docs/about_coscup/attendee_services/"
+                  tag="a"
+                >
+                  Learn More
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -64,7 +69,12 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>Have a Drink</CButton>
+                <CButton
+                  href="https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47"
+                  tag="a"
+                >
+                  Have a Drink
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -87,7 +97,9 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>Join Us</CButton>
+                <CButton disabled>
+                  Comming Soon
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -110,7 +122,9 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>Fill Out Survey</CButton>
+                <CButton disabled>
+                  Comming Soon
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -130,7 +144,7 @@ import CButton from '#components/CButton.vue'
         <div class="about-coscup">
           <h2>About COSCUP</h2>
           <p>COSCUP is an annual conference for open source enthusiasts, organized by the community since 2006. We welcome developers, users, and promoters to join us in exchanging technology, sharing experiences, and advancing the cause of free software!</p>
-          <a href="#">Read More →</a>
+          <a href="/2025/en/about">Read More →</a>
         </div>
 
         <div class="two-cards-section">
@@ -139,14 +153,20 @@ import CButton from '#components/CButton.vue'
               <h3>❤️ Sponsor COSCUP</h3>
               <p>Over the past three years, COSCUP has attracted an average of over 3,000 attendees and more than 20 open source technology or topic-based communities. It has also collaborated with over 7 international open source communities and organizations.</p>
               <div class="button-group">
-                <CButton>Sponsorship Packages</CButton>
-                <CButton>Individual Sponsorship</CButton>
+                <CButton disabled>
+                  Comming Soon
+                </CButton>
               </div>
             </div>
             <div class="info-card">
               <h3>📄 Subscribe to Newsletter</h3>
               <p>If you're afraid of missing out on our activities, you can subscribe to the COSCUP newsletter to stay updated on the latest news!</p>
-              <CButton>Subscribe</CButton>
+              <CButton
+                href="https://secretary.coscup.org/subscribe/coscup"
+                tag="a"
+              >
+                Subscribe
+              </CButton>
             </div>
           </div>
         </div>
@@ -157,7 +177,12 @@ import CButton from '#components/CButton.vue'
         <div class="about-rubyconf">
           <h2>About RubyConf TW</h2>
           <p>RubyConf Taiwan — Taiwan's only annual international Ruby programming language conference, hosted by the Ruby Taiwan community. With nine successful events to date, it attracts hundreds of Ruby developers from overseas each year, making it a major event in the international Ruby community and the only Ruby language conference in Asia, outside of Japan, recommended by Yukihiro "Matz" Matsumoto, the creator of Ruby.</p>
-          <CButton>View Agenda</CButton>
+          <CButton
+            href="/2025/en/sessions"
+            tag="a"
+          >
+            View Agenda
+          </CButton>
         </div>
       </div>
     </div>

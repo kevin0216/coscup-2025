@@ -41,7 +41,12 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>前往了解</CButton>
+                <CButton
+                  href="https://volunteer.coscup.org/docs/zh-TW/about_coscup/attendee_services/"
+                  tag="a"
+                >
+                  前往了解
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -64,7 +69,12 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>來喝一杯</CButton>
+                <CButton
+                  href="https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47"
+                  tag="a"
+                >
+                  來喝一杯
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -87,7 +97,9 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>揪團+1</CButton>
+                <CButton disabled>
+                  即將開啟
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -110,7 +122,9 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton>前往填寫</CButton>
+                <CButton disabled>
+                  即將開放
+                </CButton>
               </div>
             </div>
             <div class="card-image-container">
@@ -130,7 +144,7 @@ import CButton from '#components/CButton.vue'
         <div class="about-coscup">
           <h2>關於 COSCUP</h2>
           <p>COSCUP 是一場開放原始碼愛好者的年度大聚會，從 2006 年開始由社群自發舉辦。歡迎開發者、使用者和推廣者一起參加，交流技術、分享經驗，推動自由軟體理念！</p>
-          <a href="#">閱讀更多 →</a>
+          <a href="/2025/about">閱讀更多 →</a>
         </div>
 
         <div class="two-cards-section">
@@ -139,14 +153,20 @@ import CButton from '#components/CButton.vue'
               <h3>❤️ 贊助 COSCUP</h3>
               <p>COSCUP 過去三年平均約有超過 3,000 人次的會眾和超過 20 個開源技術或議題社群一同參與，同時也有與超過 7 個國際的開源社群或組織連結合作。</p>
               <div class="button-group">
-                <CButton>了解贊助方案</CButton>
-                <CButton>個人贊助</CButton>
+                <CButton disabled>
+                  即將開啟
+                </CButton>
               </div>
             </div>
             <div class="info-card">
               <h3>📄 訂閱電子報</h3>
               <p>如果你怕忘記參加活動，可以訂閱 COSCUP 活動電子報，不錯過最新活動訊息！</p>
-              <CButton>訂閱</CButton>
+              <CButton
+                href="https://secretary.coscup.org/subscribe/coscup"
+                tag="a"
+              >
+                訂閱
+              </CButton>
             </div>
           </div>
         </div>
@@ -157,7 +177,12 @@ import CButton from '#components/CButton.vue'
         <div class="about-rubyconf">
           <h2>關於 RubyConf TW</h2>
           <p>RubyConf Taiwan —— 台灣唯一的年度 Ruby 程式語言國際研討會,由 Ruby Taiwan 社群主辦,陸續已累積九屆的活動成績,每年有百位 Ruby 開發者遠從海外而來,是國際 Ruby 社群的一大盛事,也是亞洲地區除日本以外唯一被 Ruby 之父松本行弘推薦的 Ruby 程式語言年會。</p>
-          <CButton>查看議程</CButton>
+          <CButton
+            href="/2025/sessions"
+            tag="a"
+          >
+            查看議程
+          </CButton>
         </div>
       </div>
     </div>
