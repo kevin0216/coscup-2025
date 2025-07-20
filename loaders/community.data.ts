@@ -10,9 +10,12 @@ interface SpreadsheetData {
   values: string[][]
 }
 
-type groupedCommunities = Record<string, Record<string, string>[]>
+export interface groupedCommunities extends Community {
+  topics: Topics | undefined
+  booths: Booths | undefined
+}
 
-export interface Community {
+interface Community {
   'id': string
   'name:zh-TW': string
   'name:en': string
@@ -20,6 +23,43 @@ export interface Community {
   'intro:en': string
   'link': string
   'image': string
+}
+
+interface Topics {
+  'id': string
+  'community_id': string
+  'name:zh-TW': string
+  'name:en': string
+  'intro:zh-TW': string
+  'intro:en': string
+  'link': string
+  'image': string
+}
+
+interface Booths {
+  'id': string
+  'community_id': string
+  'name:zh-TW': string
+  'name:en': string
+  'intro:zh-TW': string
+  'intro:en': string
+  'link': string
+  'image': string
+  'community': string
+  'room': string
+  'trackroom': string
+}
+
+// 處理 Google Drive 圖片
+async function getDriveImage(imageUrl: string): Promise<string> {
+  if (!imageUrl) {
+    return ''
+  }
+
+  const getImageID = imageUrl.match(/\/d\/([^/]+)\//)
+  const imageID = getImageID ? getImageID[1] : null
+
+  return `https://drive.google.com/thumbnail?id=${imageID}`
 }
 
 // 取得 Google Sheets 資料
@@ -42,65 +82,83 @@ async function fetchCommunities(): Promise<Community[]> {
       }), {} as Community),
     )
 
-    return communities
+    return Promise.all(communities.map(async (communities) => ({
+      ...communities,
+      image: await getDriveImage(communities.image),
+    })))
   } catch (error) {
     console.error('Error fetching communities:', error)
     return []
   }
 }
 
-async function fetchGroupedCommunities(
-  sheetName: string,
-): Promise<groupedCommunities> {
+async function fetchGroupedCommunities(): Promise<groupedCommunities[]> {
   try {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheetName}?key=${API_KEY}`
-    const response = await fetch(url)
-    const data: SpreadsheetData = await response.json()
+    const communityData: Community[] = await fetchCommunities()
+    // 獲取 Topics 資料
+    const topicsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Topics?key=${API_KEY}`
+    const topicsResponse = await fetch(topicsUrl)
+    const topicsSheetData: SpreadsheetData = await topicsResponse.json()
 
-    if (!data.values) throw new Error(`No data found in the ${sheetName} sheet`)
+    if (!topicsSheetData.values) throw new Error(`No data found in the Topics sheet`)
 
-    const [headers, ...rows] = data.values
+    const [, ...topicsSheetValues] = topicsSheetData.values
+    const topicsValues: Topics[] = topicsSheetValues.map((data) => ({
+      'id': data[0],
+      'community_id': data[1],
+      'name:zh-TW': data[2],
+      'name:en': data[3],
+      'intro:zh-TW': data[4],
+      'intro:en': data[5],
+      'link': data[6],
+      'image': data[7],
+    }))
 
-    const result: groupedCommunities = {}
+    // 獲取 Booths 資料
+    const boothsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Booths?key=${API_KEY}`
+    const boothsResponse = await fetch(boothsUrl)
+    const boothsSheetData: SpreadsheetData = await boothsResponse.json()
 
-    rows.forEach((row) => {
-      const rowData = headers.reduce((obj, key, i) => {
-        obj[key] = row[i] || ''
-        return obj
-      }, {} as Record<string, string>)
+    if (!boothsSheetData.values) throw new Error(`No data found in the Booths sheet`)
 
-      const key = rowData.community_id
+    const [, ...boothsSheetValues] = boothsSheetData.values
+    const boothsValues: Booths[] = boothsSheetValues.map((data) => ({
+      'id': data[0],
+      'community_id': data[1],
+      'name:zh-TW': data[2],
+      'name:en': data[3],
+      'intro:zh-TW': data[4],
+      'intro:en': data[5],
+      'link': data[6],
+      'image': data[7],
+      'community': data[8],
+      'room': data[9],
+      'trackroom': data[10],
+    }))
 
-      if (!result[key]) result[key] = []
-      result[key].push(rowData)
-    })
-    return result
+    const groupedData: groupedCommunities[] = communityData.map((communityInfo) => ({
+      ...communityInfo,
+      topics: topicsValues.find((topicsInfo) => communityInfo.id === topicsInfo.community_id),
+      booths: boothsValues.find((boothsInfo) => communityInfo.id === boothsInfo.community_id),
+    }))
+
+    return groupedData
   } catch (error) {
-    console.error(`Error fetching or processing ${sheetName}:`, error)
-    return {}
+    console.error(`Error fetching or processing:`, error)
+    return []
   }
 }
 
 interface CommunityData {
-  communities: Community[]
-  community_topics: groupedCommunities
-  community_booths: groupedCommunities
+  communities: groupedCommunities[]
 }
 
 export declare const data: CommunityData
 
 export default defineLoader({
   async load(): Promise<CommunityData> {
-    const [communities, community_topics, community_booths] = await Promise.all([
-      fetchCommunities(),
-      fetchGroupedCommunities('Topics'),
-      fetchGroupedCommunities('Booths'),
-    ])
+    const communities: groupedCommunities[] = await fetchGroupedCommunities()
 
-    return {
-      communities,
-      community_topics,
-      community_booths,
-    }
+    return { communities }
   },
 })

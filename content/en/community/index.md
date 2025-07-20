@@ -1,5 +1,5 @@
 ---
-title: 社群夥伴
+title: Community Partners
 aside: false
 ---
 
@@ -7,6 +7,6 @@ aside: false
 import Community from '#components/Community.vue'
 </script>
 
-# 社群夥伴 {style="text-align:center"}
+# Community Partners {style="text-align:center"}
 
 <Community />
