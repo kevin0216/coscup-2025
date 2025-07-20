@@ -124,6 +124,43 @@ import CButton from '#components/CButton.vue'
         </div>
       </div>
     </div>
+
+    <div class="about-coscup-section">
+      <div class="about-content">
+        <div class="about-coscup">
+          <h2>About COSCUP</h2>
+          <p>COSCUP is an annual conference for open source enthusiasts, organized by the community since 2006. We welcome developers, users, and promoters to join us in exchanging technology, sharing experiences, and advancing the cause of free software!</p>
+          <a href="#">Read More →</a>
+        </div>
+
+        <div class="two-cards-section">
+          <div class="card-deck">
+            <div class="info-card">
+              <h3>❤️ Sponsor COSCUP</h3>
+              <p>Over the past three years, COSCUP has attracted an average of over 3,000 attendees and more than 20 open source technology or topic-based communities. It has also collaborated with over 7 international open source communities and organizations.</p>
+              <div class="button-group">
+                <CButton>Sponsorship Packages</CButton>
+                <CButton>Individual Sponsorship</CButton>
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>📄 Subscribe to Newsletter</h3>
+              <p>If you're afraid of missing out on our activities, you can subscribe to the COSCUP newsletter to stay updated on the latest news!</p>
+              <CButton>Subscribe</CButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-rubyconf-section">
+      <div class="about-content">
+        <div class="about-rubyconf">
+          <h2>About RubyConf TW</h2>
+          <p>RubyConf Taiwan — Taiwan's only annual international Ruby programming language conference, hosted by the Ruby Taiwan community. With nine successful events to date, it attracts hundreds of Ruby developers from overseas each year, making it a major event in the international Ruby community and the only Ruby language conference in Asia, outside of Japan, recommended by Yukihiro "Matz" Matsumoto, the creator of Ruby.</p>
+          <CButton>View Agenda</CButton>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -251,6 +288,86 @@ import CButton from '#components/CButton.vue'
   .activity-content {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+.about-coscup-section {
+  background-color: #f3f4f6;
+  padding: 4rem 1.5rem;
+}
+
+.about-rubyconf-section {
+  background-color: #fff0f5;
+  padding: 4rem 1.5rem;
+}
+
+.about-content {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.about-coscup,
+.about-rubyconf {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-coscup h2,
+.about-rubyconf h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.about-coscup p,
+.about-rubyconf p {
+  font-size: 1.125rem;
+  color: #6b7280;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.about-coscup a {
+  color: #7f73fe;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.two-cards-section {
+  margin-bottom: 4rem;
+}
+
+.card-deck {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.info-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.info-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-deck {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
