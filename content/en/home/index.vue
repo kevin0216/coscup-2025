@@ -41,12 +41,8 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton
-                  href="https://volunteer.coscup.org/docs/about_coscup/attendee_services/"
-                  tag="a"
-                  target="_blank"
-                >
-                  Learn More
+                <CButton disabled>
+                  Comming Soon
                 </CButton>
               </div>
             </div>
