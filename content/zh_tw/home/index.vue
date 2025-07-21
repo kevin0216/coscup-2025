@@ -44,6 +44,7 @@ import CButton from '#components/CButton.vue'
                 <CButton
                   href="https://volunteer.coscup.org/docs/zh-TW/about_coscup/attendee_services/"
                   tag="a"
+                  target="_blank"
                 >
                   前往了解
                 </CButton>
@@ -72,6 +73,7 @@ import CButton from '#components/CButton.vue'
                 <CButton
                   href="https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47"
                   tag="a"
+                  target="_blank"
                 >
                   來喝一杯
                 </CButton>
@@ -164,6 +166,7 @@ import CButton from '#components/CButton.vue'
               <CButton
                 href="https://secretary.coscup.org/subscribe/coscup"
                 tag="a"
+                target="_blank"
               >
                 訂閱
               </CButton>
@@ -180,6 +183,7 @@ import CButton from '#components/CButton.vue'
           <CButton
             href="/2025/sessions"
             tag="a"
+            target="_blank"
           >
             查看議程
           </CButton>
