@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { groupedCommunities } from '#loaders/community.data.ts'
 import { useData } from 'vitepress'
+import PhCaretDownBold from '~icons/ph/caret-down-bold'
+import PhCaretRightBold from '~icons/ph/caret-right-bold'
 
 defineProps<{ community: groupedCommunities }>()
 
@@ -69,6 +71,14 @@ const user_lang = lang.value === 'en-US' ? 'en' : 'zh-TW'
           class="topics-info-en"
           :for="`community-topics-${community.id}`"
         />
+        <PhCaretDownBold
+          v-if="community.topics"
+          class="topics-show"
+        />
+        <PhCaretRightBold
+          v-if="community.topics"
+          class="topics-hidden"
+        />
         <label
           v-if="community.booths && user_lang === 'zh-TW'"
           class="booths-info-zh"
@@ -78,6 +88,14 @@ const user_lang = lang.value === 'en-US' ? 'en' : 'zh-TW'
           v-if="community.booths && user_lang === 'en'"
           class="booths-info-en"
           :for="`community-booths-${community.id}`"
+        />
+        <PhCaretDownBold
+          v-if="community.booths"
+          class="booths-show"
+        />
+        <PhCaretRightBold
+          v-if="community.booths"
+          class="booths-hidden"
         />
         <div
           v-if="community.topics"
@@ -141,6 +159,7 @@ a {
   position: sticky;
   top: 75px;
   margin-top: 50px;
+  object-fit: contain;
 }
 
 .community-info {
@@ -149,6 +168,10 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: left;
+}
+
+div.community-content-wrap {
+  width: 100%;
 }
 
 .community-content-wrap label.community-moreinfo-zh::after {
@@ -184,8 +207,9 @@ a {
 .community-more-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
   margin-top: 20px;
+  width: auto;
 }
 
 div.topics-info {
@@ -196,12 +220,16 @@ div.topics-info h3 {
   margin-top: 5px;
 }
 
+.community-more-info svg.topics-show {
+  display: none;
+}
+
 .community-more-info label.topics-info-zh::after {
   content: '議程主題與活動';
   color: var(--vp-c-brand-3);
   font-weight: bold;
   margin-left: 4px;
-  display: block;
+  display: inline-block;
   cursor: pointer;
 }
 
@@ -217,6 +245,19 @@ div.topics-info h3 {
 .community-more-info input.topics-info:checked ~ div.topics-info {
   display: block;
   text-align: left;
+  background-color: rgb(243, 244, 246);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.community-more-info input.topics-info:checked ~ svg.topics-show {
+  display: block;
+}
+
+.community-more-info input.topics-info:checked ~ svg.topics-hidden {
+  display: none;
 }
 
 div.booths-info {
@@ -227,11 +268,15 @@ div.booths-info h3 {
   margin-top: 5px;
 }
 
+.community-more-info svg.booths-show {
+  display: none;
+}
+
 .community-more-info label.booths-info-zh::after {
   content: '參展攤位';
   color: var(--vp-c-brand-3);
   font-weight: bold;
-  margin-left: 4px;
+  margin-left: 20px;
   display: block;
   cursor: pointer;
 }
@@ -240,7 +285,7 @@ div.booths-info h3 {
   content: 'Exhibitor Booths';
   color: var(--vp-c-brand-3);
   font-weight: bold;
-  margin-left: 4px;
+  margin-left: 20px;
   display: block;
   cursor: pointer;
 }
@@ -248,6 +293,19 @@ div.booths-info h3 {
 .community-more-info input.booths-info:checked ~ div.booths-info {
   display: block;
   text-align: left;
+  background-color: rgb(243, 244, 246);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.community-more-info input.booths-info:checked ~ svg.booths-show {
+  display: block;
+}
+
+.community-more-info input.booths-info:checked ~ svg.booths-hidden {
+  display: none;
 }
 
 .badge {
@@ -272,7 +330,7 @@ div.booths-info h3 {
 
   .community-image-wrap img {
     position: static;
-    margin-top: 0;
+    margin: auto;
   }
 }
 </style>

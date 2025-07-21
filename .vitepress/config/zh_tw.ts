@@ -10,8 +10,8 @@ export const zh_tw = defineConfig({
       { text: '關於我們', link: '/about' },
       { text: '議程表', link: '/sessions' },
       { text: '贊助', link: '/sponsor' },
-      { text: '工作人員', link: '/staff' },
       { text: '社群夥伴', link: '/community' },
+      { text: '工作人員', link: '/staff' },
     ],
     sidebar: {},
     socialLinks: [
