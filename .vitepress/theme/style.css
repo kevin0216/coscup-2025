@@ -203,3 +203,10 @@ body {
 .VPDoc {
   background: transparent !important;
 }
+
+/**
+ * Global: disable hyperlink underline
+ * -------------------------------------------------------------------------- */
+a {
+  text-decoration: none !important;
+}
