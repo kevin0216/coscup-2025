@@ -1,21 +1,27 @@
 <script setup lang="ts">
 interface Props {
   variant?: 'primary' | 'secondary' | 'basic'
+  tag?: string
+  disabled?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'primary',
+  tag: 'button',
+  disabled: false,
 })
 </script>
 
 <template>
-  <button
+  <component
+    :is="tag"
     class="button"
     :class="`button-${variant}`"
+    :disabled="disabled"
   >
     <slot name="icon" />
     <slot />
-  </button>
+  </component>
 </template>
 
 <style scoped>
@@ -29,6 +35,7 @@ withDefaults(defineProps<Props>(), {
   font-weight: 400;
   line-height: 1;
   padding: 8px 10px;
+  width: max-content;
   min-height: 36px;
   border: none;
   cursor: pointer;
