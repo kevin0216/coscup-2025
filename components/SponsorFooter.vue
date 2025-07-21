@@ -42,6 +42,40 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
                 :alt="sponsor['name:zh-TW']"
                 :src="sponsor.image ?? '#'"
               >
+              <template v-if="lang === 'zh_tw'">
+                <span
+                  v-if="sponsor.type === '3'"
+                  class="sponsor-times"
+                >
+                  累計 {{ sponsor.times }} 年合作
+                </span>
+                <span
+                  v-else-if="sponsor.type === '2'"
+                  class="sponsor-times"
+                >
+                  累計 {{ sponsor.times }} 年贊助
+                </span>
+                <span
+                  v-else-if="sponsor.type === '1'"
+                  class="sponsor-times"
+                >
+                  連續 {{ sponsor.times }} 年贊助
+                </span>
+              </template>
+              <template v-else>
+                <span
+                  v-if="sponsor.type === '3'"
+                  class="sponsor-times en"
+                >Collaborated a total of {{ sponsor.times }} years</span>
+                <span
+                  v-else-if="sponsor.type === '2'"
+                  class="sponsor-times en"
+                >Sponsored a total of {{ sponsor.times }} years</span>
+                <span
+                  v-else-if="sponsor.type === '1'"
+                  class="sponsor-times en"
+                >Sponsored {{ sponsor.times }} consecutive years</span>
+              </template>
             </div>
           </a>
         </div>
@@ -68,7 +102,7 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
 
 .sponsor-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 12px;
 }
 
@@ -84,9 +118,10 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
 }
 
 .sponsor-item {
+  position: relative;
   padding: 8px;
-  min-width: 120px;
-  min-height: 120px;
+  min-width: 180px;
+  min-height: 180px;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -99,11 +134,28 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
 }
 
 .sponsor img {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   display: block;
   margin: 0 auto;
   transition: transform 0.3s ease;
+}
+
+.sponsor-times {
+  background-color: var(--vp-c-brand-3);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-top: 8px;
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+}
+
+.en {
+  font-size: 0.7em;
+  padding: 2px 4px;
 }
 </style>
