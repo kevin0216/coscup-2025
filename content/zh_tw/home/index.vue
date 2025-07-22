@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import image1 from '#assets/images/activity1.jpg'
 import image2 from '#assets/images/activity2.jpg'
 import image3 from '#assets/images/activity3.jpg'
 import image4 from '#assets/images/activity4.png'
@@ -30,31 +29,6 @@ import CButton from '#components/CButton.vue'
         </div>
 
         <div class="cards-grid">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-text">
-                <p class="card-title">
-                  會眾服務
-                </p>
-                <p class="card-description">
-                  聽完議程也別忘了休息一下!COSCUP 提供按摩小站與氮氣咖啡,陪你補充能量、舒緩疲憊。
-                </p>
-              </div>
-              <div class="card-action">
-                <CButton disabled>
-                  即將開啟
-                </CButton>
-              </div>
-            </div>
-            <div class="card-image-container">
-              <img
-                alt="會眾服務"
-                class="card-image"
-                :src="image1"
-              >
-            </div>
-          </div>
-
           <div class="card">
             <div class="card-content">
               <div class="card-text">
