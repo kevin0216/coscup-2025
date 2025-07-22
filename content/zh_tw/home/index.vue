@@ -69,8 +69,12 @@ import CButton from '#components/CButton.vue'
                 </p>
               </div>
               <div class="card-action">
-                <CButton disabled>
-                  即將開啟
+                <CButton
+                  href="https://s.coscup.org/bof25"
+                  tag="a"
+                  target="_blank"
+                >
+                  揪團 +1
                 </CButton>
               </div>
             </div>
