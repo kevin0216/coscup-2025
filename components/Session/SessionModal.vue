@@ -148,21 +148,26 @@ const collaborationUrl = null
                 class="session-description"
               >
                 <h2>{{ messages[locale].aboutSpeaker }}</h2>
-                <img
-                  :alt="session.speakers[0].name"
-                  class="speaker-avatar"
-                  height="80"
-                  :src="session.speakers[0].avatar"
-                  width="80"
+                <template
+                  v-for="speaker in session.speakers"
+                  :key="speaker.code"
                 >
-                <p class="speaker-name">
-                  {{ session.speakers[0].name }}
-                </p>
-                <div
-                  v-if="session.speakers[0].bio"
-                  class="speaker-bio content-container"
-                  v-html="markdownToHtml(session.speakers[0].bio, 'zh-tw')"
-                />
+                  <img
+                    :alt="speaker.name"
+                    class="speaker-avatar"
+                    height="80"
+                    :src="speaker.avatar"
+                    width="80"
+                  >
+                  <p class="speaker-name">
+                    {{ speaker.name }}
+                  </p>
+                  <div
+                    v-if="speaker.bio"
+                    class="speaker-bio content-container"
+                    v-html="markdownToHtml(speaker.bio, 'zh-tw')"
+                  />
+                </template>
               </section>
             </section>
           </div>
@@ -186,10 +191,8 @@ const collaborationUrl = null
 </template>
 
 <style>
-.content-container {
-  > p {
-    margin-bottom: 10px;
-  }
+.content-container > p {
+  margin-bottom: 10px;
 }
 
 .content-container a {
@@ -413,6 +416,10 @@ const collaborationUrl = null
     > .speaker-name {
       font-weight: 600;
       margin-top: 6px;
+    }
+
+    > .speaker-bio {
+      margin-bottom: 2rem;
     }
   }
 }
