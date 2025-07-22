@@ -91,6 +91,7 @@ a {
   position: sticky;
   top: 75px;
   margin-top: 50px;
+  object-fit: contain;
 }
 
 .sponsor-info {
@@ -99,6 +100,10 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: left;
+}
+
+div.sponsor-content-wrap {
+  min-width: 50%;
 }
 
 .sponsor-content-wrap label::after {
