@@ -36,7 +36,7 @@ import CButton from '#components/CButton.vue'
                   會前派對
                 </p>
                 <p class="card-description">
-                  COSCUP 2025 會前派對 2025/8/x,跟大會講者與社群同好大聊特聊、為開源乾一杯!
+                  COSCUP x RubyConf TW 2025 前夜派對 Support By ExpressVPN 2025/8/8，跟大會講者與社群同好大聊特聊、為開源乾一杯!
                 </p>
               </div>
               <div class="card-action">
@@ -65,7 +65,7 @@ import CButton from '#components/CButton.vue'
                   BoF/Hacking Corner
                 </p>
                 <p class="card-description">
-                  每年 COSCUP 聚集了臺灣及世界各地的開放文化及開源愛好者,BoF / hacking room 在會期提供有別於常規議程,讓開源同好面對面深度雙向交流的機會!
+                  每年 COSCUP 聚集了臺灣及世界各地的開放文化及開源愛好者，BoF / hacking Corner 在會期提供有別於常規議程，讓開源同好面對面深度雙向交流的機會!
                 </p>
               </div>
               <div class="card-action">
@@ -94,7 +94,7 @@ import CButton from '#components/CButton.vue'
                   參與者大調查
                 </p>
                 <p class="card-description">
-                  COSCUP 想更了解今年的參與者樣貌!不論是長期參與開源社群,或是首次走進 COSCUP,都歡迎填寫問卷,一起關注開源社群的組成與未來方向。
+                  COSCUP 想更了解今年的參與者樣貌!不論是長期參與開源社群，或是首次走進 COSCUP，都歡迎填寫問卷，一起關注開源社群的組成與未來方向。
                 </p>
               </div>
               <div class="card-action">
