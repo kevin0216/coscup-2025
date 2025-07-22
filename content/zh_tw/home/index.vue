@@ -62,7 +62,7 @@ import CButton from '#components/CButton.vue'
             <div class="card-content">
               <div class="card-text">
                 <p class="card-title">
-                  BoF/hacking room
+                  BoF/Hacking Corner
                 </p>
                 <p class="card-description">
                   每年 COSCUP 聚集了臺灣及世界各地的開放文化及開源愛好者,BoF / hacking room 在會期提供有別於常規議程,讓開源同好面對面深度雙向交流的機會!
