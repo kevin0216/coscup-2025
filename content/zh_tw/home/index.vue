@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import image1 from '#assets/images/activity1.jpg'
 import image2 from '#assets/images/activity2.jpg'
 import image3 from '#assets/images/activity3.jpg'
 import image4 from '#assets/images/activity4.png'
@@ -34,31 +33,6 @@ import CButton from '#components/CButton.vue'
             <div class="card-content">
               <div class="card-text">
                 <p class="card-title">
-                  會眾服務
-                </p>
-                <p class="card-description">
-                  聽完議程也別忘了休息一下!COSCUP 提供按摩小站與氮氣咖啡,陪你補充能量、舒緩疲憊。
-                </p>
-              </div>
-              <div class="card-action">
-                <CButton disabled>
-                  即將開啟
-                </CButton>
-              </div>
-            </div>
-            <div class="card-image-container">
-              <img
-                alt="會眾服務"
-                class="card-image"
-                :src="image1"
-              >
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-content">
-              <div class="card-text">
-                <p class="card-title">
                   會前派對
                 </p>
                 <p class="card-description">
@@ -88,15 +62,19 @@ import CButton from '#components/CButton.vue'
             <div class="card-content">
               <div class="card-text">
                 <p class="card-title">
-                  BoF/hacking room
+                  BoF/Hacking Corner
                 </p>
                 <p class="card-description">
                   每年 COSCUP 聚集了臺灣及世界各地的開放文化及開源愛好者,BoF / hacking room 在會期提供有別於常規議程,讓開源同好面對面深度雙向交流的機會!
                 </p>
               </div>
               <div class="card-action">
-                <CButton disabled>
-                  即將開啟
+                <CButton
+                  href="https://s.coscup.org/bof25"
+                  tag="a"
+                  target="_blank"
+                >
+                  揪團 +1
                 </CButton>
               </div>
             </div>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import image1 from '#assets/images/activity1.jpg'
 import image2 from '#assets/images/activity2.jpg'
 import image3 from '#assets/images/activity3.jpg'
 import image4 from '#assets/images/activity4.png'
@@ -34,31 +33,6 @@ import CButton from '#components/CButton.vue'
             <div class="card-content">
               <div class="card-text">
                 <p class="card-title">
-                  Attendee Services
-                </p>
-                <p class="card-description">
-                  Don't forget to take a break after the sessions! COSCUP offers massage stations and nitro coffee to help you recharge and relax.
-                </p>
-              </div>
-              <div class="card-action">
-                <CButton disabled>
-                  Comming Soon
-                </CButton>
-              </div>
-            </div>
-            <div class="card-image-container">
-              <img
-                alt="Attendee Services"
-                class="card-image"
-                :src="image1"
-              >
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-content">
-              <div class="card-text">
-                <p class="card-title">
                   Pre-Conference Party
                 </p>
                 <p class="card-description">
@@ -88,15 +62,19 @@ import CButton from '#components/CButton.vue'
             <div class="card-content">
               <div class="card-text">
                 <p class="card-title">
-                  BoF/Hacking Room
+                  BoF/Hacking Corner
                 </p>
                 <p class="card-description">
                   Every year, COSCUP brings together open culture and open source enthusiasts from Taiwan and around the world. The BoF/hacking room provides an alternative to the regular agenda, offering a chance for in-depth, face-to-face interaction among open source peers!
                 </p>
               </div>
               <div class="card-action">
-                <CButton disabled>
-                  Comming Soon
+                <CButton
+                  href="https://s.coscup.org/bof25"
+                  tag="a"
+                  target="_blank"
+                >
+                  Join Group
                 </CButton>
               </div>
             </div>
