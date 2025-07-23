@@ -130,7 +130,7 @@ export default defineConfig({
         qa: enSession.qa ?? null,
         slide: enSession.slide ?? null,
         record: enSession.record ?? null,
-        uri: `https://coscup.org/2024/session/${enSession.code}`,
+        uri: `https://coscup.org/2025/sessions/${enSession.code}`,
       }
     })
 
