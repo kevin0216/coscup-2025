@@ -112,7 +112,7 @@ export default defineConfig({
       return {
         id: enSession.code,
         type: enSession.track.id.toString(),
-        room: enSession.room.name,
+        room: enSession.room.id,
         start: enSession.start,
         end: enSession.end,
         language: enSession.language,
