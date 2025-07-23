@@ -78,6 +78,9 @@ importers:
       lint-staged:
         specifier: 16.1.2
         version: 16.1.2
+      medium-zoom:
+        specifier: ^1.1.0
+        version: 1.1.0
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -2175,6 +2178,9 @@ packages:
 
   mdurl@2.0.0:
     resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
+
+  medium-zoom@1.1.0:
+    resolution: {integrity: sha512-ewyDsp7k4InCUp3jRmwHBRFGyjBimKps/AJLjRSox+2q/2H4p/PNpQf+pwONWlJiOudkBXtbdmVbFjqyybfTmQ==}
 
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
@@ -5334,6 +5340,8 @@ snapshots:
       '@types/mdast': 4.0.4
 
   mdurl@2.0.0: {}
+
+  medium-zoom@1.1.0: {}
 
   merge2@1.4.1: {}
 

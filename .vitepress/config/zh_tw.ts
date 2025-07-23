@@ -12,6 +12,7 @@ export const zh_tw = defineConfig({
       { text: '贊助', link: '/sponsor' },
       { text: '社群夥伴', link: '/community' },
       { text: '工作人員', link: '/staff' },
+      { text: '會場地圖', link: '/venue' },
     ],
     sidebar: {},
     socialLinks: [
