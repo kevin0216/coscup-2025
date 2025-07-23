@@ -5,6 +5,7 @@ import type SessionModal from './SessionModal.vue'
 import CCard from '#/components/CCard.vue'
 import CIconButton from '#/components/CIconButton.vue'
 import CMenuBar from '#/components/CMenuBar.vue'
+import { conference } from '#data/conference'
 import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#utils/session-layout.ts'
 import { useSessionStorage, useStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
@@ -31,8 +32,18 @@ const viewMenuItems = computed(() => [
   { key: 'bookmarked', label: messages[props.locale].bookmarked || 'Bookmarked' },
 ])
 
-// Date selection state
-const selectedDate = useStorage<'Aug.9' | 'Aug.10'>('selected-date', 'Aug.9')
+// Format conference dates with spacing
+function formatConferenceDate(date: Date): string {
+  const month = date.toLocaleDateString('en-US', { month: 'short' })
+  const day = date.getDate()
+  return `${month}.\u2009${day}` // thin space between month and day
+}
+
+const formattedStartDate = computed(() => formatConferenceDate(conference.startDate))
+const formattedEndDate = computed(() => formatConferenceDate(conference.endDate))
+
+// Date selection state - store simple identifiers to avoid serialization issues with Unicode
+const selectedDate = useStorage<'start' | 'end'>('selected-date', 'start')
 
 // Generate time slots from 8AM to 6PM
 const timeSlots = computed(() => {
@@ -71,13 +82,17 @@ const rooms = computed(() => {
 const displaySessions = computed(() => {
   const filteredSessions = props.submissions.filter((session) => {
     if (!session.start) return false
-    const startDate = new Date(session.start)
-    // Conference dates: 2025-08-09 and 2025-08-10
-    if (selectedDate.value === 'Aug.9') {
-      return startDate.getFullYear() === 2025 && startDate.getMonth() === 7 && startDate.getDate() === 9
-    } else {
-      return startDate.getFullYear() === 2025 && startDate.getMonth() === 7 && startDate.getDate() === 10
+    const sessionDate = new Date(session.start)
+    const sessionDateOnly = new Date(sessionDate.getFullYear(), sessionDate.getMonth(), sessionDate.getDate())
+
+    if (selectedDate.value === 'start') {
+      const startDateOnly = new Date(conference.startDate.getFullYear(), conference.startDate.getMonth(), conference.startDate.getDate())
+      return sessionDateOnly.getTime() === startDateOnly.getTime()
+    } else if (selectedDate.value === 'end') {
+      const endDateOnly = new Date(conference.endDate.getFullYear(), conference.endDate.getMonth(), conference.endDate.getDate())
+      return sessionDateOnly.getTime() === endDateOnly.getTime()
     }
+    return false
   })
 
   if (selectedView.value === 'bookmarked') {
@@ -170,16 +185,16 @@ const openedSession = computed(() => {
     <!-- Date Selection -->
     <nav class="date-tab">
       <SessionDateButton
-        :selected="selectedDate === 'Aug.9'"
-        @click="selectedDate = 'Aug.9'"
+        :selected="selectedDate === 'start'"
+        @click="selectedDate = 'start'"
       >
-        Aug.9
+        {{ formattedStartDate }}
       </SessionDateButton>
       <SessionDateButton
-        :selected="selectedDate === 'Aug.10'"
-        @click="selectedDate = 'Aug.10'"
+        :selected="selectedDate === 'end'"
+        @click="selectedDate = 'end'"
       >
-        Aug.10
+        {{ formattedEndDate }}
       </SessionDateButton>
     </nav>
 

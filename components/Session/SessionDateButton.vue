@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
 
 <style scoped>
 .session-date-button {
-  width: 12rem;
+  width: 13rem;
   font-size: 28px;
   font-weight: bold;
   font-style: italic;
