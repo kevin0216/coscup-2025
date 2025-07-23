@@ -42,8 +42,8 @@ function formatConferenceDate(date: Date): string {
 const formattedStartDate = computed(() => formatConferenceDate(conference.startDate))
 const formattedEndDate = computed(() => formatConferenceDate(conference.endDate))
 
-// Date selection state
-const selectedDate = useStorage<string>('selected-date', formattedStartDate.value)
+// Date selection state - store simple identifiers to avoid serialization issues with Unicode
+const selectedDate = useStorage<'start' | 'end'>('selected-date', 'start')
 
 // Generate time slots from 8AM to 6PM
 const timeSlots = computed(() => {
@@ -85,10 +85,10 @@ const displaySessions = computed(() => {
     const sessionDate = new Date(session.start)
     const sessionDateOnly = new Date(sessionDate.getFullYear(), sessionDate.getMonth(), sessionDate.getDate())
 
-    if (selectedDate.value === formattedStartDate.value) {
+    if (selectedDate.value === 'start') {
       const startDateOnly = new Date(conference.startDate.getFullYear(), conference.startDate.getMonth(), conference.startDate.getDate())
       return sessionDateOnly.getTime() === startDateOnly.getTime()
-    } else if (selectedDate.value === formattedEndDate.value) {
+    } else if (selectedDate.value === 'end') {
       const endDateOnly = new Date(conference.endDate.getFullYear(), conference.endDate.getMonth(), conference.endDate.getDate())
       return sessionDateOnly.getTime() === endDateOnly.getTime()
     }
@@ -185,14 +185,14 @@ const openedSession = computed(() => {
     <!-- Date Selection -->
     <nav class="date-tab">
       <SessionDateButton
-        :selected="selectedDate === formattedStartDate"
-        @click="selectedDate = formattedStartDate"
+        :selected="selectedDate === 'start'"
+        @click="selectedDate = 'start'"
       >
         {{ formattedStartDate }}
       </SessionDateButton>
       <SessionDateButton
-        :selected="selectedDate === formattedEndDate"
-        @click="selectedDate = formattedEndDate"
+        :selected="selectedDate === 'end'"
+        @click="selectedDate = 'end'"
       >
         {{ formattedEndDate }}
       </SessionDateButton>
