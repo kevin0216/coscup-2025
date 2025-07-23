@@ -25,6 +25,7 @@
     "leaflet": "1.9.4",
     "markdown-it": "14.1.0",
     "markdown-it-container": "4.0.0",
+    "medium-zoom": "^1.1.0",
     "osmtogeojson": "3.0.0-beta.5",
     "reka-ui": "2.3.2",
     "swiper": "11.2.10",
@@ -43,7 +44,6 @@
     "eslint-plugin-format": "1.0.1",
     "husky": "9.1.7",
     "lint-staged": "16.1.2",
-    "medium-zoom": "^1.1.0",
     "typescript": "5.8.3",
     "vite": "7.0.5",
     "vue-tsc": "3.0.3"
