@@ -5,9 +5,7 @@ outline: false
 
 # 會場地圖
 
-<a href="https://drive.google.com/file/d/1NfLIAzupic63C0o33mMVhxYVPOerTAmT/view" download>
-  <button>下載會場地圖</button>
-</a>
+<CButton tag="a" href="https://drive.google.com/file/d/1NfLIAzupic63C0o33mMVhxYVPOerTAmT/view">下載會場地圖</CButton>
 
 ## 總覽
 
@@ -20,3 +18,9 @@ outline: false
 ## 研場大樓 TR 2F~5F
 
 <VenueTab />
+
+<style scoped>
+.button {
+  margin-top: 25px;
+}
+</style>

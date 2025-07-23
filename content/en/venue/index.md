@@ -5,9 +5,7 @@ outline: false
 
 # Venue
 
-<a href="https://drive.google.com/file/d/1NfLIAzupic63C0o33mMVhxYVPOerTAmT/view" download>
-  <button>download COSCUP 2025 Venue</button>
-</a>
+<CButton tag="a" href="https://drive.google.com/file/d/1NfLIAzupic63C0o33mMVhxYVPOerTAmT/view">download COSCUP 2025 Venue</CButton>
 
 ## All
 
@@ -20,3 +18,9 @@ outline: false
 ## TR 2F~5F
 
 <VenueTab />
+
+<style scoped>
+.button {
+  margin-top: 25px;
+}
+</style>
