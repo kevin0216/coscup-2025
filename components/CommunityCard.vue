@@ -162,6 +162,10 @@ a {
   object-fit: contain;
 }
 
+.community-image {
+  object-fit: contain;
+}
+
 .community-info {
   display: -webkit-box;
   -webkit-line-clamp: 5;
