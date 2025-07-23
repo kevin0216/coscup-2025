@@ -28,7 +28,8 @@
     "components/**/*",
     "content/**/*",
     "data/**/*",
-    "loaders/**/*"
+    "loaders/**/*",
+    "env.d.ts"
   ],
 
   "vueCompilerOptions": {
