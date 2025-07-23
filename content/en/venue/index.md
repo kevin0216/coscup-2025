@@ -5,7 +5,7 @@ outline: false
 
 # Venue
 
-<CButton tag="a" href="https://drive.google.com/file/d/1NfLIAzupic63C0o33mMVhxYVPOerTAmT/view">download COSCUP 2025 Venue</CButton>
+<CButton tag="a" href="/2025/COSCUP-2025-Venue.pdf" download>download COSCUP 2025 Venue</CButton>
 
 ## All
 

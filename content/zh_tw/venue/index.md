@@ -5,7 +5,7 @@ outline: false
 
 # 會場地圖
 
-<CButton tag="a" href="https://drive.google.com/file/d/1NfLIAzupic63C0o33mMVhxYVPOerTAmT/view">下載會場地圖</CButton>
+<CButton tag="a" href="/2025/COSCUP-2025-Venue.pdf" download>下載會場地圖</CButton>
 
 ## 總覽
 
