@@ -10,4 +10,6 @@ import './tailwind-text.css'
 export default {
   extends: DefaultTheme,
   Layout,
+  enhanceApp() {
+  },
 } satisfies Theme
