@@ -77,6 +77,7 @@ a {
 
 .sponsor-image-wrap {
   position: relative;
+  z-index: 0;
 }
 
 .sponsor-image-wrap img {

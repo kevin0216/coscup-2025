@@ -151,6 +151,7 @@ a {
 
 .community-image-wrap {
   position: relative;
+  z-index: 0;
 }
 
 .community-image-wrap img {
