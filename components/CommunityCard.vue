@@ -313,6 +313,10 @@ div.booths-info h3 {
   display: none;
 }
 
+.community-name {
+  text-align: left;
+}
+
 .badge {
   width: 185px;
   position: absolute;

@@ -116,6 +116,10 @@ div.sponsor-content-wrap {
   cursor: pointer;
 }
 
+.sponsor-name {
+  text-align: left;
+}
+
 .sponsor-content-wrap input:checked ~ label::after {
   content: '較少顯示';
 }

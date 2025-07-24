@@ -105,6 +105,10 @@ a {
   cursor: pointer;
 }
 
+.sponsor-name {
+  text-align: left;
+}
+
 .sponsor-content-wrap input:checked ~ label::after {
   content: 'Show Less';
 }
