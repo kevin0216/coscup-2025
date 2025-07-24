@@ -12,6 +12,11 @@ import { defineConfig } from 'vitepress'
 // See https://github.com/vuejs/vitepress/issues/4173
 
 import { conference } from '../../data/conference'
+import {
+  difficultyGeneralizeMap,
+  languageGeneralizeMap,
+  tagTranslations,
+} from '../../loaders/pretalx/pretalx-types'
 import { en } from './en'
 import { zh_tw } from './zh_tw'
 
@@ -107,8 +112,24 @@ export default defineConfig({
     const enData = await enSubmissionLoader.load([])
     const zhTwData = await zhTwSubmissionsLoader.load([])
 
+    function generateLanguageTagId(generalizedLang: string): string {
+      return `language_${generalizedLang.toLowerCase().replace(/-/g, '')}`
+    }
+    function generateDifficultyTagId(generalizedDiff: string): string {
+      return `difficulty_${generalizedDiff.toLowerCase().replace(/ /g, '_')}`
+    }
+
     const sessions = enData.map((enSession) => {
       const zhTwSession = zhTwData.find((s) => s.code === enSession.code)
+      const sessionTags: string[] = []
+      if (enSession.language && languageGeneralizeMap[enSession.language]) {
+        const generalizedLang = languageGeneralizeMap[enSession.language]
+        sessionTags.push(generateLanguageTagId(generalizedLang))
+      }
+      if (enSession.difficulty && difficultyGeneralizeMap[enSession.difficulty]) {
+        const generalizedDiff = difficultyGeneralizeMap[enSession.difficulty]
+        sessionTags.push(generateDifficultyTagId(generalizedDiff))
+      }
       return {
         id: enSession.code,
         type: enSession.track.id.toString(),
@@ -125,7 +146,7 @@ export default defineConfig({
           description: enSession.abstract ?? '',
         },
         speakers: enSession.speakers.map((s) => s.code),
-        tags: [],
+        tags: sessionTags,
         co_write: enSession.co_write ?? null,
         qa: enSession.qa ?? null,
         slide: enSession.slide ?? null,
@@ -200,8 +221,44 @@ export default defineConfig({
       }
     })
 
-    // TODO: Handle tags
-    const tags: unknown[] = []
+    const allLanguages = new Set(
+      enData
+        .map((s) => s.language)
+        .map((l) => languageGeneralizeMap[l])
+        .filter((l) => !!l),
+    )
+    const allDifficulties = new Set(
+      enData
+        .map((s) => s.difficulty)
+        .map((d) => difficultyGeneralizeMap[d])
+        .filter((d) => !!d),
+    )
+
+    const languageTags = Array.from(allLanguages).map((langKey) => {
+      return {
+        id: generateLanguageTagId(langKey),
+        zh: {
+          name: tagTranslations['zh-tw'][langKey] ?? langKey,
+        },
+        en: {
+          name: tagTranslations.en[langKey] ?? langKey,
+        },
+      }
+    })
+
+    const difficultyTags = Array.from(allDifficulties).map((diffKey) => {
+      return {
+        id: generateDifficultyTagId(diffKey),
+        zh: {
+          name: tagTranslations['zh-tw'][diffKey] ?? diffKey,
+        },
+        en: {
+          name: tagTranslations.en[diffKey] ?? diffKey,
+        },
+      }
+    })
+
+    const tags = [...languageTags, ...difficultyTags]
 
     const exportData = {
       sessions,
