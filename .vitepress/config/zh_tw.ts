@@ -25,7 +25,6 @@ export const zh_tw = defineConfig({
             { text: '身為「社群」', link: '/participate/community' },
             { text: '身為「講者」', link: '/participate/speaker' },
             { text: '身為「贊助夥伴」', link: '/participate/sponsor' },
-            { text: '身為」籌備團隊」', link: '/participate/organizing' },
           ],
         },
       ],

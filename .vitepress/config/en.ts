@@ -24,7 +24,6 @@ export const en = defineConfig({
             { text: 'As Community', link: '/en/participate/community' },
             { text: 'As Speaker', link: '/en/participate/speaker' },
             { text: 'As Sponsor', link: '/en/participate/sponsor' },
-            { text: 'As Organizing', link: '/en/participate/organizing' },
           ],
         },
       ],
