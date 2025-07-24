@@ -17,6 +17,7 @@ import { useScrollFade } from './useScrollFade.ts'
 
 const props = defineProps<{
   sessionCode: string | undefined
+  rooms: { id: number, name: string }[]
   submissions: SubmissionResponse[]
   locale: Locale
 }>()
@@ -80,25 +81,6 @@ const timeSlots = computed(() => {
 })
 
 const layout = new SessionScheduleLayout(props.submissions)
-
-// Extract unique rooms from submissions
-const rooms = computed(() => {
-  const roomMap = new Map()
-
-  props.submissions.forEach((submission) => {
-    if (submission.room) {
-      roomMap.set(submission.room.id, submission.room)
-    }
-  })
-
-  // Sort rooms alphabetically by name
-  // RB105 should be the first room, then the rest sorted alphabetically
-  return Array.from(roomMap.values()).sort((a, b) => {
-    if (a.name === 'RB105') return -1
-    if (b.name === 'RB105') return 1
-    return a.name.localeCompare(b.name)
-  })
-})
 
 // Get sessions for display
 const displaySessions = computed(() => {
