@@ -19,6 +19,10 @@ outline: false
 
 <VenueTab />
 
+## Booths
+
+<BoothTab />
+
 <style scoped>
 .button {
   margin-top: 25px;

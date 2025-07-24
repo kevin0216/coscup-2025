@@ -19,6 +19,10 @@ outline: false
 
 <VenueTab />
 
+## 攤位規劃
+
+<BoothTab />
+
 <style scoped>
 .button {
   margin-top: 25px;
