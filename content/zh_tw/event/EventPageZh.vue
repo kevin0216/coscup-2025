@@ -2,8 +2,8 @@
 import type { CalendarEvent } from 'calendar-link'
 import { conference } from '#data/conference'
 
-const start = conference.startDate.toLocaleDateString()
-const end = conference.endDate.toLocaleDateString()
+const start = conference.startDateString
+const end = conference.endDateString
 
 const venueAddress = '106 台北市大安區基隆路四段 43 號'
 
@@ -44,7 +44,7 @@ async function addToCalendar(type: CalendarType) {
         <IconPhCalendarDots />日期
       </p>
       <h2 class="text-brand">
-        {{ start }} – {{ end }}
+        {{ start }} – {{ end }} UTC+8
       </h2>
       <div class="actions">
         <VPButton
