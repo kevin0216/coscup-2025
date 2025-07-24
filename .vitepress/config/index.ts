@@ -112,16 +112,23 @@ export default defineConfig({
     const enData = await enSubmissionLoader.load([])
     const zhTwData = await zhTwSubmissionsLoader.load([])
 
+    function generateLanguageTagId(generalizedLang: string): string {
+      return `language_${generalizedLang.toLowerCase().replace(/-/g, '')}`
+    }
+    function generateDifficultyTagId(generalizedDiff: string): string {
+      return `difficulty_${generalizedDiff.toLowerCase().replace(/ /g, '_')}`
+    }
+
     const sessions = enData.map((enSession) => {
       const zhTwSession = zhTwData.find((s) => s.code === enSession.code)
       const sessionTags: string[] = []
       if (enSession.language && languageGeneralizeMap[enSession.language]) {
         const generalizedLang = languageGeneralizeMap[enSession.language]
-        sessionTags.push(`language_${generalizedLang.toLowerCase().replace(/-/g, '')}`)
+        sessionTags.push(generateLanguageTagId(generalizedLang))
       }
       if (enSession.difficulty && difficultyGeneralizeMap[enSession.difficulty]) {
         const generalizedDiff = difficultyGeneralizeMap[enSession.difficulty]
-        sessionTags.push(`difficulty_${generalizedDiff.toLowerCase().replace(/ /g, '_')}`)
+        sessionTags.push(generateDifficultyTagId(generalizedDiff))
       }
       return {
         id: enSession.code,
@@ -229,7 +236,7 @@ export default defineConfig({
 
     const languageTags = Array.from(allLanguages).map((langKey) => {
       return {
-        id: `language_${langKey.toLowerCase().replace(/-/g, '')}`,
+        id: generateLanguageTagId(langKey),
         zh: {
           name: tagTranslations['zh-tw'][langKey] ?? langKey,
         },
@@ -241,7 +248,7 @@ export default defineConfig({
 
     const difficultyTags = Array.from(allDifficulties).map((diffKey) => {
       return {
-        id: `difficulty_${diffKey.toLowerCase().replace(/ /g, '_')}`,
+        id: generateDifficultyTagId(diffKey),
         zh: {
           name: tagTranslations['zh-tw'][diffKey] ?? diffKey,
         },
