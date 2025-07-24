@@ -1,7 +1,11 @@
 <script setup lang='ts'>
 import type { CardInfo } from '#data/home.ts'
+import { useData } from 'vitepress'
 
 defineProps<{ info: CardInfo }>()
+
+const { lang } = useData()
+const userLanguage = lang.value === 'zh_tw' ? 'zh_tw' : 'en-US'
 </script>
 
 <template>
@@ -11,7 +15,7 @@ defineProps<{ info: CardInfo }>()
       class="card-image-container"
     >
       <img
-        :alt="info.img_alt"
+        :alt="info[`img_alt:${userLanguage}`]"
         class="card-image"
         :src="info.img"
       >
@@ -19,10 +23,10 @@ defineProps<{ info: CardInfo }>()
     <div class="card-content">
       <div class="card-text">
         <p class="card-title">
-          {{ info.title }}
+          {{ info[`title:${userLanguage}`] }}
         </p>
         <p class="card-description">
-          {{ info.description }}
+          {{ info[`description:${userLanguage}`] }}
         </p>
       </div>
       <div class="card-action">
@@ -32,13 +36,13 @@ defineProps<{ info: CardInfo }>()
           tag="a"
           target="_blank"
         >
-          {{ info.link_display }}
+          {{ info[`link_display:${userLanguage}`] }}
         </CButton>
         <CButton
           v-else
           disabled
         >
-          {{ info.link_display }}
+          {{ info[`link_display:${userLanguage}`] }}
         </CButton>
       </div>
     </div>
@@ -60,7 +64,7 @@ defineProps<{ info: CardInfo }>()
 .card-image-container {
   flex-shrink: 0;
   width: 100%;
-  height: 40%;
+  height: 25%;
 }
 
 .card-image {

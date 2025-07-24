@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import image2 from '#assets/images/activity2.jpg'
-import image3 from '#assets/images/activity3.jpg'
-import image4 from '#assets/images/activity4.png'
+import coscupLogo from '#assets/icons/logo.svg'
 import banner from '#assets/images/banner.png'
 import CButton from '#components/CButton.vue'
+import HomeCard from '#components/HomeCard.vue'
+import { eventData } from '#data/home.js'
 </script>
 
 <template>
@@ -19,98 +19,26 @@ import CButton from '#components/CButton.vue'
     <div class="activity-section">
       <div class="activity-content">
         <div class="activity-header">
+          <img
+            alt="COSCUP"
+            class="title-logo"
+            :src="coscupLogo"
+          >
           <h2 class="activity-title">
             COSCUP 2025 On-Site Activities
           </h2>
           <p class="activity-subtitle">
-            In addition to a rich agenda, COSCUP 2025 has planned "Attendee Services," "Pre-Conference Parties," and other activities, <br>
+            In addition to a rich agenda, COSCUP 2025 has planned "Attendee Services","Pre-Conference Parties", and other activities, <br>
             allowing you to enjoy networking and relaxation on-site.
           </p>
         </div>
 
         <div class="cards-grid">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-text">
-                <p class="card-title">
-                  Pre-Conference Party
-                </p>
-                <p class="card-description">
-                  Join the COSCUP x RubyConf TW 2025 Pre-Conference Party Sponsored By ExpressVPN on 2025/8/8 to chat with speakers and community members, and raise a glass to open source!
-                </p>
-              </div>
-              <div class="card-action">
-                <CButton
-                  href="https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47"
-                  tag="a"
-                  target="_blank"
-                >
-                  Have a Drink
-                </CButton>
-              </div>
-            </div>
-            <div class="card-image-container">
-              <img
-                alt="Pre-Conference Party"
-                class="card-image"
-                :src="image4"
-              >
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-content">
-              <div class="card-text">
-                <p class="card-title">
-                  BoF/Hacking Corner
-                </p>
-                <p class="card-description">
-                  Every year, COSCUP brings together open culture and open source enthusiasts from Taiwan and around the world. The BoF/hacking room provides an alternative to the regular agenda, offering a chance for in-depth, face-to-face interaction among open source peers!
-                </p>
-              </div>
-              <div class="card-action">
-                <CButton
-                  href="https://s.coscup.org/bof25"
-                  tag="a"
-                  target="_blank"
-                >
-                  Join Group
-                </CButton>
-              </div>
-            </div>
-            <div class="card-image-container">
-              <img
-                alt="BoF/Hacking Room"
-                class="card-image"
-                :src="image2"
-              >
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-content">
-              <div class="card-text">
-                <p class="card-title">
-                  Attendee Survey
-                </p>
-                <p class="card-description">
-                  COSCUP wants to better understand this year's attendees! Whether you're a long-time open source community member or a first-time visitor, we welcome you to fill out the survey and help us understand the composition and future direction of our community.
-                </p>
-              </div>
-              <div class="card-action">
-                <CButton disabled>
-                  Comming Soon
-                </CButton>
-              </div>
-            </div>
-            <div class="card-image-container">
-              <img
-                alt="Attendee Survey"
-                class="card-image"
-                :src="image3"
-              >
-            </div>
-          </div>
+          <HomeCard
+            v-for="eventInfo in eventData"
+            :key="eventInfo['title:en-US']"
+            :info="eventInfo"
+          />
         </div>
       </div>
     </div>
@@ -203,10 +131,11 @@ import CButton from '#components/CButton.vue'
 }
 
 .activity-title {
-  font-size: 2.25rem; /* 36px */
+  font-size: 2rem; /* 36px */
   font-weight: 700;
   letter-spacing: -0.025em;
   color: #ffffff;
+  text-align: left;
 }
 
 .activity-subtitle {
@@ -214,63 +143,28 @@ import CButton from '#components/CButton.vue'
   font-size: 1.125rem; /* 18px */
   line-height: 1.75;
   color: #ffffff;
+  text-align: left;
 }
 
 .cards-grid {
   margin-top: 3rem;
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 2rem;
-}
-
-.card {
   display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  border-radius: 0.5rem; /* 8px */
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  background-color: #ffffff;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.card-image-container {
-  flex-shrink: 0;
-  width: 40%;
+.cards-grid::-webkit-scrollbar {
+  display: none;
 }
 
-.card-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.5rem;
-}
-
-.card-text {
-  flex: 1;
-}
-
-.card-title {
-  font-size: 1.25rem; /* 20px */
-  font-weight: 600;
-  color: #3c3c5b;
-}
-
-.card-description {
-  margin-top: 0.75rem;
-  font-size: 1rem; /* 16px */
-  color: #6b7280;
-}
-
-.card-action {
-  margin-top: 1.5rem;
+@media (min-width: 425px) {
+  .activity-title {
+    font-size: 2.25rem; /* 36px */
+  }
 }
 
 /* Responsive styles */
@@ -282,15 +176,16 @@ import CButton from '#components/CButton.vue'
   .activity-title {
     font-size: 2.5rem; /* 40px */
   }
-  .cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (min-width: 1024px) {
   .activity-content {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -304,15 +199,34 @@ import CButton from '#components/CButton.vue'
   padding: 4rem 1.5rem;
 }
 
+@media (min-width: 1024px) {
+  .about-coscup-section {
+    padding: 4rem 2rem;
+  }
+
+  .about-rubyconf-section {
+    padding: 4rem 2rem;
+  }
+}
+
 .about-content {
   max-width: 80rem;
   margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .about-coscup,
 .about-rubyconf {
-  text-align: center;
+  text-align: left;
   margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .about-coscup,
+  .about-rubyconf {
+    width: 60%;
+  }
 }
 
 .about-coscup h2,
@@ -347,6 +261,8 @@ import CButton from '#components/CButton.vue'
 }
 
 .info-card {
+  display: flex;
+  flex-direction: column;
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 0.5rem;
@@ -368,9 +284,22 @@ import CButton from '#components/CButton.vue'
   gap: 1rem;
 }
 
+.button {
+  margin-top: auto;
+}
+
 @media (min-width: 768px) {
   .card-deck {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.title-logo {
+  margin-bottom: 1rem;
+  height: 1.8rem;
+}
+
+.activity-header .title-logo {
+  filter: brightness(1000%);
 }
 </style>

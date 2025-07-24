@@ -2,6 +2,7 @@
 import coscupLogo from '#assets/icons/logo.svg'
 import banner from '#assets/images/banner.png'
 import CButton from '#components/CButton.vue'
+import HomeCard from '#components/HomeCard.vue'
 import { eventData } from '#data/home.js'
 </script>
 
@@ -35,7 +36,7 @@ import { eventData } from '#data/home.js'
         <div class="cards-grid">
           <HomeCard
             v-for="eventInfo in eventData"
-            :key="eventInfo.title"
+            :key="eventInfo['title:zh_tw']"
             :info="eventInfo"
           />
         </div>
