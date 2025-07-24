@@ -1,11 +1,37 @@
 <script setup lang="ts">
 import { data } from '#loaders/sponsor.data'
 import { useData } from 'vitepress'
+import { computed } from 'vue'
 
 const { groupedSponsors, sponsorLevels, sponsorLevels_mapping } = data
 const { lang } = useData()
 
 const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + level.slice(1)
+
+const getLevelTitle = computed(() => (level: string) => {
+  return lang.value === 'zh_tw'
+    ? sponsorLevels_mapping[level]
+    : `${formatLevel(level)} Sponsor`
+})
+
+const getSponsorTimesText = computed(() => (sponsor: any) => {
+  const isZhTw = lang.value === 'zh_tw'
+
+  if (sponsor.type === '3') {
+    return isZhTw
+      ? `累計 ${sponsor.times} 年合作`
+      : `Collaborated a total of ${sponsor.times} years`
+  } else if (sponsor.type === '2') {
+    return isZhTw
+      ? `累計 ${sponsor.times} 年贊助`
+      : `Sponsored a total of ${sponsor.times} years`
+  } else if (sponsor.type === '1') {
+    return isZhTw
+      ? `連續 ${sponsor.times} 年贊助`
+      : `Sponsored ${sponsor.times} consecutive years`
+  }
+  return ''
+})
 </script>
 
 <template>
@@ -16,17 +42,8 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
       class="sponsor-group"
     >
       <div v-if="groupedSponsors[level]?.length">
-        <h3
-          v-if="lang === 'zh_tw'"
-          class="level-title"
-        >
-          {{ sponsorLevels_mapping[level] }}
-        </h3>
-        <h3
-          v-else
-          class="level-title"
-        >
-          {{ formatLevel(level) }} Sponsor
+        <h3 class="level-title">
+          {{ getLevelTitle(level) }}
         </h3>
         <div class="sponsor-list">
           <a
@@ -42,40 +59,13 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
                 :alt="sponsor['name:zh-TW']"
                 :src="sponsor.image ?? '#'"
               >
-              <template v-if="lang === 'zh_tw'">
-                <span
-                  v-if="sponsor.type === '3'"
-                  class="sponsor-times"
-                >
-                  累計 {{ sponsor.times }} 年合作
-                </span>
-                <span
-                  v-else-if="sponsor.type === '2'"
-                  class="sponsor-times"
-                >
-                  累計 {{ sponsor.times }} 年贊助
-                </span>
-                <span
-                  v-else-if="sponsor.type === '1'"
-                  class="sponsor-times"
-                >
-                  連續 {{ sponsor.times }} 年贊助
-                </span>
-              </template>
-              <template v-else>
-                <span
-                  v-if="sponsor.type === '3'"
-                  class="sponsor-times en"
-                >Collaborated a total of {{ sponsor.times }} years</span>
-                <span
-                  v-else-if="sponsor.type === '2'"
-                  class="sponsor-times en"
-                >Sponsored a total of {{ sponsor.times }} years</span>
-                <span
-                  v-else-if="sponsor.type === '1'"
-                  class="sponsor-times en"
-                >Sponsored {{ sponsor.times }} consecutive years</span>
-              </template>
+              <span
+                v-if="getSponsorTimesText(sponsor)"
+                class="sponsor-times"
+                :class="{ en: lang !== 'zh_tw', consecutive: sponsor.type === '1' }"
+              >
+                {{ getSponsorTimesText(sponsor) }}
+              </span>
             </div>
           </a>
         </div>
@@ -143,8 +133,8 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
 }
 
 .sponsor-times {
-  background-color: var(--vp-c-brand-3);
-  color: white;
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-600);
   padding: 4px 8px;
   border-radius: 9999px;
   font-size: 0.875rem;
@@ -152,6 +142,11 @@ const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + l
   display: inline-block;
   position: absolute;
   bottom: 10px;
+
+  &.consecutive {
+    background-color: var(--color-pink-200);
+    color: var(--color-pink-600);
+  }
 }
 
 .en {
