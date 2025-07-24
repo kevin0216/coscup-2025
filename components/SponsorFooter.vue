@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Sponsor } from '#loaders/sponsor.data'
 import { data } from '#loaders/sponsor.data'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
@@ -14,7 +15,7 @@ const getLevelTitle = computed(() => (level: string) => {
     : `${formatLevel(level)} Sponsor`
 })
 
-const getSponsorTimesText = computed(() => (sponsor: any) => {
+const getSponsorTimesText = computed(() => (sponsor: Sponsor) => {
   const isZhTw = lang.value === 'zh_tw'
 
   if (sponsor.type === '3') {
