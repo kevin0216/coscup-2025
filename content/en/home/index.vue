@@ -36,7 +36,7 @@ import CButton from '#components/CButton.vue'
                   Pre-Conference Party
                 </p>
                 <p class="card-description">
-                  Join the COSCUP x RubyConf TW 2025 Pre-Conference Party Sponsor By ExpressVPN on 2025/8/8 to chat with speakers and community members, and raise a glass to open source!
+                  Join the COSCUP x RubyConf TW 2025 Pre-Conference Party Sponsored By ExpressVPN on 2025/8/8 to chat with speakers and community members, and raise a glass to open source!
                 </p>
               </div>
               <div class="card-action">

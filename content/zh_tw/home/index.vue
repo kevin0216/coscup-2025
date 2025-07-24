@@ -36,7 +36,7 @@ import CButton from '#components/CButton.vue'
                   會前派對
                 </p>
                 <p class="card-description">
-                  COSCUP x RubyConf TW 2025 前夜派對 Support By ExpressVPN 2025/8/8，跟大會講者與社群同好大聊特聊、為開源乾一杯!
+                  COSCUP x RubyConf TW 2025 前夜派對 Supported By ExpressVPN 2025/8/8，跟大會講者與社群同好大聊特聊、為開源乾一杯!
                 </p>
               </div>
               <div class="card-action">
