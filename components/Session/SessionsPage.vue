@@ -7,6 +7,7 @@ import CIconButton from '#/components/CIconButton.vue'
 import CMenuBar from '#/components/CMenuBar.vue'
 import { conference } from '#data/conference'
 import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#utils/session-layout.ts'
+import { validateValue } from '#utils/validate-value.ts'
 import { useSessionStorage, useStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, nextTick, onMounted } from 'vue'
@@ -21,10 +22,26 @@ const props = defineProps<{
 }>()
 
 // Bookmarked sessions state
-const bookmarkedSessions = useStorage('bookmarked-sessions', new Set<string>())
+const bookmarkedSessions = useStorage<Set<string>>('bookmarked-sessions', new Set<string>(), localStorage, {
+  serializer: {
+    read: (value) => {
+      try {
+        return new Set(JSON.parse(value))
+      } catch {
+        return new Set<string>()
+      }
+    },
+    write: (value) => JSON.stringify(Array.from(value)),
+  },
+})
 
 // View state
-const selectedView = useStorage<'conference' | 'bookmarked'>('selected-view', 'conference')
+const selectedView = useStorage<'conference' | 'bookmarked'>('selected-view', 'conference', localStorage, {
+  serializer: {
+    read: (value) => validateValue(value, ['conference', 'bookmarked'], 'conference'),
+    write: (value) => value,
+  },
+})
 
 // Menu items for view toggle
 const viewMenuItems = computed(() => [
@@ -42,8 +59,13 @@ function formatConferenceDate(date: Date): string {
 const formattedStartDate = computed(() => formatConferenceDate(conference.startDate))
 const formattedEndDate = computed(() => formatConferenceDate(conference.endDate))
 
-// Date selection state - store simple identifiers to avoid serialization issues with Unicode
-const selectedDate = useStorage<'start' | 'end'>('selected-date', 'start')
+// Date selection state
+const selectedDate = useStorage<'start' | 'end'>('selected-date', 'start', localStorage, {
+  serializer: {
+    read: (value) => validateValue(value, ['start', 'end'], 'start'),
+    write: (value) => value,
+  },
+})
 
 // Generate time slots from 8AM to 6PM
 const timeSlots = computed(() => {
