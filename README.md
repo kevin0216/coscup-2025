@@ -13,3 +13,7 @@ Website: https://coscup.org/2025/
 3. Inside the project directory, run the command `pnpm install` to install the dependencies.
 4. Make a copy of `.env.example` and name it `.env`. After copying, supply the values for the environment variables inside.
 5. Run the command `pnpm dev` to run the VitePress development server.
+
+## Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=COSCUP/2025&columns=8)](https://github.com/COSCUP/2025/graphs/contributors)
