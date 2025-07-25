@@ -1,3 +1,5 @@
+![COSCUP 2025 banner](assets/images/banner.png)
+
 # COSCUP 2025 Event Website
 
 A website for the event [COSCUP (Conference for Open Source Coders, Users & Promoters) x RubyConf Taiwan 2025](https://coscup.org/2025/).
