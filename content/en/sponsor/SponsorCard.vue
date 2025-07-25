@@ -126,7 +126,6 @@ a {
   background-color: var(--color-primary-100);
   color: var(--color-primary-600);
   border-radius: 4px;
-  font-weight: bold;
   font-size: 0.8em;
   transform: translateY(70%) translateX(-15%) rotate(-30deg);
 
