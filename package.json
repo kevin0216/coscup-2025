@@ -9,7 +9,7 @@
   },
   "scripts": {
     "postinstall": "openapi-ts",
-    "dev": "vitepress dev",
+    "dev": "env-cmd -- vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
     "prepare": "husky",
@@ -40,6 +40,7 @@
     "@types/leaflet": "1.9.20",
     "@types/markdown-it": "14.1.2",
     "@types/node": "22.16.5",
+    "env-cmd": "^10.1.0",
     "eslint": "9.31.0",
     "eslint-plugin-format": "1.0.1",
     "husky": "9.1.7",
