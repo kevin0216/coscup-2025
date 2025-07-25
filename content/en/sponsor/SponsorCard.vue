@@ -38,15 +38,15 @@ defineProps<{ sponsor: Sponsor }>()
     <span
       v-if="sponsor.type === '3'"
       class="badge"
-    >Collaborated for a total of {{ sponsor.times }} years</span>
+    >{{ sponsor.times }}-yr collaborator</span>
     <span
       v-else-if="sponsor.type === '2'"
       class="badge"
-    >Sponsored for a total of {{ sponsor.times }} years</span>
+    >{{ sponsor.times }}-yr sponsor</span>
     <span
       v-else-if="sponsor.type === '1'"
       class="badge consecutive"
-    >Sponsored for {{ sponsor.times }} consecutive years</span>
+    >{{ sponsor.times }}-yr consecutive sponsor</span>
   </div>
 </template>
 
