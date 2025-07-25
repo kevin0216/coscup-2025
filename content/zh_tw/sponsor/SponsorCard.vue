@@ -137,10 +137,9 @@ div.sponsor-content-wrap {
   background-color: var(--color-primary-100);
   color: var(--color-primary-600);
   border-radius: 4px;
-  font-size: 0.8rem;
   font-weight: bold;
-  transform: translateY(70%) translateX(-15%) rotate(-30deg);
   font-size: 0.8em;
+  transform: translateY(70%) translateX(-15%) rotate(-30deg);
 
   &.consecutive {
     background-color: var(--color-pink-200);
