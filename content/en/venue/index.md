@@ -11,7 +11,7 @@ import BoothTab from '#components/BoothTab.vue'
 
 # Venue
 
-<CButton tag="a" href="/2025/COSCUP-2025-Venue.pdf" download>download COSCUP 2025 Venue</CButton>
+<CButton tag="a" href="/2025/COSCUP-2025-Venue.pdf" download>Download COSCUP 2025 Venue</CButton>
 
 ## All
 
