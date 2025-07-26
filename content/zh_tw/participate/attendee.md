@@ -2,7 +2,7 @@
 import Actions from '#components/Actions.vue'
 
 const scheduleActions = [
-    {href:"https://coscup.org/2024/zh-TW/session", display: 'COSCUP 官方議程'},
+    {href:"https://coscup.org/2025/sessions", display: 'COSCUP 官方議程'},
 ]
 
 </script>

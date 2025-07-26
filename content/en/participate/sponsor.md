@@ -4,7 +4,7 @@ First and foremost, thank you for sponsoring COSCUP, the Conference for Open Sou
 
 :::info Attendee Participation
 
-If this is your first time sponsoring or attending COSCUP, you might want to familiarize yourself with the services and guidelines from the [attendee's perspective](./attendee.md). We also welcome you to visit the volunteer services desk at `TR-312` to learn more about COSCUP's values and ideas.
+If this is your first time sponsoring or attending COSCUP, you might want to familiarize yourself with the services and guidelines from the [attendee's perspective](./attendee.md). We also welcome you to visit the volunteer services desk at `TR-413-2` to learn more about COSCUP's values and ideas.
 
 :::
 
@@ -14,8 +14,8 @@ If this is your first time sponsoring or attending COSCUP, you might want to fam
 
 If your sponsorship package includes a booth, please take note of the following details.
 
-- Setup Time: August 2, 2024. After approximately 1:00 PM, some classrooms will be cleared and set up for booths. We recommend that you come to Taiwan Tech (NTUST) to set up your booth materials after this time.
-- Dismantle Time: August 4, 2024, at 3:00 PM.
+- Setup Time: August 8, 2025. After approximately 1:00 PM, some classrooms will be cleared and set up for booths. We recommend that you come to Taiwan Tech (NTUST) to set up your booth materials after this time.
+- Dismantle Time: August 10, 2025, at 3:00 PM.
 - Parking: The school's parking lot is outsourced to a private company. For detailed fee information, you can search for "**CITY PARKING 城市車旅停車場 國立臺灣科技大學停車場(台科大站)**." - For brief unloading, it is suggested to temporarily stop (without turning off the engine) at **Lane 155, Section 3, Keelung Road** for unloading.
 - Booth Location: You can refer to the [Booth Map Information](https://drive.google.com/file/d/19ggSO_tz8ozeyH9KwgJD_WAxLcEIL4kN/view).
 - Booth Setup: Please refer to the [Booth Setup Guide](https://docs.google.com/presentation/d/1LYh8fVA4ef9h6Mc5sz0EqEYmZIONJgMV/).

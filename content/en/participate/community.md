@@ -56,32 +56,38 @@ When attendees visit your booth, you can ask them to show the QR code in their d
 
 :::info 2024 Community Booths
 
-- Agile Community Taiwan
-- Automotive Grade Linux
-- Cloud Native Taiwan User Group
-- COSCUP Volunteers
-- Free Software Foundation Europe
-- g0v jothon
-- GDG (Google Developer Group) + Google Developer Student Clubs(TW/HK)
-- Hacking Thursday x TOSSUG
-- HKCOTA x HKOSCon
-- JVM Assembly Hall
-- Medical Image Standards Association of Taiwan
-- Mozilla Taiwan Community / MozTW Space
-- Open Culture Foundation
-- OpenCocon - Linux Distribution for old PCs/Thin Clients
-- OpenInfra Community Booth
-- OSPN Japan
-- PyCon TW
-- Ruby Taiwan
-- sciwork
-- Sui Mover
-- Taipei Ethereum Meetup
-- The Apache Software Foundation
+- FOSS for All
+- VideoLAN
+- Ruby City MATSUE
+- YDB
+- HKCOTA x OpenTechConf
 - Ubuntu-TW
-- WasmEdge Community
-- Wikimedia Taiwan
-- 開源香港 + PyCon Hong Kong
+- MySQL Forum
+- Ruby Taiwan
+- FOSS United
+- Open Culture Foundation
+- JVM Team Taiwan
+- g0v Jothon & sh001
+- OpenBuild
+- Automotive Grade Linux
+- Free Software Foundation Europe
+- opensource4you
+- Odoo Community Taiwan (OCTW)
+- Cloud Native Taiwan User Group x WasmEdge
+- GDG TW (Google Developer Groups)
+- Students’ Information Technology Conference
+- Redmine Users
+- Hacking Thursday x TOSSUG
+- KAIYUANSHE
+- WordPress Taiwan Community
+- Open-source no-code/low-code development tool "Pleasanter"
+- Taipei Ethereum Meetup
+- Engineer cafe in Fukuoka, Japan: Building a Global OSS Community
+- opencocon - Linux Distribution for old PCs/Thin Clients
+- JSDC
+- MozTW, Mozilla Taiwan Community
+- SuiMover
+- PyCon TW
 
 :::
 

@@ -2,9 +2,7 @@
 import Actions from '#components/Actions.vue'
 
 const scheduleActions = [
-    {href:"https://coscup.org/2024/en/session", display: 'Offcial Schedule'},
-    {href:"https://pretalx.coscup.org/coscup-2024/schedule", display: 'Pretalx Submission System'},
-    {href:"https://volunteer.coscup.org/schedule/2024", display: 'Schedule from Volunteer Platform'}
+    {href:"https://coscup.org/2025/en/sessions", display: 'Offcial Schedule'},
 ]
 </script>
 
@@ -84,23 +82,6 @@ You can register the BoF activity you want to initiate in [this document](https:
 
 <VPButton href="https://docs.google.com/document/d/1Nn5j549QfJ-QhS2RCje91g5Qt9WVsjxxuFBvb51IpI4/">BoF Registration and Participation</VPButton>
 
-### Giveaways Exchange
-
-:::info 2022 BoF Giveaways Exchange
-
-<figure markdown>
-    <a href="https://volunteer.coscup.org/doc/2022/bof_giveaways.webp">
-    <img alt="2022 BoF 紀念品交換會 Giveaways Exchange"
-        title="2022 BoF 紀念品交換會 Giveaways Exchange"
-        src="https://volunteer.coscup.org/doc/2022/bof_giveaways.webp"
-        style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
-    </a>
-    <figcaption>Giveaways Exchange Party: Held during the COSCUP 2022 BoF session</figcaption>
-</figure>
-COSCUP 2024 will also feature a Giveaways Exchange Party. There will be a permanent small table next to the "Giveaways Booth" outside `TR-309`. You can bring extra items from home to place there, or you can stop by from time to time to see if there's anything you want. Feel free to take anything you like!
-
-:::
-
 ## Attendee Services
 
 <figure markdown="span">
@@ -114,12 +95,6 @@ COSCUP 2024 will also feature a Giveaways Exchange Party. There will be a perman
 In addition to community sessions, COSCUP also provides services to help attendees relax and rejuvenate their body and mind. Whether you're coming from afar or taking a break from your busy work schedule to join COSCUP during the weekend, we have something for you:
 
 - 「[Eve Gathering](https://volunteer.coscup.org/docs/en/about_coscup/eve_gathering/overview/#_1)」：A gathering on the evening of 8/2 before the event starts, where you can drink and talk about open source. Whether you're participating in COSCUP the next day or not, you're welcome to join!
-- 「[Healing Market](https://volunteer.coscup.org/docs/en/about_coscup/health_market/overview/)」：Combines services like "Massage Station," "Wine Yoga," "Healing Painting," and "Healing Sleep" to offer relaxation and recovery for your body and mind.
-- 「[Fun Fair](https://volunteer.coscup.org/docs/en/about_coscup/fun_fair/overview/)」：A new initiative for 2024 that practices the "open-source spirit" through "Open Source Menus." Feel free to browse the various unique booths on-site. You can also stop by for a short break.
-- 「[Healing Lectures](https://volunteer.coscup.org/docs/en/about_coscup/healing_lectures/overview/)」：Continuing the "healing" topic, this series of lectures focuses on "trauma and recovery." If you're interested, you are welcome to attend and listen.
-- 「[Junior Workshop](https://volunteer.coscup.org/docs/zh-TW/about_coscup/junior_workshop/overview/)」：Suitable for children who are new to the open-source and maker fields. This year, we offer popular courses like soldering and video game making. Get ready to ask your kids which class they want to attend!
-
-<VPButton href="https://volunteer.coscup.org/docs/en/about_coscup/attendee_services/">"Attendee Services" Overview</VPButton>
 
 :::info "Services Overview"
 
@@ -208,13 +183,13 @@ We apologize that we couldn't complete the Taiwan Food Guide before the conferen
 ## Attendee Survey
 
 <figure markdown="span">
-    <a href="https://coscup.org/2024-survey/">
-        <img src="https://coscup.org/2024-survey/assets/Attendee_survey2024.a643c0bc.png"
+    <a href="https://coscup.org/2025-survey/">
+        <img src="https://coscup.org/2025/assets/images/participate/2025_attendee_survey_banner.png"
             alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
             style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
     </a>
 </figure>
 
-Finally, we kindly ask you to complete the [Attendee Survey](https://coscup.org/2024-survey/). This will help us better understand the profile of COSCUP attendees. Since we've moved to an open, registration-free model, conducting this type of survey has become increasingly challenging. Your assistance in completing this survey would be greatly appreciated!
+Finally, we kindly ask you to complete the [Attendee Survey](https://coscup.org/2025-survey/). This will help us better understand the profile of COSCUP attendees. Since we've moved to an open, registration-free model, conducting this type of survey has become increasingly challenging. Your assistance in completing this survey would be greatly appreciated!
 
-<VPButton href="https://coscup.org/2024-survey/">Assist in Completing the "Attendee Survey"</VPButton>
+<VPButton href="https://coscup.org/2025-survey/">Assist in Completing the "Attendee Survey"</VPButton>
