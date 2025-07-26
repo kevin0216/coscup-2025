@@ -201,7 +201,7 @@ COSCUP 除了社群議程之外，我們也提供給予會眾身心靈放鬆的�
 
 <figure markdown="span">
     <a href="https://coscup.org/2025-survey/">
-        <img src="https://coscup.org/2024-survey/assets/Attendee_survey2024.a643c0bc.png"
+        <img src="https://coscup.org/2025/assets/images/participate/2025_attendee_survey_banner.png"
             alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
             style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
     </a>
