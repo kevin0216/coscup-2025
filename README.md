@@ -2,15 +2,13 @@
 
 # COSCUP 2025 Event Website
 
-A website for the event [COSCUP (Conference for Open Source Coders, Users & Promoters) x RubyConf Taiwan 2025](https://coscup.org/2025/).
+This repository contains the source code for the COSCUP (Conference for Open Source Coders, Users & Promoters) x RubyConf Taiwan 2025 event website.
 
-Website: https://coscup.org/2025/
+The deployed website is available at <https://coscup.org/2025/>.
 
-## Setup
+## Development
 
-### Development
-
-1. Install pnpm, follow the [installation guide](https://pnpm.io/installation).
+1. Install pnpm by following the [installation guide](https://pnpm.io/installation).
 2. Clone this repository using git.
 3. Inside the project directory, run the command `pnpm install` to install the dependencies.
 4. Make a copy of `.env.example` and name it `.env`. After copying, supply the values for the environment variables inside.
