@@ -1,5 +1,5 @@
 ---
-sidebar: false
+aside: false
 outline: false
 ---
 
@@ -19,7 +19,7 @@ outline: false
 
 <VenueTab />
 
-## Booths
+## Booths B-D
 
 <BoothTab />
 

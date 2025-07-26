@@ -1,5 +1,5 @@
 ---
-sidebar: false
+aside: false
 outline: false
 ---
 
@@ -19,7 +19,7 @@ outline: false
 
 <VenueTab />
 
-## 攤位規劃
+## 攤位規劃 B-D
 
 <BoothTab />
 
