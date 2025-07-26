@@ -1,7 +1,6 @@
 // https://vitepress.dev/guide/custom-theme
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import VenueTab from '../../components/VenueTab.vue'
 import Layout from './Layout.vue'
 import './style.css'
 import './custom.css'
@@ -11,7 +10,4 @@ import './tailwind-text.css'
 export default {
   extends: DefaultTheme,
   Layout,
-  enhanceApp({ app }) {
-    app.component('VenueTab', VenueTab)
-  },
 } satisfies Theme
