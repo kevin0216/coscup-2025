@@ -18,4 +18,8 @@ Website: https://coscup.org/2025/
 
 ## Contributors
 
+<div align="center">
+
 [![Contributors](https://contrib.rocks/image?repo=COSCUP/2025&columns=8)](https://github.com/COSCUP/2025/graphs/contributors)
+
+</div>
