@@ -45,7 +45,7 @@ defineProps<{ sponsor: Sponsor }>()
     >Sponsored for a total of {{ sponsor.times }} years</span>
     <span
       v-else-if="sponsor.type === '1'"
-      class="badge"
+      class="badge consecutive"
     >Sponsored for {{ sponsor.times }} consecutive years</span>
   </div>
 </template>
@@ -123,13 +123,16 @@ a {
   top: 10px;
   left: 10px;
   padding: 4px 8px;
-  background: var(--vp-c-brand-3);
-  color: white;
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-600);
   border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: bold;
+  font-size: 0.8em;
   transform: translateY(70%) translateX(-15%) rotate(-30deg);
-  font-size: 0.6em;
+
+  &.consecutive {
+    background-color: var(--color-pink-200);
+    color: var(--color-pink-600);
+  }
 }
 
 @media screen and (max-width: 600px) {
