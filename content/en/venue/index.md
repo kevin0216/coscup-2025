@@ -3,9 +3,15 @@ aside: false
 outline: false
 ---
 
+<script setup lang="ts">
+import CButton from '#components/CButton.vue'
+import VenueTab from '#components/VenueTab.vue'
+import BoothTab from '#components/BoothTab.vue'
+</script>
+
 # Venue
 
-<CButton tag="a" href="/2025/COSCUP-2025-Venue.pdf" download>download COSCUP 2025 Venue</CButton>
+<CButton tag="a" href="/2025/COSCUP-2025-Venue.pdf" download>Download COSCUP 2025 Venue</CButton>
 
 ## All
 

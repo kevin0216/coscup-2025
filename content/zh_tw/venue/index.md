@@ -3,6 +3,12 @@ aside: false
 outline: false
 ---
 
+<script setup lang="ts">
+import CButton from '#components/CButton.vue'
+import VenueTab from '#components/VenueTab.vue'
+import BoothTab from '#components/BoothTab.vue'
+</script>
+
 # 會場地圖
 
 <CButton tag="a" href="/2025/COSCUP-2025-Venue.pdf" download>下載會場地圖</CButton>
