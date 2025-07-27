@@ -9,9 +9,9 @@ import booth409 from '/@/assets/images/venue/booth409.png'
 const activeTab = ref(0)
 
 const tabs = [
-  { name: '309', image: booth309 },
-  { name: '312', image: booth312 },
-  { name: '409', image: booth409 },
+  { name: 'TR 309', image: booth309 },
+  { name: 'TR 312', image: booth312 },
+  { name: 'TR 409-1', image: booth409 },
 ]
 </script>
 
