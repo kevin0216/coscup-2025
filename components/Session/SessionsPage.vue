@@ -52,7 +52,7 @@ const viewMenuItems = computed(() => [
 
 // Format conference dates with spacing
 function formatConferenceDate(date: Date): string {
-  const month = date.toLocaleDateString('en-US', { month: 'short' })
+  const month = date.toLocaleDateString('en-US', { month: 'short', timeZone: 'Asia/Taipei' })
   const day = date.getDate()
   return `${month}.\u2009${day}` // thin space between month and day
 }
