@@ -17,15 +17,12 @@ const route = useRoute()
 function updateNavBarMenuClass() {
   if (inBrowser) {
     const params = new URLSearchParams(window.location.search)
-    const navMenu = document.querySelector('.VPNavBarMenu')
-    const navTitle = document.querySelector('.title')
-    if (navMenu && navTitle) {
+    const nav = document.querySelector('.VPNav')
+    if (nav) {
       if (params.get('mode') === 'app') {
-        navTitle.classList.add('hide')
-        navMenu.classList.add('hide')
+        nav.classList.add('hide')
       } else {
-        navTitle.classList.remove('hide')
-        navMenu.classList.remove('hide')
+        nav.classList.remove('hide')
       }
     }
   }
