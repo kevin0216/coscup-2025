@@ -82,11 +82,10 @@ export default async () => {
     description: conference.description,
     head: [
       ['link', { href: conference.favicon, rel: 'icon' }],
-      ['meta', { property: 'og:description', content: conference.description }],
+      ['meta', { property: 'og:image', content: conference.og_image }],
       ['meta', { property: 'og:url', content: conference.url }],
       ['meta', { property: 'og:type', content: conference.type }],
       ['meta', { property: 'og:site_name', content: conference.site_name }],
-      ['meta', { property: 'og:image', content: conference.og_image }],
       ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-C9EMTMDSS1' }],
       [
         'script',
@@ -114,6 +113,19 @@ export default async () => {
       return {
         title: session.title,
         description: session.abstract?.replaceAll('\n', ' '),
+      }
+    },
+    transformHead({ pageData }) {
+      if (!pageData.params?.session) {
+        return [
+          ['meta', { property: 'og:title', content: conference.title }],
+          ['meta', { property: 'og:description', content: conference.description }],
+        ]
+      } else {
+        return [
+          ['meta', { property: 'og:title', content: pageData.title }],
+          ['meta', { property: 'og:description', content: pageData.description }],
+        ]
       }
     },
     srcDir: 'content',
