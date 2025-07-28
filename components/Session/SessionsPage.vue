@@ -360,12 +360,6 @@ const openedSession = computed(() => {
   padding: 16px 0;
   height: var(--controls-height);
 
-  @media (max-width: 500px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
   > .toolbar-start {
     display: flex;
     align-items: center;
