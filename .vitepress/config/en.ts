@@ -11,7 +11,7 @@ export const en = defineConfig({
       { text: 'Sponsor', link: '/en/sponsor' },
       { text: 'Community', link: '/en/community' },
       { text: 'Staff', link: '/en/staff' },
-      { text: 'venue', link: '/en/venue' },
+      { text: 'Venue', link: '/en/venue' },
     ],
     sidebar: {},
     socialLinks: [
