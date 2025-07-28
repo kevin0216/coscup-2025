@@ -69,6 +69,9 @@ import { conference } from '#data/conference.js'
         <a href="https://coscup.medium.com/">
           <IconFaBrandsMedium />
         </a>
+        <a href="https://www.linkedin.com/company/coscup-tw/">
+          <IconFaBrandsLinkedin />
+        </a>
       </p>
     </section>
   </footer>
