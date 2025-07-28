@@ -51,4 +51,12 @@ const props = withDefaults(defineProps<{
     }
   }
 }
+
+@media (max-width: 500px) {
+  .session-date-button {
+    font-size: 18px;
+    padding: 0;
+    font-style: normal;
+  }
+}
 </style>
