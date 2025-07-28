@@ -104,7 +104,8 @@ export default async () => {
         return
       }
 
-      const session = enData.find((s) => s.code === pageData.params?.session)
+      const sessions = pageData.filePath.includes('en') ? enData : zhTwData
+      const session = sessions.find((s) => s.code === pageData.params?.session)
 
       if (!session) {
         return
