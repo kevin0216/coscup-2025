@@ -8,11 +8,10 @@ import CMenuBar from '#/components/CMenuBar.vue'
 import { conference } from '#data/conference'
 import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#utils/session-layout.ts'
 import { validateValue } from '#utils/validate-value.ts'
-import { useLocalStorage, useSessionStorage } from '@vueuse/core'
+import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, nextTick, onMounted } from 'vue'
 import { messages } from './session-messages.ts'
-import SessionDateButton from './SessionDateButton.vue'
 import { useScrollFade } from './useScrollFade.ts'
 
 const props = defineProps<{
@@ -21,6 +20,10 @@ const props = defineProps<{
   submissions: SubmissionResponse[]
   locale: Locale
 }>()
+
+// Reactive state for mobile view
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isDesktop = breakpoints.greater('sm')
 
 // Bookmarked sessions state
 const bookmarkedSessions = useLocalStorage<Set<string>>('bookmarked-sessions', new Set<string>(), {
@@ -50,16 +53,6 @@ const viewMenuItems = computed(() => [
   { key: 'bookmarked', label: messages[props.locale].bookmarked || 'Bookmarked' },
 ])
 
-// Format conference dates with spacing
-function formatConferenceDate(date: Date): string {
-  const month = date.toLocaleDateString('en-US', { month: 'short', timeZone: 'Asia/Taipei' })
-  const day = date.getDate()
-  return `${month}.\u2009${day}` // thin space between month and day
-}
-
-const formattedStartDate = computed(() => formatConferenceDate(conference.startDate))
-const formattedEndDate = computed(() => formatConferenceDate(conference.endDate))
-
 // Date selection state
 const selectedDate = useLocalStorage<'start' | 'end'>('selected-date', 'start', {
   serializer: {
@@ -67,6 +60,10 @@ const selectedDate = useLocalStorage<'start' | 'end'>('selected-date', 'start', 
     write: (value) => value,
   },
 })
+
+function updateSelectedDate(date: 'start' | 'end') {
+  selectedDate.value = date
+}
 
 // Generate time slots from 8AM to 6PM
 const timeSlots = computed(() => {
@@ -187,20 +184,14 @@ const openedSession = computed(() => {
 
   <div class="schedule-page">
     <!-- Date Selection -->
-    <nav class="date-tab">
-      <SessionDateButton
-        :selected="selectedDate === 'start'"
-        @click="selectedDate = 'start'"
-      >
-        {{ formattedStartDate }}
-      </SessionDateButton>
-      <SessionDateButton
-        :selected="selectedDate === 'end'"
-        @click="selectedDate = 'end'"
-      >
-        {{ formattedEndDate }}
-      </SessionDateButton>
-    </nav>
+    <SessionDateTab
+      v-if="isDesktop"
+      :end-date="conference.endDate"
+      :selected-date="selectedDate"
+      :start-date="conference.startDate"
+      variant="desktop"
+      @update:selected-date="updateSelectedDate"
+    />
 
     <div class="toolbar">
       <div class="toolbar-start">
@@ -339,6 +330,15 @@ const openedSession = computed(() => {
         class="scroll-right-fade"
       />
     </div>
+
+    <SessionDateTab
+      v-if="!isDesktop"
+      :end-date="conference.endDate"
+      :selected-date="selectedDate"
+      :start-date="conference.startDate"
+      variant="mobile"
+      @update:selected-date="updateSelectedDate"
+    />
   </div>
 </template>
 
@@ -351,15 +351,6 @@ const openedSession = computed(() => {
   min-width: 100%;
   padding: 18px 32px;
   height: calc(100vh - var(--vp-nav-height));
-}
-
-.date-tab {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  font-family: Inter, sans-serif;
-  color: #fff;
-  height: var(--date-tab-height);
 }
 
 .toolbar {
