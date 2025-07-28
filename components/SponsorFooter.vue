@@ -21,15 +21,15 @@ const getSponsorTimesText = computed(() => (sponsor: Sponsor) => {
   if (sponsor.type === '3') {
     return isZhTw
       ? `累計 ${sponsor.times} 年合作`
-      : `Collaborated a total of ${sponsor.times} years`
+      : `${sponsor.times}-yr collaborator`
   } else if (sponsor.type === '2') {
     return isZhTw
       ? `累計 ${sponsor.times} 年贊助`
-      : `Sponsored a total of ${sponsor.times} years`
+      : `${sponsor.times}-yr sponsor`
   } else if (sponsor.type === '1') {
     return isZhTw
       ? `連續 ${sponsor.times} 年贊助`
-      : `Sponsored ${sponsor.times} consecutive years`
+      : `${sponsor.times}-yr consecutive sponsor`
   }
   return ''
 })
