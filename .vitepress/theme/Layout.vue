@@ -24,13 +24,9 @@ function updateNavBarMenuClass() {
 
   const params = new URLSearchParams(window.location.search)
   const nav = document.querySelector('.VPNav')
-  if (nav) {
-    if (params.get('mode') === 'app') {
-      nav.classList.add('hide')
-    } else {
-      nav.classList.remove('hide')
-    }
-  }
+  if (!nav) return
+
+  nav.classList.toggle('hide', params.get('mode') === 'app')
 }
 
 onMounted(() => {
