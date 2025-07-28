@@ -219,6 +219,6 @@ a {
   z-index: 9999 !important;
 }
 
-.hide {
+.hidden {
   display: none !important;
 }

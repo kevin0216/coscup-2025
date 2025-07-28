@@ -26,7 +26,7 @@ function updateNavBarMenuClass() {
   const nav = document.querySelector('.VPNav')
   if (!nav) return
 
-  nav.classList.toggle('hide', params.get('mode') === 'app')
+  nav.classList.toggle('hidden', params.get('mode') === 'app')
 }
 
 onMounted(() => {
