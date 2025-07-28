@@ -8,7 +8,7 @@ import CMenuBar from '#/components/CMenuBar.vue'
 import { conference } from '#data/conference'
 import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#utils/session-layout.ts'
 import { validateValue } from '#utils/validate-value.ts'
-import { useSessionStorage, useStorage } from '@vueuse/core'
+import { useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, nextTick, onMounted } from 'vue'
 import { messages } from './session-messages.ts'
@@ -23,7 +23,7 @@ const props = defineProps<{
 }>()
 
 // Bookmarked sessions state
-const bookmarkedSessions = useStorage<Set<string>>('bookmarked-sessions', new Set<string>(), localStorage, {
+const bookmarkedSessions = useLocalStorage<Set<string>>('bookmarked-sessions', new Set<string>(), {
   serializer: {
     read: (value) => {
       try {
@@ -37,7 +37,7 @@ const bookmarkedSessions = useStorage<Set<string>>('bookmarked-sessions', new Se
 })
 
 // View state
-const selectedView = useStorage<'conference' | 'bookmarked'>('selected-view', 'conference', localStorage, {
+const selectedView = useLocalStorage<'conference' | 'bookmarked'>('selected-view', 'conference', {
   serializer: {
     read: (value) => validateValue(value, ['conference', 'bookmarked'], 'conference'),
     write: (value) => value,
@@ -61,7 +61,7 @@ const formattedStartDate = computed(() => formatConferenceDate(conference.startD
 const formattedEndDate = computed(() => formatConferenceDate(conference.endDate))
 
 // Date selection state
-const selectedDate = useStorage<'start' | 'end'>('selected-date', 'start', localStorage, {
+const selectedDate = useLocalStorage<'start' | 'end'>('selected-date', 'start', {
   serializer: {
     read: (value) => validateValue(value, ['start', 'end'], 'start'),
     write: (value) => value,
