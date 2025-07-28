@@ -14,17 +14,38 @@ watchEffect(() => {
 
 const route = useRoute()
 
+function updateNavBarMenuClass() {
+  if (inBrowser) {
+    const params = new URLSearchParams(window.location.search)
+    const navMenu = document.querySelector('.VPNavBarMenu')
+    const navTitle = document.querySelector('.title')
+    if (navMenu && navTitle) {
+      if (params.get('mode') === 'app') {
+        navTitle.classList.add('hide')
+        navMenu.classList.add('hide')
+      } else {
+        navTitle.classList.remove('hide')
+        navMenu.classList.remove('hide')
+      }
+    }
+  }
+}
+
 function initZoom() {
   mediumZoom('.main img', { background: 'var(--vp-c-bg)' })
 }
 
 onMounted(() => {
   initZoom()
+  updateNavBarMenuClass()
 })
 
 watch(
   () => route.path,
-  () => nextTick(() => initZoom()),
+  () => nextTick(() => {
+    initZoom()
+    updateNavBarMenuClass()
+  }),
 )
 </script>
 
