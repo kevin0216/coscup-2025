@@ -6,6 +6,7 @@ import DefaultTheme from 'vitepress/theme'
 import { nextTick, onMounted, watch, watchEffect } from 'vue'
 
 const { lang } = useData()
+
 watchEffect(() => {
   if (inBrowser) {
     document.cookie = `lang=${lang.value};path=/`
@@ -14,22 +15,22 @@ watchEffect(() => {
 
 const route = useRoute()
 
-function updateNavBarMenuClass() {
-  if (inBrowser) {
-    const params = new URLSearchParams(window.location.search)
-    const nav = document.querySelector('.VPNav')
-    if (nav) {
-      if (params.get('mode') === 'app') {
-        nav.classList.add('hide')
-      } else {
-        nav.classList.remove('hide')
-      }
-    }
-  }
-}
-
 function initZoom() {
   mediumZoom('.main img', { background: 'var(--vp-c-bg)' })
+}
+
+function updateNavBarMenuClass() {
+  if (!inBrowser) return
+
+  const params = new URLSearchParams(window.location.search)
+  const nav = document.querySelector('.VPNav')
+  if (nav) {
+    if (params.get('mode') === 'app') {
+      nav.classList.add('hide')
+    } else {
+      nav.classList.remove('hide')
+    }
+  }
 }
 
 onMounted(() => {
