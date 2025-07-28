@@ -156,14 +156,6 @@ function handleCloseSession() {
   router.go(pathname)
 }
 
-const openedSession = computed(() => {
-  if (props.sessionCode) {
-    return props.submissions.find((session) => session.code === props.sessionCode) ?? null
-  }
-
-  return null
-})
-
 // Restore scroll position on component mount (for page refreshes/direct links)
 onMounted(() => {
   nextTick(() => {
@@ -174,10 +166,14 @@ onMounted(() => {
       // scrollPosition.value = null
     }
   })
+})
 
-  if (openedSession.value) {
-    document.title = `${openedSession.value.title} | ${document.title}`
+const openedSession = computed(() => {
+  if (props.sessionCode) {
+    return props.submissions.find((session) => session.code === props.sessionCode) ?? null
   }
+
+  return null
 })
 </script>
 
