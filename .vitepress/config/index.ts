@@ -163,7 +163,7 @@ export default async () => {
         return {
           id: enSession.code,
           type: enSession.track.id.toString(),
-          room: enSession.room.id,
+          room: enSession.room.id.toString(),
           start: enSession.start,
           end: enSession.end,
           language: enSession.language,
