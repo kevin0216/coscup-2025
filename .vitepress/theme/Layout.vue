@@ -6,6 +6,7 @@ import DefaultTheme from 'vitepress/theme'
 import { nextTick, onMounted, watch, watchEffect } from 'vue'
 
 const { lang } = useData()
+
 watchEffect(() => {
   if (inBrowser) {
     document.cookie = `lang=${lang.value};path=/`
@@ -18,13 +19,27 @@ function initZoom() {
   mediumZoom('.main img', { background: 'var(--vp-c-bg)' })
 }
 
+function updateNavBarMenuClass() {
+  if (!inBrowser) return
+
+  const params = new URLSearchParams(window.location.search)
+  const nav = document.querySelector('.VPNav')
+  if (!nav) return
+
+  nav.classList.toggle('hidden', params.get('mode') === 'app')
+}
+
 onMounted(() => {
   initZoom()
+  updateNavBarMenuClass()
 })
 
 watch(
   () => route.path,
-  () => nextTick(() => initZoom()),
+  () => nextTick(() => {
+    initZoom()
+    updateNavBarMenuClass()
+  }),
 )
 </script>
 
