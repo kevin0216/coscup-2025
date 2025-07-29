@@ -142,6 +142,17 @@ export default async () => {
     },
     appearance: false,
     async buildEnd(_) {
+      function formatToTaipeiTime(dateString: string | Date | null | undefined): string | null | undefined {
+        if (!dateString) {
+          return dateString
+        }
+        const date = new Date(dateString)
+        // 'en-CA' locale gives date in 'YYYY-MM-DD' format
+        const ymd = date.toLocaleDateString('en-CA', { timeZone: 'Asia/Taipei' })
+        // 'en-CA' locale gives time in 'HH:mm:ss' format
+        const hms = date.toLocaleTimeString('en-CA', { hour12: false, timeZone: 'Asia/Taipei' })
+        return `${ymd}T${hms}+08:00`
+      }
       function generateLanguageTagId(generalizedLang: string): string {
         return `language_${generalizedLang.toLowerCase().replace(/-/g, '')}`
       }
@@ -164,8 +175,8 @@ export default async () => {
           id: enSession.code,
           type: enSession.track.id.toString(),
           room: enSession.room.id.toString(),
-          start: enSession.start,
-          end: enSession.end,
+          start: formatToTaipeiTime(enSession.start),
+          end: formatToTaipeiTime(enSession.end),
           language: enSession.language,
           zh: {
             title: zhTwSession?.title ?? enSession.title,
