@@ -18,7 +18,7 @@ import { PopoverArrow, PopoverContent, PopoverRoot, PopoverTrigger } from 'reka-
 
 <style>
 .popover-content {
-  z-index: 1000;
+  z-index: 20;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;

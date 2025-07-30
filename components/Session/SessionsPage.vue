@@ -602,7 +602,7 @@ a.session-card {
   width: 48px;
   height: 100%;
   pointer-events: none;
-  z-index: 20;
+  z-index: 10;
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
 }
 
@@ -613,7 +613,7 @@ a.session-card {
   width: 48px;
   height: 100%;
   pointer-events: none;
-  z-index: 20;
+  z-index: 10;
   background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
 }
 </style>
