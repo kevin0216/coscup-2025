@@ -10,7 +10,7 @@ export function formatMultiLingualString(input: PretalxMultiLingualString): Mult
     return undefined
   }
   const en = input.en
-  const zhTw = input['zh-tw']
+  const zhTw = input['zh-hant']
 
   if (en === undefined && zhTw === undefined) {
     return undefined
