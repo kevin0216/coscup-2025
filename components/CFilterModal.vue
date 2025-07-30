@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CTextField from '#components/CTextField.vue'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 
 interface FilterOption {
   id: string
@@ -14,7 +14,6 @@ interface Props {
 }
 
 interface Emits {
-  search: [value: string]
   toggle: [id: string, checked: boolean]
 }
 
@@ -25,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>()
 
-const searchValue = ref('')
+const searchValue = defineModel<string>('search', { default: '' })
 
 const filteredOptions = computed(() => {
   if (!searchValue.value) {
@@ -37,11 +36,6 @@ const filteredOptions = computed(() => {
     option.label.toLowerCase().includes(searchTerm),
   )
 })
-
-function handleSearch(value: string) {
-  searchValue.value = value
-  emit('search', value)
-}
 
 function handleToggle(id: string, event: Event) {
   const target = event.target as HTMLInputElement
@@ -56,7 +50,6 @@ function handleToggle(id: string, event: Event) {
       <CTextField
         v-model="searchValue"
         :placeholder="searchPlaceholder"
-        @update:model-value="handleSearch"
       />
     </div>
 

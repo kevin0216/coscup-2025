@@ -1,7 +1,9 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import CFilterModal from '#components/CFilterModal.vue'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+
+const searchValue = ref('')
 
 const filterOptions = ref([
   { id: '1', label: 'Google 開發者派對', checked: false },
@@ -14,9 +16,9 @@ const filterOptions = ref([
   { id: '8', label: 'Kubernetes 台灣使用者群組', checked: false },
 ])
 
-function handleSearch(value: string) {
+watch(searchValue, (value) => {
   console.log('Search:', value)
-}
+})
 
 function handleToggle(id: string, checked: boolean) {
   const option = filterOptions.value.find((opt) => opt.id === id)
@@ -30,9 +32,9 @@ function handleToggle(id: string, checked: boolean) {
 <template>
   <div style="max-width: 240px;">
     <CFilterModal
+      v-model:search="searchValue"
       :options="filterOptions"
       search-placeholder="搜尋社群..."
-      @search="handleSearch"
       @toggle="handleToggle"
     />
   </div>
