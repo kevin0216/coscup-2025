@@ -195,33 +195,23 @@ const openedSession = computed(() => {
 
     <div class="toolbar">
       <div class="toolbar-start">
-        <!--
-        <CButton
-          class="time-zone-btn"
-          variant="secondary"
-        >
-          <template #icon>
-            🌐
-          </template>
-          Time zone
-        </CButton>
-
         <CButton variant="basic">
           <template #icon>
-            👥
+            <IconPhUsersThree />
           </template>
           {{ messages[locale].community || 'Community' }}
         </CButton>
 
         <CButton variant="basic">
           <template #icon>
-            🏷️
+            <IconPhBookmarkSimple />
           </template>
           {{ messages[locale].tags || 'Tags' }}
         </CButton>
 
+        <!--
         <CIconButton variant="basic">
-          🔍
+          <IconPhMagnifyingGlass />
         </CIconButton>
         -->
       </div>
