@@ -54,34 +54,40 @@ COSCUP 二日活動可以聚集會眾參與，對於社群在 COSCUP 有一個�
 
 :::
 
-:::info 2024 社群攤位名單
+:::info 2025 社群攤位名單
 
-- Automotive Grade Linux
-- COSCUP 行政組 - 志工服務台
-- Free Software Foundation Europe
-- g0v 零時政府揪松團
-- GDG（Google Developer Group) + Google學生開發者社群(台灣/香港)
-- Hacking Thursday x TOSSUG
-- HKCOTA x 香港開源年會
-- JVM 集會所
-- MozTW 社群 / 摩茲工寮
-- OCF 開放文化基金會
-- Open Source Hong Kong x PyCON Hong Kong
-- OpenCocon - Linux Distribution for old PCs/Thin Clients
-- OpenInfra Community Booth
-- OSPN Japan
-- PyCon TW
-- Ruby Taiwan
-- sciwork
-- Sui Mover
-- Taipei Ethereum Meetup
-- The Apache Software Foundation
+- FOSS for All
+- VideoLAN
+- Ruby City MATSUE
+- YDB
+- HKCOTA x OpenTechConf (Community Booth)
 - Ubuntu 台灣社群
-- WasmEdge Community
-- 台灣維基媒體協會
-- 社團法人台灣敏捷協會
-- 社團法人台灣醫療影像資訊標準協會
-- 雲端原生台灣社群
+- MySQL 論壇
+- Ruby Taiwan
+- FOSS United
+- 開放文化基金會
+- JVM 台灣代表隊
+- g0v 揪松團 x 零時小學校
+- OpenBuild
+- Automotive Grade Linux
+- Free Software Foundation Europe
+- 源來適你
+- Odoo 開源商務軟體
+- Cloud Native Taiwan User Group x WasmEdge
+- GDG TW (Google Developers Groups Taiwan)
+- SITCON 學生計算機年會
+- Redmine Users
+- Hacking Thursday x TOSSUG
+- 開源社
+- WordPress Taiwan Community
+- Open-source no-code/low-code development tool "Pleasanter"
+- Taipei Ethereum Meetup
+- Engineer cafe in Fukuoka, Japan: Building a Global OSS Community
+- opencocon - Linux Distribution for old PCs/Thin Clients
+- JSDC
+- MozTW / Mozilla 台灣社群
+- SuiMover
+- PyCon TW
 
 :::
 
@@ -120,7 +126,7 @@ COSCUP 二日活動可以聚集會眾參與，對於社群在 COSCUP 有一個�
 
 ## BoF 週邊活動
 
-我們也鼓勵社群可以利用 COSCUP 活動前後的時間舉辦自己的社群大會，可以將相關的活動資訊紀錄到[這份文件](https://docs.google.com/document/d/1Nn5j549QfJ-QhS2RCje91g5Qt9WVsjxxuFBvb51IpI4/edit?usp=sharing)中。
+我們也鼓勵社群可以利用 COSCUP 活動前後的時間舉辦自己的社群大會，可以將相關的活動資訊紀錄到[這份文件](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm)中。
 
 ## 尋求協助
 

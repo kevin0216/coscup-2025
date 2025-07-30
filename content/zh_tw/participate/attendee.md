@@ -3,8 +3,6 @@ import Actions from '#components/Actions.vue'
 
 const scheduleActions = [
     {href:"https://coscup.org/2024/zh-TW/session", display: 'COSCUP 官方議程'},
-    {href:"https://pretalx.coscup.org/coscup-2024/schedule", display: 'Pretalx 投稿系統'},
-    {href:"https://volunteer.coscup.org/schedule/2024", display: '志工平台議程表'}
 ]
 
 </script>
@@ -33,13 +31,13 @@ COSCUP 與其他年會不一樣的是由開源社群一起參與的年會，年�
   <figcaption>COSCUP 會場地圖 <small><a href="https://volunteer.coscup.org/doc/coscup_venue.svg">[原始圖檔]</a></small></figcaption>
 </figure>
 
-COSCUP 2024 主要在兩個建築物舉辦活動，RB 除了大會開幕、閉幕式外，也有相關的議程也舉辦於此。TR 2 樓到 6 樓皆為活動場地，有議程軌、社群攤位、按摩小站、親子工作坊、「開．源遊會」…等活動。
+COSCUP 2025 主要在兩個建築物舉辦活動，RB 除了大會開幕、閉幕式外，也有相關的議程也舉辦於此。TR 2 樓到 5 樓與 AU 皆為活動場地，有議程軌、社群攤位、按摩小站、志工回娘家、托育服務、氮氣咖啡攤位…等活動。
 
-兩個會場的位置可經過籃球場、網球場移動。如果迷路了，可以注意路上的指引或是詢問志工夥伴尋求協助。
+三個會場的位置可經過籃球場、網球場、烏龜池移動。如果迷路了，可以注意路上的指引或是詢問志工夥伴尋求協助。
 
 :::info 大會資訊
 
-- 詳細的地圖、會場資訊可以參考官網：「[會場地圖](https://coscup.org/2024/zh-TW/venue)」，包含各議程教室、社群攤位資訊…等。
+- 詳細的地圖、會場資訊可以參考官網：「[會場地圖](https://coscup.org/2025/event/)」
 
 :::
 
@@ -49,9 +47,7 @@ COSCUP 是由開源社群主持開源議題、議程，因此我們會在同一�
 
 目前有兩種呈現議程表的方式可以使用，請挑選較適合您閱讀的：
 
-1. [大會議程表](https://coscup.org/2024/zh-TW/session)：適合寬銀幕使用，請記得右側還有更多議程軌內容。
-2. [Pretalx 投稿系統](https://pretalx.coscup.org/coscup-2024/schedule/)：可針對「議程表」、「議程」或「講者」呈現不同的瀏覽方式，稍微適合行動裝置、平板尺寸、或比較習慣條列式的呈現。
-3. [志工平台議程表](https://volunteer.coscup.org/schedule/2024)：針對議程軌條列呈現，可收藏、加入行事曆與留言討論議程。
+[大會議程表](https://coscup.org/2025/sessions/)：適合寬銀幕使用。
 
 <Actions :actionsList="scheduleActions" />
 
@@ -59,25 +55,27 @@ COSCUP 是由開源社群主持開源議題、議程，因此我們會在同一�
 
 什麼是 BoF？**Birds of a Feather** 這個短語源於諺語 "Birds of a feather flock together"，意思是「物以類聚，人以群分」。，BoF 是一種非正式的討論會議形式，讓擁有相似興趣或專業背景的人可以在會議期間聚集在一起，交流經驗和見解，讓參與者自由地討論各種話題。表示擁有相似興趣、特徵或背景的人通常會聚集在一起。
 
-你可以在[這份文件](https://docs.google.com/document/d/1Nn5j549QfJ-QhS2RCje91g5Qt9WVsjxxuFBvb51IpI4/)中登記你想要發起的 BoF 活動，例如：「交換紀念品：我可能在其他研討會拿的紀念品，想與大家交換！」、「[交換 PGP 簽章](https://zh.wikipedia.org/zh-tw/%E5%AF%86%E9%92%A5%E7%AD%BE%E5%90%8D%E8%81%9A%E4%BC%9A)（不過現在還有人在用 PGP 嗎？）」
+你可以在[這份文件](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm)中登記你想要發起的 BoF 活動，例如：「交換紀念品：我可能在其他研討會拿的紀念品，想與大家交換！」、「[交換 PGP 簽章](https://zh.wikipedia.org/zh-tw/%E5%AF%86%E9%92%A5%E7%AD%BE%E5%90%8D%E8%81%9A%E4%BC%9A)（不過現在還有人在用 PGP 嗎？）」
 
-<VPButton href="https://docs.google.com/document/d/1Nn5j549QfJ-QhS2RCje91g5Qt9WVsjxxuFBvb51IpI4/">BoF 登記與參與</VPButton>
+<VPButton href="https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm">BoF 登記與參與</VPButton>
 
-### 結緣品交換會
+## Hacker Corner
 
-:::info 2022 BoF 紀念品交換會
+### 什麼是 Hacking Corner？
 
-<figure markdown>
-    <a href="https://volunteer.coscup.org/doc/2022/bof_giveaways.webp">
-        <img alt="2022 BoF 紀念品交換會"
-            title="2022 BoF 紀念品交換會"
-            src="https://volunteer.coscup.org/doc/2022/bof_giveaways.webp"
-            style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);"
-        >
-    </a>
-    <figcaption>紀念品交換會，在 COSCUP 2022 BoF 中舉辦。</figcaption>
-</figure>
-COSCUP 2024 也有紀念品交換會，在 `TR-309` 外的「**紀念品攤位**」旁邊會有一個常設的小桌，你可以帶著家裡多餘的物品前來放置，或是您可以不定時的經過看看有無想要的物品，看到喜歡的就拿走是沒問題的！
+Hacking Corner 是現場開放空間（過去稱為 Hacking Room），讓會眾可臨時揪團進行共創、開發、技術交流等非正式活動。每個位置可約容納 10 人，不需事前申請，現場自由使用。
+
+### 如何使用 Hacking Corner？
+
+- 地點：TR309 / TR409 外走廊（08/09–08/10）
+- 無需預約：有空位即可使用
+- 同時段可能有多個討論，請尊重他人
+- 適合程式共創、討論、打開 source code 一起研究等活動
+
+### 如何尋找/宣傳在 Hacking Corner 的活動？
+
+- 可隨時於[電子佈告欄](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?usp=sharing)宣傳或查詢
+- 社群媒體標註 #coscup 或 #coscup2025 讓更多人知道
 
 ## 會眾服務
 
@@ -91,24 +89,40 @@ COSCUP 2024 也有紀念品交換會，在 `TR-309` 外的「**紀念品攤位**
 
 COSCUP 除了社群議程之外，我們也提供給予會眾身心靈放鬆的服務，希望在活動二日，或許您遠道而來，或許您繁忙的工作在假日期間持續參與 COSCUP。
 
-- 「[前夜派對](https://volunteer.coscup.org/docs/zh-TW/about_coscup/eve_gathering/overview/#_1)」：在活動前一天 8/2 晚上的一個喝酒、聊開源的聚會，不論你隔天是否參與 COSCUP，歡迎來！
-- 「[療癒市集](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/)」：結合「按摩小站」、「紅酒瑜伽」、「療癒彩繪」、「療癒睡眠」，提供身心靈的放鬆與恢復。
-- 「[開．源遊會](https://volunteer.coscup.org/docs/zh-TW/about_coscup/fun_fair/overview/)」：2024 新企劃，結合「開源菜單」的方式實踐「開源精神」，有空可以過去逛逛，現場有許多攤位提供各式特色物品。也可前往短暫休憩。
-- 「[療癒講座](https://volunteer.coscup.org/docs/zh-TW/about_coscup/healing_lectures/overview/)」：延續「療癒」主題，將其轉換一系列的講座課程，專注在「創傷、復原」的議程，有興趣去可以前往聆聽。
-- 「[親子工作坊](https://volunteer.coscup.org/docs/zh-TW/about_coscup/junior_workshop/overview/)」：適合小朋友初踏入開源、創客領域，今年有熱門的焊接、電玩製作課程，準備詢問小朋友要選那一堂課了！
+- 「[前夜派對](https://volunteer.coscup.org/docs/zh-TW/about_coscup/eve_gathering/overview/#_1)」：在活動前一天 8/8 晚上的一個喝酒、聊開源的聚會，不論你隔天是否參與 COSCUP，歡迎來！
+- 「[按摩小站](https://blog.coscup.org/2025/07/blog-post.html)」：提供身心靈的放鬆與恢復。
+- 「[托育服務](https://blog.coscup.org/2025/07/blog-post.html)」： 解放你的時間！小孩開心、大人也開心！
+- 「[氮氣咖啡攤位](https://blog.coscup.org/2025/07/blog-post.html)」： 來杯咖啡為今天的議程打氣
 
-[「會眾服務」說明](https://volunteer.coscup.org/docs/zh-TW/about_coscup/attendee_services/){ .md-button }
+## 二十週年企劃
 
-:::info 服務說明
+### 志工回娘家
 
-- 可參考詳細的「[會眾服務](https://volunteer.coscup.org/docs/zh-TW/about_coscup/attendee_services/)」說明頁面，部份服務需要預先預訂。
+如果你是以前的志工，歡迎參加志工回娘家！現場可能會有你曾經的夥伴、欸，你怎麼還在的夥伴、免費的氮氣咖啡兌換卷跟一點點數小心意，歡迎志工們回來坐坐。
 
-:::
+- 時間：8/9 14:00~16:00
+- 地點：AU 的講者休息室
+
+### 小啄成長史、COSCUP 二十週年回顧、許願天燈、小啄神壇
+
+今年，我們為小啄準備了一面牆的成長照，還做了啄 Bug 之神的小神壇，歡迎解不了 Bug 的朋友一起許願參拜一下。
+
+另外，我們在同一空間的旁邊還有 COSCUP 許願天燈的小板子跟 COSCUP 二十週年回顧，走過路過別錯過。
+
+- 時間：8/9~8/10 10:00~16:00
+- 地點：RB 105 1F 大廳
+
+### 總召論壇
+
+我們召喚了幾年前的總召們一起聊聊 COSCUP 過去現在未來的改變，如果你好奇過去的 COSCUP 長什麼樣子，未來的 COSCUP 又該何去何從，絕對不能錯過總召論壇！
+
+- 時間：8/10 15:00~16:00
+- 地點：RB 105
 
 ## 一日志工
 
 <figure markdown="span">
-    <a href="https://volunteer.coscup.org/tasks/2024">
+    <a href="https://volunteer.coscup.org/tasks/2025">
         <img src="https://volunteer.coscup.org/img/volunteer_tasks_paper_marketing.png"
             alt="COSCUP 一日志工" title="COSCUP 一日志工"
             style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
@@ -121,11 +135,11 @@ COSCUP 除了社群議程之外，我們也提供給予會眾身心靈放鬆的�
 
 目前提供約 60 個「一日志工」缺額，可以檢視可否參與的項目，如有任何問題，可以洽詢行政組或在活動日當天前往「志工服務台」詢問更多志工事宜。
 
-<VPButton href="https://volunteer.coscup.org/tasks/2024">捲起袖子，成為「一日志工」</VPButton>
+<VPButton href="https://volunteer.coscup.org/tasks/2025">捲起袖子，成為「一日志工」</VPButton>
 
 :::info 相關聯絡資訊
 
-- 「志工服務台」`TR-312`：COSCUP 志工服務諮詢、招募與推廣。
+- 「志工服務台」`TR-413-2`：COSCUP 志工服務諮詢、招募與推廣。
 - 行政組信箱：[secretary@coscup.org](mailto:secretary@coscup.org)
 
 :::
@@ -145,7 +159,7 @@ COSCUP 除了社群議程之外，我們也提供給予會眾身心靈放鬆的�
 
 :::info 提早前往
 
-- 此服務不需要費用，請提早前往預約或現場排隊，攝影棚地點在 `TR-310-1`。
+- 此服務不需要費用，請提早前往預約或現場排隊，攝影棚地點在 `TR-413-1`。
 
 :::
 
@@ -186,13 +200,13 @@ COSCUP 除了社群議程之外，我們也提供給予會眾身心靈放鬆的�
 ## 參與者調查
 
 <figure markdown="span">
-    <a href="https://coscup.org/2024-survey/">
+    <a href="https://coscup.org/2025-survey/">
         <img src="https://coscup.org/2024-survey/assets/Attendee_survey2024.a643c0bc.png"
             alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
             style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
     </a>
 </figure>
 
-最後，再請幫我完成「[參與者調查](https://coscup.org/2024-survey/)」，以利我們描繪出參與 COSCUP 的會眾是怎樣的樣貌，在開放不用報名後，這一類型的調查越來越困難，如果能協助我們完成，會非常的感謝！
+最後，再請幫我完成「[參與者調查](https://coscup.org/2025-survey/)」，以利我們描繪出參與 COSCUP 的會眾是怎樣的樣貌，在開放不用報名後，這一類型的調查越來越困難，如果能協助我們完成，會非常的感謝！
 
-<VPButton href="https://coscup.org/2024-survey/">協助完成「參與者調查」</VPButton>
+<VPButton href="https://coscup.org/2025-survey/">協助完成「參與者調查」</VPButton>
