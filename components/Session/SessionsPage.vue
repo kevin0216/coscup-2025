@@ -195,19 +195,23 @@ const openedSession = computed(() => {
 
     <div class="toolbar">
       <div class="toolbar-start">
-        <CButton variant="basic">
-          <template #icon>
-            <IconPhUsersThree />
-          </template>
-          {{ messages[locale].community || 'Community' }}
-        </CButton>
+        <SessionFilterPopover :search-placeholder="messages[locale].searchCommunity">
+          <CButton variant="basic">
+            <template #icon>
+              <IconPhUsersThree />
+            </template>
+            {{ messages[locale].community || 'Community' }}
+          </CButton>
+        </SessionFilterPopover>
 
-        <CButton variant="basic">
-          <template #icon>
-            <IconPhBookmarkSimple />
-          </template>
-          {{ messages[locale].tags || 'Tags' }}
-        </CButton>
+        <SessionFilterPopover :search-placeholder="messages[locale].searchTags">
+          <CButton variant="basic">
+            <template #icon>
+              <IconPhBookmarkSimple />
+            </template>
+            {{ messages[locale].tags || 'Tags' }}
+          </CButton>
+        </SessionFilterPopover>
 
         <!--
         <CIconButton variant="basic">
