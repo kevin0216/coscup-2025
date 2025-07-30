@@ -1,34 +1,15 @@
 <script setup lang="ts">
 interface Props {
-  showPrefixIcon?: boolean
-  showSuffixIcon?: boolean
   placeholder?: string
   state?: 'default' | 'error'
 }
 
-interface Emits {
-  (e: 'focus'): void
-  (e: 'blur'): void
-}
-
 withDefaults(defineProps<Props>(), {
-  showPrefixIcon: true,
-  showSuffixIcon: true,
-  placeholder: 'Search event',
+  placeholder: '',
   state: 'default',
 })
 
-const emit = defineEmits<Emits>()
-
 const model = defineModel<string>({ default: '' })
-
-function handleFocus() {
-  emit('focus')
-}
-
-function handleBlur() {
-  emit('blur')
-}
 </script>
 
 <template>
@@ -36,69 +17,48 @@ function handleBlur() {
     class="text-field"
     :class="`text-field-${state}`"
   >
-    <div class="text-field-container">
-      <div class="text-field-input-wrapper">
-        <div
-          v-if="showPrefixIcon"
-          class="text-field-icon text-field-prefix-icon"
-        >
-          <IconPhMagnifyingGlass />
-        </div>
+    <slot name="prefix-icon">
+      <IconPhMagnifyingGlass class="text-field-icon" />
+    </slot>
 
-        <input
-          v-model="model"
-          class="text-field-input"
-          :placeholder="placeholder"
-          @blur="handleBlur"
-          @focus="handleFocus"
-        >
+    <input
+      v-model="model"
+      class="text-field-input"
+      :placeholder="placeholder"
+    >
 
-        <div
-          v-if="showSuffixIcon"
-          class="text-field-icon text-field-suffix-icon"
-        >
-          <IconPhX />
-        </div>
-      </div>
-    </div>
+    <slot name="suffix-icon">
+      <IconPhX
+        v-if="model"
+        class="text-field-icon suffix-icon"
+        @click="model = ''"
+      />
+    </slot>
   </div>
 </template>
 
 <style scoped>
 .text-field {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 8px;
+  gap: 4px;
   width: 100%;
+  background-color: var(--color-white);
+  border-radius: 6px;
+  border: 1px solid var(--color-gray-300);
+  transition:
+    color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
 
-  .text-field-container {
-    position: relative;
-    background-color: var(--color-white);
-    border-radius: 6px;
-    border: 1px solid var(--color-gray-300);
-    transition:
-      color 0.2s ease-in-out,
-      border-color 0.2s ease-in-out;
+  &:focus-within {
+    border-color: var(--color-gray-600);
 
-    &:focus-within {
-      border-color: var(--color-gray-600);
-
-      .text-field-input {
-        color: var(--color-gray-700);
-
-        &::placeholder {
-          color: var(--color-gray-700);
-        }
-      }
+    .text-field-input {
+      color: var(--color-gray-700);
     }
-  }
-
-  .text-field-input-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 6px 8px;
-    gap: 4px;
   }
 
   .text-field-input {
@@ -119,29 +79,31 @@ function handleBlur() {
   }
 
   .text-field-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
     flex-shrink: 0;
     color: var(--color-gray-400);
+
+    &.suffix-icon {
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: var(--color-gray-700);
+      }
+    }
   }
 }
 
 .text-field-error {
-  .text-field-container {
+  border-color: var(--color-red-400);
+
+  &:focus-within {
     border-color: var(--color-red-400);
 
-    &:focus-within {
-      border-color: var(--color-red-400);
+    .text-field-input {
+      color: var(--color-gray-600);
 
-      .text-field-input {
+      &::placeholder {
         color: var(--color-gray-600);
-
-        &::placeholder {
-          color: var(--color-gray-600);
-        }
       }
     }
   }
@@ -156,9 +118,7 @@ function handleBlur() {
 }
 
 .text-field-default {
-  .text-field-container {
-    border-color: var(--color-gray-300);
-  }
+  border-color: var(--color-gray-300);
 
   .text-field-input {
     color: var(--color-gray-400);

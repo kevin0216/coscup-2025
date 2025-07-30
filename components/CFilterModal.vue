@@ -56,8 +56,6 @@ function handleToggle(id: string, event: Event) {
       <CTextField
         v-model="searchValue"
         :placeholder="searchPlaceholder"
-        :show-prefix-icon="true"
-        :show-suffix-icon="false"
         @update:model-value="handleSearch"
       />
     </div>
