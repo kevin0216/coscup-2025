@@ -61,7 +61,7 @@ function clearFilters() {
         variant="basic"
       >
         <template #icon>
-          <icon />
+          <component :is="icon" />
         </template>
         <div
           v-if="isDesktop"
