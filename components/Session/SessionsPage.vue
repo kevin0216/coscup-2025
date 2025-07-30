@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { SubmissionResponse } from '#loaders/types.ts'
+import type { Serializer } from '@vueuse/core'
 import type { Locale } from './session-messages.ts'
 import type SessionModal from './SessionModal.vue'
 import CCard from '#/components/CCard.vue'
@@ -25,19 +26,82 @@ const props = defineProps<{
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isDesktop = breakpoints.greater('sm')
 
-// Bookmarked sessions state
-const bookmarkedSessions = useLocalStorage<Set<string>>('bookmarked-sessions', new Set<string>(), {
-  serializer: {
-    read: (value) => {
-      try {
-        return new Set(JSON.parse(value))
-      } catch {
-        return new Set<string>()
-      }
-    },
-    write: (value) => JSON.stringify(Array.from(value)),
+const setSerializer: Serializer<Set<string>> = {
+  read: (value) => {
+    try {
+      return new Set(JSON.parse(value))
+    } catch {
+      return new Set<string>()
+    }
   },
+  write: (value) => JSON.stringify(Array.from(value)),
+}
+
+// Bookmarked sessions state
+const bookmarkedSessions = useLocalStorage<Set<string>>('bookmarked-sessions', new Set(), {
+  serializer: setSerializer,
 })
+
+const selectedCommunities = useLocalStorage<Set<string>>('selected-communities', new Set(), {
+  serializer: setSerializer,
+})
+
+const selectedTags = useLocalStorage<Set<string>>('selected-tags', new Set(), {
+  serializer: setSerializer,
+})
+
+const communities = computed(() => {
+  const trackMap = new Map<string, string>()
+
+  props.submissions.forEach(({ track }) => {
+    if (track?.name) {
+      trackMap.set(track.id.toString(), track.name)
+    }
+  })
+
+  return Array.from(trackMap.entries()).map(([id, label]) => ({ id, label }))
+})
+
+const tags = computed(() => {
+  const optionsMap = new Map<string, string>()
+
+  props.submissions.forEach(({ language, difficulty }) => {
+    optionsMap.set(language, language)
+    optionsMap.set(difficulty, difficulty)
+  })
+
+  return Array.from(optionsMap.entries()).map(([id, label]) => ({ id, label }))
+})
+
+const communityFilterOptions = computed(() =>
+  communities.value.map((option) => ({
+    ...option,
+    checked: selectedCommunities.value.has(option.id),
+  })),
+)
+
+const tagsFilterOptions = computed(() =>
+  tags.value.map((option) => ({
+    ...option,
+    checked: selectedTags.value.has(option.id),
+  })),
+)
+
+function handleCommunityToggle(id: string, checked: boolean) {
+  if (checked) {
+    selectedCommunities.value.add(id)
+  } else {
+    selectedCommunities.value.delete(id)
+  }
+}
+
+function handleTagsToggle(id: string, checked: boolean) {
+  if (checked) {
+    selectedTags.value.add(id)
+  } else {
+    selectedTags.value.delete(id)
+  }
+}
 
 // View state
 const selectedView = useLocalStorage<'conference' | 'bookmarked'>('selected-view', 'conference', {
@@ -86,14 +150,33 @@ const displaySessions = computed(() => {
     const sessionDate = new Date(session.start)
     const sessionDateOnly = new Date(sessionDate.getFullYear(), sessionDate.getMonth(), sessionDate.getDate())
 
+    // Date filter
     if (selectedDate.value === 'start') {
       const startDateOnly = new Date(conference.startDate.getFullYear(), conference.startDate.getMonth(), conference.startDate.getDate())
-      return sessionDateOnly.getTime() === startDateOnly.getTime()
+      if (sessionDateOnly.getTime() !== startDateOnly.getTime()) return false
     } else if (selectedDate.value === 'end') {
       const endDateOnly = new Date(conference.endDate.getFullYear(), conference.endDate.getMonth(), conference.endDate.getDate())
-      return sessionDateOnly.getTime() === endDateOnly.getTime()
+      if (sessionDateOnly.getTime() !== endDateOnly.getTime()) return false
+    } else {
+      return false
     }
-    return false
+
+    // Community filter (track filter)
+    if (selectedCommunities.value.size > 0) {
+      if (!session.track?.id || !selectedCommunities.value.has(session.track.id.toString())) {
+        return false
+      }
+    }
+
+    // Tags filter (language and difficulty filter)
+    if (selectedTags.value.size > 0) {
+      const hasMatchingTag = selectedTags.value.has(session.language) || selectedTags.value.has(session.difficulty)
+      if (!hasMatchingTag) {
+        return false
+      }
+    }
+
+    return true
   })
 
   if (selectedView.value === 'bookmarked') {
@@ -195,7 +278,11 @@ const openedSession = computed(() => {
 
     <div class="toolbar">
       <div class="toolbar-start">
-        <SessionFilterPopover :search-placeholder="messages[locale].searchCommunity">
+        <SessionFilterPopover
+          :options="communityFilterOptions"
+          :search-placeholder="messages[locale].searchCommunity"
+          @toggle="handleCommunityToggle"
+        >
           <CButton variant="basic">
             <template #icon>
               <IconPhUsersThree />
@@ -204,7 +291,11 @@ const openedSession = computed(() => {
           </CButton>
         </SessionFilterPopover>
 
-        <SessionFilterPopover :search-placeholder="messages[locale].searchTags">
+        <SessionFilterPopover
+          :options="tagsFilterOptions"
+          :search-placeholder="messages[locale].searchTags"
+          @toggle="handleTagsToggle"
+        >
           <CButton variant="basic">
             <template #icon>
               <IconPhBookmarkSimple />
