@@ -12,6 +12,8 @@ import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, nextTick, onMounted } from 'vue'
+import IconPhBookmarkSimple from '~icons/ph/bookmark-simple'
+import IconPhUsersThree from '~icons/ph/users-three'
 import { messages } from './session-messages.ts'
 import { useScrollFade } from './useScrollFade.ts'
 
@@ -279,30 +281,20 @@ const openedSession = computed(() => {
     <div class="toolbar">
       <div class="toolbar-start">
         <SessionFilterPopover
+          :icon="IconPhUsersThree"
+          :label="messages[locale].community || 'Community'"
           :options="communityFilterOptions"
           :search-placeholder="messages[locale].searchCommunity"
           @toggle="handleCommunityToggle"
-        >
-          <CButton variant="basic">
-            <template #icon>
-              <IconPhUsersThree />
-            </template>
-            {{ messages[locale].community || 'Community' }}
-          </CButton>
-        </SessionFilterPopover>
+        />
 
         <SessionFilterPopover
+          :icon="IconPhBookmarkSimple"
+          :label="messages[locale].tags || 'Tags'"
           :options="tagsFilterOptions"
           :search-placeholder="messages[locale].searchTags"
           @toggle="handleTagsToggle"
-        >
-          <CButton variant="basic">
-            <template #icon>
-              <IconPhBookmarkSimple />
-            </template>
-            {{ messages[locale].tags || 'Tags' }}
-          </CButton>
-        </SessionFilterPopover>
+        />
 
         <!--
         <CIconButton variant="basic">
