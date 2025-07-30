@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { Sponsor } from '#loaders/sponsor.data'
 import { data } from '#loaders/sponsor.data'
-import { useData } from 'vitepress'
+import { useData, useRoute } from 'vitepress'
 import { computed } from 'vue'
 
 const { groupedSponsors, sponsorLevels, sponsorLevels_mapping } = data
-const { lang } = useData()
+const route = useRoute()
+const { lang, theme, frontmatter, site } = useData()
 
 const formatLevel = (level: string): string => level.charAt(0).toUpperCase() + level.slice(1)
 
@@ -33,10 +34,31 @@ const getSponsorTimesText = computed(() => (sponsor: Sponsor) => {
   }
   return ''
 })
+
+const hasSidebar = computed(() => {
+  if (frontmatter.value.sidebar === false) return false
+
+  const sidebar: Record<string, string> = theme.value.sidebar
+  if (Array.isArray(sidebar)) return sidebar.length > 0
+
+  const base = site.value.base || '/'
+  const path = route.path.replace(base, '/')
+
+  if (typeof sidebar === 'object') {
+    return Object.entries(sidebar).some(
+      ([key, value]) => path.startsWith(key) && value.length > 0,
+    )
+  }
+
+  return false
+})
 </script>
 
 <template>
-  <div class="sponsor-footer-content">
+  <div
+    class="sponsor-footer-content"
+    :class="{ 'has-sidebar': hasSidebar }"
+  >
     <div
       v-for="level in sponsorLevels"
       :key="level"

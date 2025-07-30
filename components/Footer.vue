@@ -110,7 +110,7 @@ const hasSidebar = computed(() => {
 }
 @media (min-width: 960px) {
   #footer.has-sidebar {
-    margin-left: calc((100% - (var(--vp-layout-max-width) - 64px)) / 2 + var(--vp-sidebar-width) - 32px);
+    margin-left: 270px;
   }
 }
 
