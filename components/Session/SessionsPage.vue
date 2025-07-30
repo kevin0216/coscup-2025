@@ -66,8 +66,8 @@ const tags = computed(() => {
   const optionsMap = new Map<string, string>()
 
   props.submissions.forEach(({ language, difficulty }) => {
-    optionsMap.set(language, language)
-    optionsMap.set(difficulty, difficulty)
+    optionsMap.set(`language:${language}`, language)
+    optionsMap.set(`difficulty:${difficulty}`, difficulty)
   })
 
   return Array.from(optionsMap.entries()).map(([id, label]) => ({ id, label }))
@@ -170,7 +170,7 @@ const displaySessions = computed(() => {
 
     // Tags filter (language and difficulty filter)
     if (selectedTags.value.size > 0) {
-      const hasMatchingTag = selectedTags.value.has(session.language) || selectedTags.value.has(session.difficulty)
+      const hasMatchingTag = selectedTags.value.has(`language:${session.language}`) || selectedTags.value.has(`difficulty:${session.difficulty}`)
       if (!hasMatchingTag) {
         return false
       }
