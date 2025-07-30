@@ -76,7 +76,9 @@ function handleBlur() {
     background-color: var(--color-white);
     border-radius: 6px;
     border: 1px solid var(--color-gray-300);
-    transition: border-color 0.2s ease-in-out;
+    transition:
+      color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
 
     &:focus-within {
       border-color: var(--color-gray-600);

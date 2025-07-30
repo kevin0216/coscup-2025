@@ -8,6 +8,7 @@ import { PopoverArrow, PopoverContent, PopoverRoot, PopoverTrigger } from 'reka-
     <PopoverTrigger><slot /></PopoverTrigger>
     <PopoverContent
       class="popover-content"
+      :collision-padding="32"
     >
       <CFilterModal v-bind="$attrs" />
       <PopoverArrow class="popover-arrow" />

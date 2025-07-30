@@ -96,7 +96,7 @@ function handleToggle(id: string, event: Event) {
     0px 4px 6px -1px rgba(0, 0, 0, 0.1),
     0px 2px 4px -1px rgba(0, 0, 0, 0.06);
   width: 100%;
-  max-width: 240px;
+  max-width: calc(100vw - 64px);
 }
 
 .filter-modal-search {
@@ -116,8 +116,8 @@ function handleToggle(id: string, event: Event) {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 6px 0;
-  max-height: 200px;
+  padding: 0 6px;
+  max-height: 50vh;
   overflow-y: auto;
 }
 
