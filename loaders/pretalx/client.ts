@@ -22,7 +22,7 @@ export class PretalxApiClient {
   ) {
     this.#year = year
     this.#client = createClient({
-      baseUrl: `https://pretalx.coscup.org`,
+      baseUrl: process.env.PRETALX_BASE_URL ?? `https://pretalx.coscup.org`,
       headers: {
         ...(token ? { Authorization: `Token ${token}` } : undefined),
         'User-Agent': `coscup-website-client/${this.year}`,
@@ -37,7 +37,7 @@ export class PretalxApiClient {
 
   async #getPaginatedResources<T>(url: string): Promise<T[]> {
     const resources: T[] = []
-    const baseUrl = this.#client.getConfig().baseUrl ?? ''
+    const baseUrl = 'https://pretalx.coscup.org'
     let next = url
 
     while (true) {
