@@ -207,35 +207,61 @@ export class PretalxApiClient {
         return undefined
       }
 
-      function getLocalizedValue(
-        value: string | undefined,
-        other: string | undefined,
+      function getLocalizedLanguage(
+        generalizedLanguage: string | undefined,
+        languageOther: string | undefined,
+        translations: Record<'zh-tw' | 'en', Record<string, string>>,
+        fallback: { 'zh-tw': string, 'en': string },
+      ): MultiLingualString {
+        // 只有在 generalizedLanguage 是 'others' 時才取 languageOther
+        if (generalizedLanguage === 'others') {
+          return {
+            'zh-tw': languageOther
+              ? (translations['zh-tw'][languageOther] ?? languageOther)
+              : fallback['zh-tw'],
+            'en': languageOther
+              ? (translations.en[languageOther] ?? languageOther)
+              : fallback.en,
+          }
+        } else {
+          return {
+            'zh-tw': generalizedLanguage
+              ? (translations['zh-tw'][generalizedLanguage] ?? generalizedLanguage)
+              : fallback['zh-tw'],
+            'en': generalizedLanguage
+              ? (translations.en[generalizedLanguage] ?? generalizedLanguage)
+              : fallback.en,
+          }
+        }
+      }
+
+      function getLocalizedDifficulty(
+        generalizedDifficulty: string | undefined,
         translations: Record<'zh-tw' | 'en', Record<string, string>>,
         fallback: { 'zh-tw': string, 'en': string },
       ): MultiLingualString {
         return {
-          'zh-tw': other
-            ? (translations['zh-tw'][other] ?? other)
-            : (value ? (translations['zh-tw'][value] ?? value) : undefined) || value || fallback['zh-tw'],
-          'en': other
-            ? (translations.en[other] ?? other)
-            : (value ? (translations.en[value] ?? value) : undefined) || value || fallback.en,
+          'zh-tw': generalizedDifficulty
+            ? (translations['zh-tw'][generalizedDifficulty] ?? generalizedDifficulty)
+            : fallback['zh-tw'],
+          'en': generalizedDifficulty
+            ? (translations.en[generalizedDifficulty] ?? generalizedDifficulty)
+            : fallback.en,
         }
       }
 
       const generalizedLanguage = language ? languageGeneralizeMap[language] : undefined
       const generalizedDifficulty = difficulty ? difficultyGeneralizeMap[difficulty] : undefined
 
-      const localizedLanguage = getLocalizedValue(
+      const localizedLanguage = getLocalizedLanguage(
         generalizedLanguage,
         languageOther,
         tagTranslations,
         { 'zh-tw': '其他', 'en': 'Others' },
       )
 
-      const localizedDifficulty = getLocalizedValue(
+      const localizedDifficulty = getLocalizedDifficulty(
         generalizedDifficulty,
-        undefined,
         tagTranslations,
         { 'zh-tw': '未知', 'en': 'Unknown' },
       )
