@@ -1,9 +1,35 @@
 <script setup lang="ts">
 import { conference } from '#data/conference.js'
+import { useData, useRoute } from 'vitepress'
+import { computed } from 'vue'
+
+const { theme, frontmatter, site } = useData()
+const route = useRoute()
+
+const hasSidebar = computed(() => {
+  if (frontmatter.value.sidebar === false) return false
+
+  const sidebar: Record<string, string> = theme.value.sidebar
+  if (Array.isArray(sidebar)) return sidebar.length > 0
+
+  const base = site.value.base || '/'
+  const path = route.path.replace(base, '/')
+
+  if (typeof sidebar === 'object') {
+    return Object.entries(sidebar).some(
+      ([key, value]) => path.startsWith(key) && value.length > 0,
+    )
+  }
+
+  return false
+})
 </script>
 
 <template>
-  <footer id="footer">
+  <footer
+    id="footer"
+    :class="{ 'has-sidebar': hasSidebar }"
+  >
     <section id="sponsor">
       <SponsorFooter />
     </section>
@@ -81,6 +107,11 @@ import { conference } from '#data/conference.js'
 #footer {
   border-top: 1px solid var(--vp-c-gutter);
   padding: 32px 64px;
+}
+@media (min-width: 960px) {
+  #footer.has-sidebar {
+    margin-left: 270px;
+  }
 }
 
 #footer section {

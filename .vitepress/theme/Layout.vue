@@ -48,6 +48,8 @@ watch(
     <template #home-hero-before>
       <Banner />
     </template>
+    <template #layout-bottom>
+      <Footer />
+    </template>
   </DefaultTheme.Layout>
-  <Footer />
 </template>
