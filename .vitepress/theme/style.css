@@ -222,3 +222,14 @@ a {
 .hidden {
   display: none !important;
 }
+
+/**
+ * Figure in page
+ * -------------------------------------------------------------------------- */
+figure {
+  display: inline-block;
+  text-align: center;
+}
+figure img {
+  vertical-align: top;
+}
