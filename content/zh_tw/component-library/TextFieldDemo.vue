@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import CTextField from '#components/CTextField.vue'
 import { computed, ref } from 'vue'
-import CTextField from '../../../components/CTextField.vue'
 
 const inputValue = ref('')
 
