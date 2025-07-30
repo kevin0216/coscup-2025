@@ -23,7 +23,6 @@ export const zh_tw = defineConfig({
           items: [
             { text: '身為「會眾」', link: '/participate/attendee' },
             { text: '身為「社群」', link: '/participate/community' },
-            { text: '身為「講者」', link: '/participate/speaker' },
             { text: '身為「贊助夥伴」', link: '/participate/sponsor' },
           ],
         },
