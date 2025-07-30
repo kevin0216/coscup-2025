@@ -206,6 +206,10 @@ function getSessionsForRoom(roomId: number | string) {
   )
 }
 
+const filteredRooms = computed(() => {
+  return props.rooms.filter((room) => getSessionsForRoom(room.id).length > 0)
+})
+
 // Scroll fade management
 const {
   containerRef: scheduleContainerRef,
@@ -324,7 +328,7 @@ const openedSession = computed(() => {
       <div class="room-headers">
         <div class="time-header" />
         <div
-          v-for="room in rooms"
+          v-for="room in filteredRooms"
           :key="room.id"
           class="room-header"
         >
@@ -360,7 +364,7 @@ const openedSession = computed(() => {
           <!-- Room Columns -->
           <div class="room-columns">
             <div
-              v-for="(room, roomIndex) in rooms"
+              v-for="(room, roomIndex) in filteredRooms"
               :key="room.id"
               class="room-column"
             >
@@ -472,6 +476,7 @@ const openedSession = computed(() => {
   top: 0;
   z-index: 10;
   width: max-content;
+  min-width: 100%;
 }
 
 .time-header {
