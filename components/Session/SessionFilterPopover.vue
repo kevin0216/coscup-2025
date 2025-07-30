@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
 import CFilterModal from '#components/CFilterModal.vue'
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { PopoverArrow, PopoverContent, PopoverRoot, PopoverTrigger } from 'reka-ui'
 import { computed } from 'vue'
 
@@ -37,6 +38,9 @@ const triggerLabel = computed(() => {
   return props.label
 })
 
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isDesktop = breakpoints.greater('sm')
+
 function clearFilters() {
   props.options.forEach((option) => {
     if (option.checked) {
@@ -59,7 +63,12 @@ function clearFilters() {
         <template #icon>
           <icon />
         </template>
-        {{ triggerLabel }}
+        <div
+          v-if="isDesktop"
+          class="trigger-label"
+        >
+          {{ triggerLabel }}
+        </div>
       </CButton>
       <button
         v-if="hasCheckedOptions"
@@ -122,6 +131,15 @@ function clearFilters() {
   position: relative;
   background-color: var(--color-primary-50);
   color: var(--color-primary-500);
+
+  > .trigger-label {
+    flex: 1;
+    min-width: 0;
+    max-width: 16rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .clear-button {
