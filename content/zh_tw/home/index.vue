@@ -57,8 +57,12 @@ import { eventData } from '#data/home.js'
               <h3>❤️ 贊助 COSCUP</h3>
               <p>COSCUP 過去三年平均約有超過 3,000 人次的會眾和超過 20 個開源技術或議題社群一同參與，同時也有與超過 7 個國際的開源社群或組織連結合作。</p>
               <div class="button-group">
-                <CButton disabled>
-                  即將開啟
+                <CButton
+                  href="https://ocf.neticrm.tw/civicrm/contribute/transact?reset=1&id=85"
+                  tag="a"
+                  target="_blank"
+                >
+                  個人贊助！
                 </CButton>
               </div>
             </div>

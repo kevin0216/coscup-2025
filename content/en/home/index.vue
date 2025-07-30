@@ -57,8 +57,12 @@ import { eventData } from '#data/home.js'
               <h3>❤️ Sponsor COSCUP</h3>
               <p>Over the past three years, COSCUP has attracted an average of over 3,000 attendees and more than 20 open source technology or topic-based communities. It has also collaborated with over 7 international open source communities and organizations.</p>
               <div class="button-group">
-                <CButton disabled>
-                  Comming Soon
+                <CButton
+                  href="https://ocf.neticrm.tw/civicrm/contribute/transact?reset=1&id=85"
+                  tag="a"
+                  target="_blank"
+                >
+                  Donate Us!
                 </CButton>
               </div>
             </div>
