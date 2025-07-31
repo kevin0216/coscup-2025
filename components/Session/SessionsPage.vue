@@ -131,7 +131,7 @@ function updateSelectedDate(date: 'start' | 'end') {
   selectedDate.value = date
 }
 
-// Generate time slots from 8AM to 6PM
+// Generate time slots from 9AM to 4PM
 const timeSlots = computed(() => {
   const slots = []
   for (let hour = START_HOUR; hour <= END_HOUR; hour++) {
@@ -271,7 +271,14 @@ const openedSession = computed(() => {
     @close="handleCloseSession"
   />
 
-  <div class="schedule-page">
+  <div
+    class="schedule-page"
+    :style="{
+      '--room-count': filteredRooms.length,
+      '--time-slot-count': timeSlots.length,
+      '--time-slot-height': `${TIME_SLOT_HEIGHT}px`,
+    }"
+  >
     <!-- Date Selection -->
     <SessionDateTab
       v-if="isDesktop"
@@ -385,10 +392,10 @@ const openedSession = computed(() => {
                 <CCard
                   :bookmarked="bookmarkedSessions.has(session.code)"
                   :end-at="session.end"
-                  :height-factor="layout.getHeightFactor(session.code)"
                   :speaker="session.speakers?.map(s => s.name).join(', ') || 'TBD'"
                   :start-at="session.start"
                   :status="openedSession?.code === session.code ? 'active' : 'default'"
+                  :style="layout.getSessionStyle(session.code)"
                   :tag-text="session.track?.name || messages[locale].mainTrack"
                   :title="session.title"
                   @bookmark="toggleBookmark(session.code)"
@@ -427,11 +434,20 @@ const openedSession = computed(() => {
 .schedule-page {
   --date-tab-height: 3rem;
   --controls-height: 5rem;
+  --column-time-header: 48px;
+  --column-width: 220px;
 
   width: 100%;
   min-width: 100%;
   padding: 18px 32px;
   height: calc(100vh - var(--vp-nav-height));
+}
+
+@media (min-width: 1024px) {
+  .schedule-page {
+    --column-time-header: 68px;
+    --column-width: 320px;
+  }
 }
 
 .toolbar {
@@ -480,13 +496,13 @@ const openedSession = computed(() => {
 }
 
 .time-header {
-  width: 68px;
+  width: var(--column-time-header);
   border-right: 1px solid var(--color-gray-200);
 }
 
 .room-header {
   flex: 1;
-  min-width: 320px;
+  min-width: var(--column-width);
   padding: 12px;
   text-align: center;
   font-family: 'PingFang TC', sans-serif;
@@ -499,20 +515,20 @@ const openedSession = computed(() => {
 .schedule-content {
   display: flex;
   position: relative;
-  min-height: calc(300px * 11);
-  min-width: 900px;
+  min-height: calc(var(--time-slot-height) * var(--time-slot-count));
+  min-width: calc(var(--column-width) * var(--room-count));
 }
 
 .time-column {
-  width: 68px;
+  width: var(--column-time-header);
   background: var(--color-gray-50);
   border-right: 1px solid var(--color-gray-200);
   position: relative;
 }
 
 .time-slot {
-  width: 68px;
-  height: 400px;
+  width: var(--column-time-header);
+  height: var(--time-slot-height);
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
@@ -528,7 +544,7 @@ const openedSession = computed(() => {
 .sessions-area {
   flex: 1;
   position: relative;
-  min-height: calc(300px * 11);
+  min-height: calc(var(--time-slot-height) * var(--time-slot-count));
 }
 
 .grid-lines {
@@ -554,12 +570,12 @@ const openedSession = computed(() => {
   height: 100%;
   position: relative;
   z-index: 2;
-  min-width: 900px;
+  min-width: calc(var(--column-width) * var(--room-count));
 }
 
 .room-column {
   flex: 1;
-  min-width: 320px;
+  min-width: var(--column-width);
   position: relative;
   padding: 8px;
 }
