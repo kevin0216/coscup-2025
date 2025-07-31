@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { SubmissionResponse } from '#loaders/types.ts'
+import type { Serializer } from '@vueuse/core'
 import type { Locale } from './session-messages.ts'
 import type SessionModal from './SessionModal.vue'
 import CCard from '#/components/CCard.vue'
@@ -11,6 +12,8 @@ import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, nextTick, onMounted } from 'vue'
+import IconPhBookmarkSimple from '~icons/ph/bookmark-simple'
+import IconPhUsersThree from '~icons/ph/users-three'
 import { messages } from './session-messages.ts'
 import { useScrollFade } from './useScrollFade.ts'
 
@@ -25,19 +28,82 @@ const props = defineProps<{
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isDesktop = breakpoints.greater('sm')
 
-// Bookmarked sessions state
-const bookmarkedSessions = useLocalStorage<Set<string>>('bookmarked-sessions', new Set<string>(), {
-  serializer: {
-    read: (value) => {
-      try {
-        return new Set(JSON.parse(value))
-      } catch {
-        return new Set<string>()
-      }
-    },
-    write: (value) => JSON.stringify(Array.from(value)),
+const setSerializer: Serializer<Set<string>> = {
+  read: (value) => {
+    try {
+      return new Set(JSON.parse(value))
+    } catch {
+      return new Set<string>()
+    }
   },
+  write: (value) => JSON.stringify(Array.from(value)),
+}
+
+// Bookmarked sessions state
+const bookmarkedSessions = useLocalStorage<Set<string>>('bookmarked-sessions', new Set(), {
+  serializer: setSerializer,
 })
+
+const selectedCommunities = useLocalStorage<Set<string>>('selected-communities', new Set(), {
+  serializer: setSerializer,
+})
+
+const selectedTags = useLocalStorage<Set<string>>('selected-tags', new Set(), {
+  serializer: setSerializer,
+})
+
+const communities = computed(() => {
+  const trackMap = new Map<string, string>()
+
+  props.submissions.forEach(({ track }) => {
+    if (track?.name) {
+      trackMap.set(track.id.toString(), track.name)
+    }
+  })
+
+  return Array.from(trackMap.entries()).map(([id, label]) => ({ id, label }))
+})
+
+const tags = computed(() => {
+  const optionsMap = new Map<string, string>()
+
+  props.submissions.forEach(({ language, difficulty }) => {
+    optionsMap.set(`language:${language}`, language)
+    optionsMap.set(`difficulty:${difficulty}`, difficulty)
+  })
+
+  return Array.from(optionsMap.entries()).map(([id, label]) => ({ id, label }))
+})
+
+const communityFilterOptions = computed(() =>
+  communities.value.map((option) => ({
+    ...option,
+    checked: selectedCommunities.value.has(option.id),
+  })),
+)
+
+const tagsFilterOptions = computed(() =>
+  tags.value.map((option) => ({
+    ...option,
+    checked: selectedTags.value.has(option.id),
+  })),
+)
+
+function handleCommunityToggle(id: string, checked: boolean) {
+  if (checked) {
+    selectedCommunities.value.add(id)
+  } else {
+    selectedCommunities.value.delete(id)
+  }
+}
+
+function handleTagsToggle(id: string, checked: boolean) {
+  if (checked) {
+    selectedTags.value.add(id)
+  } else {
+    selectedTags.value.delete(id)
+  }
+}
 
 // View state
 const selectedView = useLocalStorage<'conference' | 'bookmarked'>('selected-view', 'conference', {
@@ -86,14 +152,33 @@ const displaySessions = computed(() => {
     const sessionDate = new Date(session.start)
     const sessionDateOnly = new Date(sessionDate.getFullYear(), sessionDate.getMonth(), sessionDate.getDate())
 
+    // Date filter
     if (selectedDate.value === 'start') {
       const startDateOnly = new Date(conference.startDate.getFullYear(), conference.startDate.getMonth(), conference.startDate.getDate())
-      return sessionDateOnly.getTime() === startDateOnly.getTime()
+      if (sessionDateOnly.getTime() !== startDateOnly.getTime()) return false
     } else if (selectedDate.value === 'end') {
       const endDateOnly = new Date(conference.endDate.getFullYear(), conference.endDate.getMonth(), conference.endDate.getDate())
-      return sessionDateOnly.getTime() === endDateOnly.getTime()
+      if (sessionDateOnly.getTime() !== endDateOnly.getTime()) return false
+    } else {
+      return false
     }
-    return false
+
+    // Community filter (track filter)
+    if (selectedCommunities.value.size > 0) {
+      if (!session.track?.id || !selectedCommunities.value.has(session.track.id.toString())) {
+        return false
+      }
+    }
+
+    // Tags filter (language and difficulty filter)
+    if (selectedTags.value.size > 0) {
+      const hasMatchingTag = selectedTags.value.has(`language:${session.language}`) || selectedTags.value.has(`difficulty:${session.difficulty}`)
+      if (!hasMatchingTag) {
+        return false
+      }
+    }
+
+    return true
   })
 
   if (selectedView.value === 'bookmarked') {
@@ -120,6 +205,10 @@ function getSessionsForRoom(roomId: number | string) {
     session.room?.id === roomId,
   )
 }
+
+const filteredRooms = computed(() => {
+  return props.rooms.filter((room) => getSessionsForRoom(room.id).length > 0)
+})
 
 // Scroll fade management
 const {
@@ -195,33 +284,25 @@ const openedSession = computed(() => {
 
     <div class="toolbar">
       <div class="toolbar-start">
+        <SessionFilterPopover
+          :icon="IconPhUsersThree"
+          :label="messages[locale].community || 'Community'"
+          :options="communityFilterOptions"
+          :search-placeholder="messages[locale].searchCommunity"
+          @toggle="handleCommunityToggle"
+        />
+
+        <SessionFilterPopover
+          :icon="IconPhBookmarkSimple"
+          :label="messages[locale].tags || 'Tags'"
+          :options="tagsFilterOptions"
+          :search-placeholder="messages[locale].searchTags"
+          @toggle="handleTagsToggle"
+        />
+
         <!--
-        <CButton
-          class="time-zone-btn"
-          variant="secondary"
-        >
-          <template #icon>
-            🌐
-          </template>
-          Time zone
-        </CButton>
-
-        <CButton variant="basic">
-          <template #icon>
-            👥
-          </template>
-          {{ messages[locale].community || 'Community' }}
-        </CButton>
-
-        <CButton variant="basic">
-          <template #icon>
-            🏷️
-          </template>
-          {{ messages[locale].tags || 'Tags' }}
-        </CButton>
-
         <CIconButton variant="basic">
-          🔍
+          <IconPhMagnifyingGlass />
         </CIconButton>
         -->
       </div>
@@ -247,7 +328,7 @@ const openedSession = computed(() => {
       <div class="room-headers">
         <div class="time-header" />
         <div
-          v-for="room in rooms"
+          v-for="room in filteredRooms"
           :key="room.id"
           class="room-header"
         >
@@ -283,7 +364,7 @@ const openedSession = computed(() => {
           <!-- Room Columns -->
           <div class="room-columns">
             <div
-              v-for="(room, roomIndex) in rooms"
+              v-for="(room, roomIndex) in filteredRooms"
               :key="room.id"
               class="room-column"
             >
@@ -395,6 +476,7 @@ const openedSession = computed(() => {
   top: 0;
   z-index: 10;
   width: max-content;
+  min-width: 100%;
 }
 
 .time-header {
@@ -517,7 +599,7 @@ a.session-card {
   width: 48px;
   height: 100%;
   pointer-events: none;
-  z-index: 20;
+  z-index: 10;
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
 }
 
@@ -528,7 +610,7 @@ a.session-card {
   width: 48px;
   height: 100%;
   pointer-events: none;
-  z-index: 20;
+  z-index: 10;
   background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
 }
 </style>

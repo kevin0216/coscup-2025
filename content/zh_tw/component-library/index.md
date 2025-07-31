@@ -7,6 +7,8 @@ import IconButtonPrimaryDemo from './IconButtonPrimaryDemo.vue';
 import IconButtonBasicDemo from './IconButtonBasicDemo.vue';
 import CheckboxDemo from './CheckboxDemo.vue';
 import BookmarkedDemo from './BookmarkedDemo.vue';
+import TextFieldDemo from './TextFieldDemo.vue';
+import FilterModalDemo from './FilterModalDemo.vue';
 import CTag from '#/components/CTag.vue';
 import CCard from '#/components/CCard.vue';
 </script>
@@ -42,6 +44,14 @@ import CCard from '#/components/CCard.vue';
 ## Checkbox
 
 <CheckboxDemo />
+
+## TextField
+
+<TextFieldDemo />
+
+## Filter Modal
+
+<FilterModalDemo />
 
 ## Icon / Bookmarked
 

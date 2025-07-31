@@ -20,6 +20,7 @@ const props = defineProps<Props>()
 .checkbox {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   cursor: pointer;
   user-select: none;
   font-family:
@@ -29,9 +30,10 @@ const props = defineProps<Props>()
     'Segoe UI',
     Roboto,
     sans-serif;
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 400;
-  line-height: 1;
+  line-height: normal;
+  color: var(--color-gray-600);
 
   /* Hide the browser's default checkbox */
   > input {
@@ -48,7 +50,7 @@ const props = defineProps<Props>()
     width: 16px;
     height: 16px;
     border-radius: 2px;
-    margin-inline-end: 4px;
+    flex-shrink: 0;
   }
 
   &:not(:has(input:checked))::before {

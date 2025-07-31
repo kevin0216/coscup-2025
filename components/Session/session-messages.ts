@@ -1,6 +1,6 @@
 export type Locale = 'en' | 'zh-tw'
 export type MessageKey =
-  'time' | 'speaker' | 'room' | 'collaborativeNotes' | 'track' | 'abstract' | 'aboutSpeaker' | 'advertisement' | 'unknown' | 'community' | 'tags' | 'conference' | 'bookmarked' | 'mainTrack'
+  'time' | 'speaker' | 'room' | 'collaborativeNotes' | 'track' | 'abstract' | 'aboutSpeaker' | 'advertisement' | 'unknown' | 'community' | 'tags' | 'conference' | 'bookmarked' | 'mainTrack' | 'searchCommunity' | 'searchTags'
 
 export const messages: Record<Locale, Record<MessageKey, string>> = {
   'en': {
@@ -18,6 +18,8 @@ export const messages: Record<Locale, Record<MessageKey, string>> = {
     conference: 'Conference',
     bookmarked: 'Bookmarked',
     mainTrack: 'Main Track',
+    searchCommunity: 'Search community…',
+    searchTags: 'Search tags…',
   },
   'zh-tw': {
     time: '時間',
@@ -34,5 +36,7 @@ export const messages: Record<Locale, Record<MessageKey, string>> = {
     conference: '議程',
     bookmarked: '我的收藏',
     mainTrack: '主議程軌',
+    searchCommunity: '搜尋社群……',
+    searchTags: '搜尋標籤……',
   },
 }
