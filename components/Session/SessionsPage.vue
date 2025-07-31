@@ -391,11 +391,11 @@ const openedSession = computed(() => {
               >
                 <CCard
                   :bookmarked="bookmarkedSessions.has(session.code)"
-                  :card-style="layout.getSessionStyle(session.code)"
                   :end-at="session.end"
                   :speaker="session.speakers?.map(s => s.name).join(', ') || 'TBD'"
                   :start-at="session.start"
                   :status="openedSession?.code === session.code ? 'active' : 'default'"
+                  :style="layout.getSessionStyle(session.code)"
                   :tag-text="session.track?.name || messages[locale].mainTrack"
                   :title="session.title"
                   @bookmark="toggleBookmark(session.code)"

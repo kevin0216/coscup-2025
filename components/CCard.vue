@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { CSSProperties } from 'vue'
 import { formatTimeRange } from '#utils/format-time.ts'
 import { computed } from 'vue'
 import CTag from './CTag.vue'
@@ -14,7 +13,6 @@ interface Props {
   bookmarked?: boolean
   tagText?: string
   status?: 'default' | 'active' | 'disabled'
-  cardStyle?: CSSProperties
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -37,7 +35,6 @@ const tagVariant = computed(() => props.bookmarked ? 'active' : 'secondary')
       $style[`card${props.status.charAt(0).toUpperCase() + props.status.slice(1)}`],
       props.bookmarked ? $style.cardBookmarked : '',
     ]"
-    :style="props.cardStyle"
   >
     <!-- Header with title, time and bookmark -->
     <div :class="$style.header">
