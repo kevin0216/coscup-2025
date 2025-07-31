@@ -431,26 +431,23 @@ const openedSession = computed(() => {
 </template>
 
 <style scoped>
-* {
-  --column-time-header: 48px;
-  --column-width: 220px;
-}
-
-@media (min-width: 1024px) {
-  * {
-    --column-time-header: 68px;
-    --column-width: 320px;
-  }
-}
-
 .schedule-page {
   --date-tab-height: 3rem;
   --controls-height: 5rem;
+  --column-time-header: 48px;
+  --column-width: 220px;
 
   width: 100%;
   min-width: 100%;
   padding: 18px 32px;
   height: calc(100vh - var(--vp-nav-height));
+}
+
+@media (min-width: 1024px) {
+  .schedule-page {
+    --column-time-header: 68px;
+    --column-width: 320px;
+  }
 }
 
 .toolbar {
