@@ -275,7 +275,7 @@ const openedSession = computed(() => {
     class="schedule-page"
     :style="{
       '--room-count': filteredRooms.length,
-      '--time-slot-counts': timeSlots.length,
+      '--time-slot-count': timeSlots.length,
       '--time-slot-height': `${TIME_SLOT_HEIGHT}px`,
     }"
   >
@@ -515,7 +515,7 @@ const openedSession = computed(() => {
 .schedule-content {
   display: flex;
   position: relative;
-  min-height: calc(var(--time-slot-height) * var(--time-slot-counts));
+  min-height: calc(var(--time-slot-height) * var(--time-slot-count));
   min-width: calc(var(--column-width) * var(--room-count));
 }
 
@@ -544,7 +544,7 @@ const openedSession = computed(() => {
 .sessions-area {
   flex: 1;
   position: relative;
-  min-height: calc(var(--time-slot-height) * var(--time-slot-counts));
+  min-height: calc(var(--time-slot-height) * var(--time-slot-count));
 }
 
 .grid-lines {
