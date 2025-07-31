@@ -131,7 +131,7 @@ function updateSelectedDate(date: 'start' | 'end') {
   selectedDate.value = date
 }
 
-// Generate time slots from 8AM to 6PM
+// Generate time slots from 9AM to 5PM
 const timeSlots = computed(() => {
   const slots = []
   for (let hour = START_HOUR; hour <= END_HOUR; hour++) {
@@ -271,7 +271,14 @@ const openedSession = computed(() => {
     @close="handleCloseSession"
   />
 
-  <div class="schedule-page">
+  <div
+    class="schedule-page"
+    :style="{
+      '--room-count': filteredRooms.length,
+      '--time-slot-counts': timeSlots.length,
+      '--time-slot-height': `${TIME_SLOT_HEIGHT}px`,
+    }"
+  >
     <!-- Date Selection -->
     <SessionDateTab
       v-if="isDesktop"
@@ -425,9 +432,6 @@ const openedSession = computed(() => {
 
 <style scoped>
 * {
-  /* It must match session-layout.ts */
-  --time-slot-height: 850px;
-  --time-slot-counts: calc(17 - 8 + 1); /* 8AM to 5PM */
   --column-time-header: 48px;
   --column-width: 220px;
 }
@@ -515,7 +519,7 @@ const openedSession = computed(() => {
   display: flex;
   position: relative;
   min-height: calc(var(--time-slot-height) * var(--time-slot-counts));
-  min-width: calc(var(--column-width) * var(--time-slot-counts));
+  min-width: calc(var(--column-width) * var(--room-count));
 }
 
 .time-column {
@@ -569,7 +573,7 @@ const openedSession = computed(() => {
   height: 100%;
   position: relative;
   z-index: 2;
-  min-width: calc(var(--column-width) * var(--time-slot-counts));
+  min-width: calc(var(--column-width) * var(--room-count));
 }
 
 .room-column {
