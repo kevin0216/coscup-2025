@@ -11,11 +11,10 @@ import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#
 import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
-import { computed, nextTick, onMounted } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import IconPhBookmarkSimple from '~icons/ph/bookmark-simple'
 import IconPhUsersThree from '~icons/ph/users-three'
 import { messages } from './session-messages.ts'
-import { useScrollFade } from './useScrollFade.ts'
 
 const props = defineProps<{
   sessionCode: string | undefined
@@ -210,14 +209,7 @@ const filteredRooms = computed(() => {
   return props.rooms.filter((room) => getSessionsForRoom(room.id).length > 0)
 })
 
-// Scroll fade management
-const {
-  containerRef: scheduleContainerRef,
-  leftFadeRef,
-  rightFadeRef,
-  scrolledToLeft,
-  scrolledToRight,
-} = useScrollFade()
+const scheduleContainerRef = ref<HTMLElement | null>(null)
 
 const router = useRouter()
 
@@ -248,8 +240,6 @@ onMounted(() => {
     if (scheduleContainerRef.value && scrollPosition.value) {
       scheduleContainerRef.value.scrollLeft = scrollPosition.value.x
       scheduleContainerRef.value.scrollTop = scrollPosition.value.y
-      // Clear the stored position after restoration
-      // scrollPosition.value = null
     }
   })
 })
@@ -405,18 +395,6 @@ const openedSession = computed(() => {
           </div>
         </div>
       </div>
-      <!-- 視覺引導淡出遮罩（左側） -->
-      <div
-        v-show="!scrolledToLeft"
-        ref="leftFadeRef"
-        class="scroll-left-fade"
-      />
-      <!-- 視覺引導淡出遮罩（右側） -->
-      <div
-        v-show="!scrolledToRight"
-        ref="rightFadeRef"
-        class="scroll-right-fade"
-      />
     </div>
 
     <SessionDateTab
@@ -606,27 +584,5 @@ a.session-card {
 .session-card:hover {
   transform: translateY(-2px);
   z-index: 4;
-}
-
-.scroll-right-fade {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 48px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 10;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
-}
-
-.scroll-left-fade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 48px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 10;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
 }
 </style>
