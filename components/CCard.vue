@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { CSSProperties } from 'vue'
 import { formatTimeRange } from '#utils/format-time.ts'
 import { computed } from 'vue'
 import CTag from './CTag.vue'
@@ -13,14 +14,13 @@ interface Props {
   bookmarked?: boolean
   tagText?: string
   status?: 'default' | 'active' | 'disabled'
-  heightFactor?: number
+  cardStyle?: CSSProperties
 }
 
 const props = withDefaults(defineProps<Props>(), {
   bookmarked: false,
   tagText: '主議程軌',
   status: 'default',
-  heightFactor: 1,
 })
 
 defineEmits<{
@@ -28,9 +28,6 @@ defineEmits<{
 }>()
 
 const tagVariant = computed(() => props.bookmarked ? 'active' : 'secondary')
-const cardStyle = computed(() => ({
-  height: `${150 * props.heightFactor}px`,
-}))
 </script>
 
 <template>
@@ -40,7 +37,7 @@ const cardStyle = computed(() => ({
       $style[`card${props.status.charAt(0).toUpperCase() + props.status.slice(1)}`],
       props.bookmarked ? $style.cardBookmarked : '',
     ]"
-    :style="cardStyle"
+    :style="props.cardStyle"
   >
     <!-- Header with title, time and bookmark -->
     <div :class="$style.header">
