@@ -34,7 +34,7 @@ export const messages: Record<Locale, Record<MessageKey, string>> = {
     community: '社群',
     tags: '標籤',
     conference: '議程',
-    bookmarked: '我的收藏',
+    bookmarked: '收藏',
     mainTrack: '主議程軌',
     searchCommunity: '搜尋社群……',
     searchTags: '搜尋標籤……',
