@@ -7,7 +7,7 @@ import type { SubmissionResponse } from '#loaders/types.ts'
 /**
  * The time configuration of the schedule.
  */
-export const TIME_SLOT_HEIGHT = 400 // pixels per hour
+export const TIME_SLOT_HEIGHT = 850 // pixels per hour
 /**
  * The start hour of the schedule.
  */
@@ -15,7 +15,7 @@ export const START_HOUR = 9 // 9AM
 /**
  * The end hour of the schedule.
  */
-export const END_HOUR = 18 // 6PM
+export const END_HOUR = 17 // 5PM
 
 interface SessionScheduleLayoutInfo {
   startTime: number
@@ -64,12 +64,5 @@ export class SessionScheduleLayout {
       top: `${scheduleInfo.topPosition}px`,
       height: `${scheduleInfo.height}px`,
     }
-  }
-
-  getHeightFactor(sessionCode: string) {
-    const scheduleInfo = this.#layout.get(sessionCode)
-    if (!scheduleInfo) return 1
-
-    return Math.max(1, Math.ceil(scheduleInfo.duration * 2)) // 30 min increments
   }
 }

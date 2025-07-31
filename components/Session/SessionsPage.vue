@@ -384,8 +384,8 @@ const openedSession = computed(() => {
               >
                 <CCard
                   :bookmarked="bookmarkedSessions.has(session.code)"
+                  :card-style="layout.getSessionStyle(session.code)"
                   :end-at="session.end"
-                  :height-factor="layout.getHeightFactor(session.code)"
                   :speaker="session.speakers?.map(s => s.name).join(', ') || 'TBD'"
                   :start-at="session.start"
                   :status="openedSession?.code === session.code ? 'active' : 'default'"
@@ -424,6 +424,21 @@ const openedSession = computed(() => {
 </template>
 
 <style scoped>
+* {
+  /* It must match session-layout.ts */
+  --time-slot-height: 850px;
+  --time-slot-counts: calc(17 - 8 + 1); /* 8AM to 5PM */
+  --column-time-header: 48px;
+  --column-width: 220px;
+}
+
+@media (min-width: 1024px) {
+  * {
+    --column-time-header: 68px;
+    --column-width: 320px;
+  }
+}
+
 .schedule-page {
   --date-tab-height: 3rem;
   --controls-height: 5rem;
@@ -480,13 +495,13 @@ const openedSession = computed(() => {
 }
 
 .time-header {
-  width: 68px;
+  width: var(--column-time-header);
   border-right: 1px solid var(--color-gray-200);
 }
 
 .room-header {
   flex: 1;
-  min-width: 320px;
+  min-width: var(--column-width);
   padding: 12px;
   text-align: center;
   font-family: 'PingFang TC', sans-serif;
@@ -499,20 +514,20 @@ const openedSession = computed(() => {
 .schedule-content {
   display: flex;
   position: relative;
-  min-height: calc(300px * 11);
-  min-width: 900px;
+  min-height: calc(var(--time-slot-height) * var(--time-slot-counts));
+  min-width: calc(var(--column-width) * var(--time-slot-counts));
 }
 
 .time-column {
-  width: 68px;
+  width: var(--column-time-header);
   background: var(--color-gray-50);
   border-right: 1px solid var(--color-gray-200);
   position: relative;
 }
 
 .time-slot {
-  width: 68px;
-  height: 400px;
+  width: var(--column-time-header);
+  height: var(--time-slot-height);
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
@@ -528,7 +543,7 @@ const openedSession = computed(() => {
 .sessions-area {
   flex: 1;
   position: relative;
-  min-height: calc(300px * 11);
+  min-height: calc(var(--time-slot-height) * var(--time-slot-counts));
 }
 
 .grid-lines {
@@ -554,12 +569,12 @@ const openedSession = computed(() => {
   height: 100%;
   position: relative;
   z-index: 2;
-  min-width: 900px;
+  min-width: calc(var(--column-width) * var(--time-slot-counts));
 }
 
 .room-column {
   flex: 1;
-  min-width: 320px;
+  min-width: var(--column-width);
   position: relative;
   padding: 8px;
 }
