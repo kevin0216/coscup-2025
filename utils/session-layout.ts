@@ -15,7 +15,7 @@ export const START_HOUR = 9 // 9AM
 /**
  * The end hour of the schedule.
  */
-export const END_HOUR = 17 // 5PM
+export const END_HOUR = 16 // 4PM
 
 interface SessionScheduleLayoutInfo {
   startTime: number
