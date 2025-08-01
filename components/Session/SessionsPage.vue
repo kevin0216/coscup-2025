@@ -2,7 +2,6 @@
 import type { SubmissionResponse } from '#loaders/types.ts'
 import type { Serializer } from '@vueuse/core'
 import type { MessageKey } from './session-messages.ts'
-import type SessionModal from './SessionModal.vue'
 import CCard from '#/components/CCard.vue'
 import CIconButton from '#/components/CIconButton.vue'
 import CMenuBar from '#/components/CMenuBar.vue'
@@ -11,9 +10,7 @@ import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#
 import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
-import { computed, nextTick, onMounted, ref } from 'vue'
-import IconPhBookmarkSimple from '~icons/ph/bookmark-simple'
-import IconPhUsersThree from '~icons/ph/users-three'
+import { computed, defineAsyncComponent, nextTick, onMounted, ref } from 'vue'
 
 const props = defineProps<{
   sessionCode: string | undefined
@@ -21,6 +18,30 @@ const props = defineProps<{
   submissions: SubmissionResponse[]
   messages: Record<MessageKey, string>
 }>()
+
+// Lazy load components with skeletons
+const SessionModal = defineAsyncComponent({
+  loader: () => import('./SessionModal.vue'),
+  loadingComponent: () => import('./SessionModalSkeleton.vue'),
+  delay: 0,
+})
+
+const SessionFilterPopover = defineAsyncComponent({
+  loader: () => import('./SessionFilterPopover.vue'),
+  loadingComponent: () => import('./SessionFilterPopoverSkeleton.vue'),
+  delay: 0,
+})
+
+const SessionDateTab = defineAsyncComponent({
+  loader: () => import('./SessionDateTab.vue'),
+  loadingComponent: () => import('./SessionDateTabSkeleton.vue'),
+  delay: 0,
+})
+
+// Lazy load icons
+const IconPhBookmarkSimple = defineAsyncComponent(() => import('~icons/ph/bookmark-simple'))
+const IconPhUsersThree = defineAsyncComponent(() => import('~icons/ph/users-three'))
+const IconPhShareFat = defineAsyncComponent(() => import('~icons/ph/share-fat'))
 
 // Reactive state for mobile view
 const breakpoints = useBreakpoints(breakpointsTailwind)
