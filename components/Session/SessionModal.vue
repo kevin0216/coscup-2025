@@ -4,8 +4,8 @@ import type { MessageKey } from './session-messages'
 import CTag from '#components/CTag.vue'
 import { formatTimeRange } from '#utils/format-time.ts'
 import { markdownToHtml } from '#utils/markdown.ts'
+import { computedAsync } from '@vueuse/core'
 import { computed } from 'vue'
-import { getAdvertisement } from './advertisement'
 
 const props = defineProps<{
   session: SubmissionResponse | null
@@ -16,10 +16,11 @@ defineEmits<{
   (e: 'close'): void
 }>()
 
-const advertisement = computed(() => {
+const advertisement = computedAsync(async () => {
+  const { getAdvertisement } = await import('./advertisement')
   // Only retrieve advertisement when the modal is open (session is available)
   return props.session ? getAdvertisement() : null
-})
+}, null)
 
 const sessionTime = computed(() => {
   const startDateString = props.session?.start
