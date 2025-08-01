@@ -22,19 +22,16 @@ const props = defineProps<{
 // Lazy load components with skeletons
 const SessionModal = defineAsyncComponent({
   loader: () => import('./SessionModal.vue'),
-  loadingComponent: () => import('./SessionModalSkeleton.vue'),
   delay: 0,
 })
 
 const SessionFilterPopover = defineAsyncComponent({
   loader: () => import('./SessionFilterPopover.vue'),
-  loadingComponent: () => import('./SessionFilterPopoverSkeleton.vue'),
   delay: 0,
 })
 
 const SessionDateTab = defineAsyncComponent({
   loader: () => import('./SessionDateTab.vue'),
-  loadingComponent: () => import('./SessionDateTabSkeleton.vue'),
   delay: 0,
 })
 
