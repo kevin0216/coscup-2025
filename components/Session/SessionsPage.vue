@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SubmissionResponse } from '#loaders/types.ts'
 import type { Serializer } from '@vueuse/core'
-import type { Locale } from './session-messages.ts'
+import type { MessageKey } from './session-messages.ts'
 import type SessionModal from './SessionModal.vue'
 import CCard from '#/components/CCard.vue'
 import CIconButton from '#/components/CIconButton.vue'
@@ -14,13 +14,12 @@ import { useRouter } from 'vitepress'
 import { computed, nextTick, onMounted, ref } from 'vue'
 import IconPhBookmarkSimple from '~icons/ph/bookmark-simple'
 import IconPhUsersThree from '~icons/ph/users-three'
-import { messages } from './session-messages.ts'
 
 const props = defineProps<{
   sessionCode: string | undefined
   rooms: { id: number, name: string }[]
   submissions: SubmissionResponse[]
-  locale: Locale
+  messages: Record<MessageKey, string>
 }>()
 
 // Reactive state for mobile view
@@ -116,8 +115,8 @@ const selectedView = useLocalStorage<'conference' | 'bookmarked'>('selected-view
 
 // Menu items for view toggle
 const viewMenuItems = computed(() => [
-  { key: 'conference', label: messages[props.locale].conference || 'Conference' },
-  { key: 'bookmarked', label: messages[props.locale].bookmarked || 'Bookmarked' },
+  { key: 'conference', label: props.messages.conference || 'Conference' },
+  { key: 'bookmarked', label: props.messages.bookmarked || 'Bookmarked' },
 ])
 
 // Date selection state
@@ -258,7 +257,7 @@ const openedSession = computed(() => {
 <template>
   <!-- make the main content show earlier -->
   <SessionModal
-    :locale="locale"
+    :messages="props.messages"
     :session="openedSession"
     @close="handleCloseSession"
   />
@@ -285,17 +284,17 @@ const openedSession = computed(() => {
       <div class="toolbar-start">
         <SessionFilterPopover
           :icon="IconPhUsersThree"
-          :label="messages[locale].community || 'Community'"
+          :label="props.messages.community || 'Community'"
           :options="communityFilterOptions"
-          :search-placeholder="messages[locale].searchCommunity"
+          :search-placeholder="props.messages.searchCommunity"
           @toggle="handleCommunityToggle"
         />
 
         <SessionFilterPopover
           :icon="IconPhBookmarkSimple"
-          :label="messages[locale].tags || 'Tags'"
+          :label="props.messages.tags || 'Tags'"
           :options="tagsFilterOptions"
-          :search-placeholder="messages[locale].searchTags"
+          :search-placeholder="props.messages.searchTags"
           @toggle="handleTagsToggle"
         />
 
@@ -402,7 +401,7 @@ const openedSession = computed(() => {
                   :start-at="session.start"
                   :status="openedSession?.code === session.code ? 'active' : 'default'"
                   :style="layout.getSessionStyle(session.code)"
-                  :tag-text="session.track?.name || messages[locale].mainTrack"
+                  :tag-text="session.track?.name || props.messages.mainTrack"
                   :title="session.title"
                   @bookmark="toggleBookmark(session.code)"
                 />

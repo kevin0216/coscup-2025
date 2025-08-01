@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import type { SubmissionResponse } from '#loaders/types.ts'
-import type { Locale } from './session-messages'
+import type { MessageKey } from './session-messages'
 import CTag from '#components/CTag.vue'
 import { formatTimeRange } from '#utils/format-time.ts'
 import { markdownToHtml } from '#utils/markdown.ts'
 import { computed } from 'vue'
 import { getAdvertisement } from './advertisement'
-import { messages } from './session-messages'
 
 const props = defineProps<{
   session: SubmissionResponse | null
-  locale: Locale
+  messages: Record<MessageKey, string>
 }>()
 
 defineEmits<{
@@ -26,7 +25,7 @@ const sessionTime = computed(() => {
   const startDateString = props.session?.start
   const endDateString = props.session?.end
 
-  if (!startDateString || !endDateString) return messages[props.locale].unknown
+  if (!startDateString || !endDateString) return props.messages.unknown
 
   return formatTimeRange(startDateString, endDateString, true)
 })
@@ -75,21 +74,21 @@ const collaborationUrl = null
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhClock />
-                    {{ messages[locale].time }}
+                    {{ props.messages.time }}
                   </div>
                   {{ sessionTime }}
                 </div>
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhUser />
-                    {{ messages[locale]?.speaker }}
+                    {{ props.messages.speaker }}
                   </div>
                   {{ session.speakers.map(speaker => speaker.name).join(', ') }}
                 </div>
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhMapPin />
-                    {{ messages[locale].room }}
+                    {{ props.messages.room }}
                   </div>
                   {{ session.room.name }}
                 </div>
@@ -99,7 +98,7 @@ const collaborationUrl = null
                 >
                   <div class="session-detail-label">
                     <IconPhFileText />
-                    {{ messages[locale].collaborativeNotes }}
+                    {{ props.messages.collaborativeNotes }}
                   </div>
                   {{ collaborationUrl }}
                 </div>
@@ -123,7 +122,7 @@ const collaborationUrl = null
               <hr class="separator">
 
               <section class="session-description">
-                <h2>{{ messages[locale].abstract }}</h2>
+                <h2>{{ props.messages.abstract }}</h2>
                 <div
                   v-if="session.abstract"
                   class="content-container"
@@ -147,7 +146,7 @@ const collaborationUrl = null
                 v-if="session.speakers.length > 0"
                 class="session-description"
               >
-                <h2>{{ messages[locale].aboutSpeaker }}</h2>
+                <h2>{{ props.messages.aboutSpeaker }}</h2>
                 <template
                   v-for="speaker in session.speakers"
                   :key="speaker.code"
