@@ -45,3 +45,33 @@ export async function getGoogleSheet<SheetRow extends Record<string, string>>({
 
   return result
 }
+
+/**
+ * Get the optimized Google Drive image URL.
+ *
+ * @param imageUrl The URL of the Google Drive image.
+ * @returns The absolute path to the optimized image.
+ */
+export async function getDriveImage(imageUrl: string): Promise<string> {
+  if (!imageUrl) {
+    return ''
+  }
+
+  const getImageID = imageUrl.match(/\/d\/([^/]+)\//)
+  const imageID = getImageID ? getImageID[1] : null
+
+  const optimizedImageUrl = `https://coscup-2025-drive-cache.b-cdn.net/${imageID}`
+
+  // preload this image so it will be cached, since the
+  // optimization usually takes 2+ seconds to complete
+  try {
+    const response = await fetch(optimizedImageUrl)
+    if (!response.ok) {
+      console.error(`Failed to preload image: ${response.statusText}`)
+    }
+  } catch (error) {
+    console.error('Failed to preload image:', error)
+  }
+
+  return optimizedImageUrl
+}

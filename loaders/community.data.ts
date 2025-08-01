@@ -1,4 +1,5 @@
 import { defineLoader, loadEnv } from 'vitepress'
+import { getDriveImage } from './utils'
 
 // API 設定
 const env = loadEnv('', process.cwd())
@@ -48,18 +49,6 @@ interface Booths {
   'community': string
   'room': string
   'trackroom': string
-}
-
-// 處理 Google Drive 圖片
-async function getDriveImage(imageUrl: string): Promise<string> {
-  if (!imageUrl) {
-    return ''
-  }
-
-  const getImageID = imageUrl.match(/\/d\/([^/]+)\//)
-  const imageID = getImageID ? getImageID[1] : null
-
-  return `https://drive.google.com/thumbnail?id=${imageID}`
 }
 
 // 取得 Google Sheets 資料

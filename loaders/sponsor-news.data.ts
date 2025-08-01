@@ -1,4 +1,5 @@
 import { defineLoader, loadEnv } from 'vitepress'
+import { getDriveImage } from './utils'
 
 // API 設定
 const env = loadEnv('', process.cwd())
@@ -19,26 +20,6 @@ export interface SponsorNews {
   'link': string
   'specialWeight': string
   'canPublish': 'Y' | 'N'
-}
-
-// 轉換 Google Drive 圖片 URL
-async function getDriveImageBase64(shareUrl: string): Promise<string> {
-  if (!shareUrl) {
-    return ''
-  }
-
-  const fileIdMatch = shareUrl.match(/(?:\/d\/|id=)([^/?]+)/)
-  const fileId = fileIdMatch ? fileIdMatch[1] : null
-  const directUrl = `https://drive.google.com/uc?export=view&id=${fileId}`
-  const response = await fetch(directUrl)
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch image from Google Drive: ${response.statusText}`)
-  }
-
-  const arrayBuffer = await response.arrayBuffer()
-  const buffer = Buffer.from(arrayBuffer)
-  return `data:${response.headers.get('content-type') || 'image/jpeg'};base64,${buffer.toString('base64')}`
 }
 
 // 取得 Google Sheets 資料
@@ -64,8 +45,8 @@ async function fetchSponsorsNews(): Promise<SponsorNews[]> {
 
     return await Promise.all(sponsors.map(async (sponsor) => ({
       ...sponsor,
-      'image:horizontal': await getDriveImageBase64(sponsor['image:horizontal']) || '',
-      'image:vertical': await getDriveImageBase64(sponsor['image:vertical']) || '',
+      'image:horizontal': await getDriveImage(sponsor['image:horizontal']) || '',
+      'image:vertical': await getDriveImage(sponsor['image:vertical']) || '',
     })))
   } catch (error) {
     console.error('Error fetching sponsors:', error)
