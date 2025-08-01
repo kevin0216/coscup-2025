@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      PRETALX_BASE_URL: ${{ secrets.PRETALX_BASE_URL }}
       PRETALX_TOKEN: ${{ secrets.PRETALX_TOKEN }}
       VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
       VITE_COMMUNITY_SHEET_NAME: ${{ secrets.VITE_COMMUNITY_SHEET_NAME }}
-      VITE_PRETALX_API_TOKEN: ${{ secrets.VITE_PRETALX_API_TOKEN }}
       VITE_SHEET_ID: ${{ secrets.VITE_SHEET_ID }}
       VITE_SPONSOR_LEVELS_SHEET_NAME: ${{ secrets.VITE_SPONSOR_LEVELS_SHEET_NAME }}
       VITE_SPONSOR_NEWS_SHEET_NAME: ${{ secrets.VITE_SPONSOR_NEWS_SHEET_NAME }}
