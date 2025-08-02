@@ -13,6 +13,7 @@ export const en = defineConfig({
       { text: 'Community', link: '/en/community' },
       { text: 'Staff', link: '/en/staff' },
       { text: 'Venue', link: '/en/venue' },
+      { text: 'Fringe', link: '/en/fringe' },
     ],
     sidebar: {
       '/en/participate': [

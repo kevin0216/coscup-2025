@@ -14,6 +14,7 @@ export const zh_tw = defineConfig({
       { text: '社群夥伴', link: '/community' },
       { text: '工作人員', link: '/staff' },
       { text: '會場地圖', link: '/venue' },
+      { text: '周邊活動', link: '/fringe' },
     ],
     sidebar: {
       '/participate': [
