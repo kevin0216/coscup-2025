@@ -42,10 +42,12 @@ function handleCloseSession() {
     @close="handleCloseSession"
   />
 
-  <SessionSchedule
-    :messages="props.messages"
-    :opened-session="openedSession"
-    :rooms="props.rooms"
-    :submissions="props.submissions"
-  />
+  <ClientOnly>
+    <SessionSchedule
+      :messages="props.messages"
+      :opened-session="openedSession"
+      :rooms="props.rooms"
+      :submissions="props.submissions"
+    />
+  </ClientOnly>
 </template>

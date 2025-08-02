@@ -131,17 +131,19 @@ const collaborationUrl = null
                 />
               </section>
 
-              <section :class="$style['cool-sponsor-horizontal-area']">
-                <a
-                  v-if="advertisement"
-                  :href="advertisement.link"
-                >
-                  <img
-                    :alt="`橫式廣告 – ${advertisement.id}`"
-                    :src="advertisement.horizontal"
+              <ClientOnly>
+                <section :class="$style['cool-sponsor-horizontal-area']">
+                  <a
+                    v-if="advertisement"
+                    :href="advertisement.link"
                   >
-                </a>
-              </section>
+                    <img
+                      :alt="`橫式廣告 – ${advertisement.id}`"
+                      :src="advertisement.horizontal"
+                    >
+                  </a>
+                </section>
+              </ClientOnly>
 
               <section
                 v-if="session.speakers.length > 0"
@@ -172,19 +174,21 @@ const collaborationUrl = null
             </section>
           </div>
         </main>
-        <aside>
-          <div :class="$style['cool-sponsor-vertical-area']">
-            <a
-              v-if="advertisement"
-              :href="advertisement.link"
-            >
-              <img
-                :alt="`直式廣告 – ${advertisement.id}`"
-                :src="advertisement.vertical"
+        <ClientOnly>
+          <aside>
+            <div :class="$style['cool-sponsor-vertical-area']">
+              <a
+                v-if="advertisement"
+                :href="advertisement.link"
               >
-            </a>
-          </div>
-        </aside>
+                <img
+                  :alt="`直式廣告 – ${advertisement.id}`"
+                  :src="advertisement.vertical"
+                >
+              </a>
+            </div>
+          </aside>
+        </ClientOnly>
       </article>
     </aside>
   </div>
