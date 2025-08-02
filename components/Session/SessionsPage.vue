@@ -26,9 +26,9 @@ const openedSession = computed(() => {
   return null
 })
 
-function handleCloseSession() {
-  const router = useRouter()
+const router = useRouter()
 
+function handleCloseSession() {
   const pathname = new URL('.', location.href).pathname
   router.go(pathname)
 }
