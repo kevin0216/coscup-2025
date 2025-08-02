@@ -71,7 +71,9 @@ const tags = computed(() => {
     optionsMap.set(`difficulty:${difficulty}`, difficulty)
   })
 
-  return Array.from(optionsMap.entries()).map(([id, label]) => ({ id, label }))
+  return Array.from(optionsMap.entries())
+    .map(([id, label]) => ({ id, label }))
+    .sort((a, b) => a.id.localeCompare(b.id))
 })
 
 const communityFilterOptions = computed(() =>
