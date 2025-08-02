@@ -3,14 +3,14 @@ import type { SubmissionResponse } from '#loaders/types.ts'
 import type { Serializer } from '@vueuse/core'
 import type { MessageKey } from './session-messages.ts'
 import CCard from '#/components/CCard.vue'
-import CIconButton from '#/components/CIconButton.vue'
 import CMenuBar from '#/components/CMenuBar.vue'
 import { conference } from '#data/conference'
 import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#utils/session-layout.ts'
 import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
-import { computed, defineAsyncComponent, nextTick, onMounted, ref } from 'vue'
+import { computed, defineAsyncComponent, h, nextTick, onMounted, ref } from 'vue'
+import SessionDateTab from './SessionDateTab.vue'
 
 const props = defineProps<{
   rooms: { id: number, name: string }[]
@@ -24,15 +24,18 @@ const SessionFilterPopover = defineAsyncComponent({
   delay: 0,
 })
 
-const SessionDateTab = defineAsyncComponent({
-  loader: () => import('./SessionDateTab.vue'),
+const iconPlaceholder = h('div', { style: { width: '1.2em', height: '1.2em' } }, '')
+
+const IconPhBookmarkSimple = defineAsyncComponent({
+  loader: () => import('~icons/ph/bookmark-simple'),
+  loadingComponent: iconPlaceholder,
   delay: 0,
 })
-
-// Lazy load icons
-const IconPhBookmarkSimple = defineAsyncComponent(() => import('~icons/ph/bookmark-simple'))
-const IconPhUsersThree = defineAsyncComponent(() => import('~icons/ph/users-three'))
-const IconPhShareFat = defineAsyncComponent(() => import('~icons/ph/share-fat'))
+const IconPhUsersThree = defineAsyncComponent({
+  loader: () => import('~icons/ph/users-three'),
+  loadingComponent: iconPlaceholder,
+  delay: 0,
+})
 
 // Reactive state for mobile view
 const breakpoints = useBreakpoints(breakpointsTailwind)
@@ -254,161 +257,159 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
-    class="schedule-page"
-    :style="{
-      '--room-count': filteredRooms.length,
-      '--time-slot-count': timeSlots.length,
-      '--time-slot-height': `${TIME_SLOT_HEIGHT}px`,
-    }"
-  >
-    <!-- Date Selection -->
-    <SessionDateTab
-      v-if="isDesktop"
-      :end-date="conference.endDate"
-      :selected-date="selectedDate"
-      :start-date="conference.startDate"
-      variant="desktop"
-      @update:selected-date="updateSelectedDate"
-    />
+  <ClientOnly>
+    <div
+      class="schedule-page"
+      :style="{
+        '--room-count': filteredRooms.length,
+        '--time-slot-count': timeSlots.length,
+        '--time-slot-height': `${TIME_SLOT_HEIGHT}px`,
+      }"
+    >
+      <!-- Date Selection -->
+      <SessionDateTab
+        v-if="isDesktop"
+        :end-date="conference.endDate"
+        :selected-date="selectedDate"
+        :start-date="conference.startDate"
+        variant="desktop"
+        @update:selected-date="updateSelectedDate"
+      />
 
-    <div class="toolbar">
-      <div class="toolbar-start">
-        <SessionFilterPopover
-          :icon="IconPhUsersThree"
-          :label="props.messages.community || 'Community'"
-          :options="communityFilterOptions"
-          :search-placeholder="props.messages.searchCommunity"
-          @toggle="handleCommunityToggle"
-        />
+      <div class="toolbar">
+        <div class="toolbar-start">
+          <SessionFilterPopover
+            :icon="IconPhUsersThree"
+            :label="props.messages.community || 'Community'"
+            :options="communityFilterOptions"
+            :search-placeholder="props.messages.searchCommunity"
+            @toggle="handleCommunityToggle"
+          />
 
-        <SessionFilterPopover
-          :icon="IconPhBookmarkSimple"
-          :label="props.messages.tags || 'Tags'"
-          :options="tagsFilterOptions"
-          :search-placeholder="props.messages.searchTags"
-          @toggle="handleTagsToggle"
-        />
+          <SessionFilterPopover
+            :icon="IconPhBookmarkSimple"
+            :label="props.messages.tags || 'Tags'"
+            :options="tagsFilterOptions"
+            :search-placeholder="props.messages.searchTags"
+            @toggle="handleTagsToggle"
+          />
 
-        <!--
+          <!--
         <CIconButton variant="basic">
           <IconPhMagnifyingGlass />
         </CIconButton>
         -->
-      </div>
+        </div>
 
-      <div class="toolbar-end">
-        <CMenuBar
-          v-model="selectedView"
-          :items="viewMenuItems"
-        />
-
-        <CIconButton variant="basic">
-          <IconPhShareFat />
-        </CIconButton>
-      </div>
-    </div>
-
-    <!-- Schedule Container -->
-    <div
-      ref="scheduleContainerRef"
-      class="schedule-container"
-    >
-      <!-- Room Headers -->
-      <div class="room-headers">
-        <div class="time-header" />
-        <div
-          v-for="room in filteredRooms"
-          :key="room.id"
-          class="room-header"
-        >
-          {{ room.name }}
+        <div class="toolbar-end">
+          <CMenuBar
+            v-model="selectedView"
+            :items="viewMenuItems"
+          />
         </div>
       </div>
 
+      <!-- Schedule Container -->
       <div
-        v-show="filteredRooms.length <= 0"
-        class="no-sessions"
+        ref="scheduleContainerRef"
+        class="schedule-container"
       >
-        {{ props.messages.noSessions }}
-      </div>
-
-      <!-- Main Schedule Grid -->
-      <div
-        v-show="filteredRooms.length > 0"
-        class="schedule-content"
-      >
-        <!-- Time Column -->
-        <div class="time-column">
+        <!-- Room Headers -->
+        <div class="room-headers">
+          <div class="time-header" />
           <div
-            v-for="timeSlot in timeSlots"
-            :key="timeSlot"
-            class="time-slot"
+            v-for="room in filteredRooms"
+            :key="room.id"
+            class="room-header"
           >
-            {{ timeSlot }}
+            {{ room.name }}
           </div>
         </div>
 
-        <!-- Sessions Area -->
-        <div class="sessions-area">
-          <!-- Grid Lines -->
-          <div class="grid-lines">
+        <div
+          v-show="filteredRooms.length <= 0"
+          class="no-sessions"
+        >
+          {{ props.messages.noSessions }}
+        </div>
+
+        <!-- Main Schedule Grid -->
+        <div
+          v-show="filteredRooms.length > 0"
+          class="schedule-content"
+        >
+          <!-- Time Column -->
+          <div class="time-column">
             <div
-              v-for="(_, index) in timeSlots"
-              :key="`line-${index}`"
-              class="grid-line"
-              :style="{ top: `${index * TIME_SLOT_HEIGHT}px` }"
-            />
+              v-for="timeSlot in timeSlots"
+              :key="timeSlot"
+              class="time-slot"
+            >
+              {{ timeSlot }}
+            </div>
           </div>
 
-          <!-- Room Columns -->
-          <div class="room-columns">
-            <div
-              v-for="(room, roomIndex) in filteredRooms"
-              :key="room.id"
-              class="room-column"
-            >
-              <!-- Vertical Separator -->
+          <!-- Sessions Area -->
+          <div class="sessions-area">
+            <!-- Grid Lines -->
+            <div class="grid-lines">
               <div
-                v-if="roomIndex > 0"
-                class="column-separator"
+                v-for="(_, index) in timeSlots"
+                :key="`line-${index}`"
+                class="grid-line"
+                :style="{ top: `${index * TIME_SLOT_HEIGHT}px` }"
               />
+            </div>
 
-              <!-- Session Cards for this room -->
+            <!-- Room Columns -->
+            <div class="room-columns">
               <div
-                v-for="session in getSessionsForRoom(room.id)"
-                :key="session.code"
-                class="session-card"
-                :style="layout.getSessionStyle(session.code)"
-                @click.prevent="handleOpenSession(session.code)"
+                v-for="(room, roomIndex) in filteredRooms"
+                :key="room.id"
+                class="room-column"
               >
-                <CCard
-                  :bookmarked="bookmarkedSessions.has(session.code)"
-                  :end-at="session.end"
-                  :speaker="session.speakers?.map(s => s.name).join(', ') || 'TBD'"
-                  :start-at="session.start"
-                  :status="openedSession?.code === session.code ? 'active' : 'default'"
-                  :style="layout.getSessionStyle(session.code)"
-                  :tag-text="session.track?.name || props.messages.mainTrack"
-                  :title="session.title"
-                  @bookmark="toggleBookmark(session.code)"
+                <!-- Vertical Separator -->
+                <div
+                  v-if="roomIndex > 0"
+                  class="column-separator"
                 />
+
+                <!-- Session Cards for this room -->
+                <div
+                  v-for="session in getSessionsForRoom(room.id)"
+                  :key="session.code"
+                  class="session-card"
+                  :style="layout.getSessionStyle(session.code)"
+                  @click.prevent="handleOpenSession(session.code)"
+                >
+                  <CCard
+                    :bookmarked="bookmarkedSessions.has(session.code)"
+                    :end-at="session.end"
+                    :speaker="session.speakers?.map(s => s.name).join(', ') || 'TBD'"
+                    :start-at="session.start"
+                    :status="openedSession?.code === session.code ? 'active' : 'default'"
+                    :style="layout.getSessionStyle(session.code)"
+                    :tag-text="session.track?.name || props.messages.mainTrack"
+                    :title="session.title"
+                    @bookmark="toggleBookmark(session.code)"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <SessionDateTab
-      v-if="!isDesktop"
-      :end-date="conference.endDate"
-      :selected-date="selectedDate"
-      :start-date="conference.startDate"
-      variant="mobile"
-      @update:selected-date="updateSelectedDate"
-    />
-  </div>
+      <SessionDateTab
+        v-if="!isDesktop"
+        :end-date="conference.endDate"
+        :selected-date="selectedDate"
+        :start-date="conference.startDate"
+        variant="mobile"
+        @update:selected-date="updateSelectedDate"
+      />
+    </div>
+  </ClientOnly>
 </template>
 
 <style scoped>

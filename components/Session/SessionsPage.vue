@@ -2,7 +2,7 @@
 import type { SubmissionResponse } from '#loaders/types.ts'
 import type { MessageKey } from './session-messages.ts'
 import { useRouter } from 'vitepress'
-import { computed, defineAsyncComponent, h } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import SessionModal from './SessionModal.vue'
 
 const props = defineProps<{
@@ -12,11 +12,7 @@ const props = defineProps<{
   messages: Record<MessageKey, string>
 }>()
 
-const SessionSchedule = defineAsyncComponent({
-  loader: () => import('./SessionsSchedule.vue'),
-  loadingComponent: () => h('div', { style: { width: '100%', height: '100vh' } }),
-  delay: 0,
-})
+const SessionSchedule = defineAsyncComponent(() => import('./SessionsSchedule.vue'))
 
 const openedSession = computed(() => {
   if (props.sessionCode) {
@@ -42,12 +38,21 @@ function handleCloseSession() {
     @close="handleCloseSession"
   />
 
-  <ClientOnly>
+  <div :class="$style['sessions-page']">
     <SessionSchedule
       :messages="props.messages"
       :opened-session="openedSession"
       :rooms="props.rooms"
       :submissions="props.submissions"
     />
-  </ClientOnly>
+  </div>
 </template>
+
+<style module>
+.sessions-page {
+  width: 100%;
+
+  /* prevent CLS */
+  min-height: calc(100vh - var(--vp-nav-height));
+}
+</style>
