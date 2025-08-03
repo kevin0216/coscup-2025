@@ -1,5 +1,4 @@
 import { defineLoader, loadEnv } from 'vitepress'
-import { getDriveImage } from './utils'
 
 // API 設定
 const env = loadEnv('', process.cwd())
@@ -51,6 +50,18 @@ interface Booths {
   'trackroom': string
 }
 
+// 處理 Google Drive 圖片
+async function getDriveImageThumbnail(imageUrl: string): Promise<string> {
+  if (!imageUrl) {
+    return ''
+  }
+
+  const getImageID = imageUrl.match(/\/d\/([^/]+)\//)
+  const imageID = getImageID ? getImageID[1] : null
+
+  return `https://drive.google.com/thumbnail?id=${imageID}`
+}
+
 // 取得 Google Sheets 資料
 async function fetchCommunities(): Promise<Community[]> {
   try {
@@ -73,7 +84,7 @@ async function fetchCommunities(): Promise<Community[]> {
 
     return Promise.all(communities.map(async (communities) => ({
       ...communities,
-      image: await getDriveImage(communities.image),
+      image: await getDriveImageThumbnail(communities.image),
     })))
   } catch (error) {
     console.error('Error fetching communities:', error)
