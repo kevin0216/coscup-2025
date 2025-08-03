@@ -9,6 +9,7 @@ export const en = defineConfig({
       { text: 'Participate', link: '/en/participate/attendee' },
       { text: 'About', link: '/en/about' },
       { text: 'Sessions', link: '/en/sessions' },
+      { text: 'Topics', link: '/en/topics' },
       { text: 'Sponsor', link: '/en/sponsor' },
       { text: 'Community', link: '/en/community' },
       { text: 'Staff', link: '/en/staff' },

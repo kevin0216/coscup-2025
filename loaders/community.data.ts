@@ -25,7 +25,7 @@ interface Community {
   'image': string
 }
 
-interface Topics {
+export interface Topics {
   'id': string
   'community_id': string
   'name:zh-TW': string
