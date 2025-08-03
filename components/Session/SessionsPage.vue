@@ -324,7 +324,9 @@ const openedSession = computed(() => {
       class="schedule-container"
     >
       <!-- Room Headers -->
-      <div class="room-headers">
+      <div
+        class="room-headers"
+      >
         <div class="time-header" />
         <div
           v-for="room in filteredRooms"
@@ -335,10 +337,22 @@ const openedSession = computed(() => {
         </div>
       </div>
 
+      <div
+        v-show="filteredRooms.length <= 0"
+        class="no-sessions"
+      >
+        {{ locale === 'en' ? 'No Sessions' : '沒有議程' }}
+      </div>
+
       <!-- Main Schedule Grid -->
-      <div class="schedule-content">
+      <div
+        v-show="filteredRooms.length > 0"
+        class="schedule-content"
+      >
         <!-- Time Column -->
-        <div class="time-column">
+        <div
+          class="time-column"
+        >
           <div
             v-for="timeSlot in timeSlots"
             :key="timeSlot"
@@ -586,5 +600,37 @@ a.session-card {
 .session-card:hover {
   transform: translateY(-2px);
   z-index: 4;
+}
+
+.scroll-right-fade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
+}
+
+.scroll-left-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 100%);
+}
+
+.no-sessions {
+  padding: 1rem;
+  text-align: center;
+  font-family: 'PingFang TC', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-gray-400);
+  letter-spacing: 0.48px;
 }
 </style>
