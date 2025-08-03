@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { Topics } from '#loaders/community.data'
 import { useData } from 'vitepress'
 
-defineProps<{ topic: any }>()
+defineProps<{ topic: Topics }>()
 
 const { lang } = useData()
 const user_lang = lang.value === 'en-US' ? 'en' : 'zh-TW'

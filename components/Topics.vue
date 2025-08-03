@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import type { Topics } from '#loaders/community.data'
 import { data } from '#loaders/community.data'
 import { computed } from 'vue'
 import TopicCard from './TopicCard.vue'
 
-const topics = computed(() => data.communities.reduce((acc, curr) => {
-  const t = curr.topics
+const topics = computed(() => data.communities.reduce((acc: Topics[], curr) => {
+  const t = curr.topics as Topics
   if (!t) return acc
   t.image = curr.image
   acc.push(t)
@@ -16,8 +17,8 @@ const topics = computed(() => data.communities.reduce((acc, curr) => {
 <template>
   <div class="topic-list">
     <TopicCard
-      v-for="topic in topics"
-      :key="topic.topic_id"
+      v-for="topic in topics as Topics[]"
+      :key="topic.id"
       :topic="topic"
     />
   </div>
