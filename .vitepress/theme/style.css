@@ -233,3 +233,33 @@ figure {
 figure img {
   vertical-align: top;
 }
+
+.VPNavBarExtra {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .VPNavBarMenu {
+    display: none !important;
+  }
+  .VPNavBarTranslations {
+    display: none !important;
+  }
+  .VPNavBarHamburger,
+  .VPNavScreen {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .VPNavBarMenu {
+    display: flex !important;
+  }
+  .VPNavBarTranslations {
+    display: flex !important;
+  }
+  .VPNavBarHamburger,
+  .VPNavScreen {
+    display: none !important;
+  }
+}
