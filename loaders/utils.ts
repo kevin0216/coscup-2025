@@ -56,7 +56,7 @@ export async function getGoogleSheet<SheetRow extends Record<string, string>>({
  * Set this value to `https://drive.google.com/uc?export=view&id=` to
  * use the Google Drive URL directly if you don't prefer a CDN.
  */
-const driveImageCdn = process.env.DRIVE_IMAGE_CDN ?? 'https://coscup-2025-drive-cache.b-cdn.net/'
+const driveImageCdn = process.env.DRIVE_IMAGE_CDN || 'https://coscup-2025-drive-cache.b-cdn.net/'
 
 /**
  * Get the optimized Google Drive image URL.
