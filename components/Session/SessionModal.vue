@@ -1,32 +1,32 @@
 <script setup lang="ts">
 import type { SubmissionResponse } from '#loaders/types.ts'
-import type { Locale } from './session-messages'
+import type { MessageKey } from './session-messages'
 import CTag from '#components/CTag.vue'
 import { formatTimeRange } from '#utils/format-time.ts'
 import { markdownToHtml } from '#utils/markdown.ts'
+import { computedAsync } from '@vueuse/core'
 import { computed } from 'vue'
-import { getAdvertisement } from './advertisement'
-import { messages } from './session-messages'
 
 const props = defineProps<{
   session: SubmissionResponse | null
-  locale: Locale
+  messages: Record<MessageKey, string>
 }>()
 
 defineEmits<{
   (e: 'close'): void
 }>()
 
-const advertisement = computed(() => {
+const advertisement = computedAsync(async () => {
+  const { getAdvertisement } = await import('./advertisement')
   // Only retrieve advertisement when the modal is open (session is available)
   return props.session ? getAdvertisement() : null
-})
+}, null)
 
 const sessionTime = computed(() => {
   const startDateString = props.session?.start
   const endDateString = props.session?.end
 
-  if (!startDateString || !endDateString) return messages[props.locale].unknown
+  if (!startDateString || !endDateString) return props.messages.unknown
 
   return formatTimeRange(startDateString, endDateString, true)
 })
@@ -75,21 +75,21 @@ const collaborationUrl = null
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhClock />
-                    {{ messages[locale].time }}
+                    {{ messages.time }}
                   </div>
                   {{ sessionTime }}
                 </div>
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhUser />
-                    {{ messages[locale]?.speaker }}
+                    {{ messages.speaker }}
                   </div>
                   {{ session.speakers.map(speaker => speaker.name).join(', ') }}
                 </div>
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhMapPin />
-                    {{ messages[locale].room }}
+                    {{ messages.room }}
                   </div>
                   {{ session.room.name }}
                 </div>
@@ -99,7 +99,7 @@ const collaborationUrl = null
                 >
                   <div class="session-detail-label">
                     <IconPhFileText />
-                    {{ messages[locale].collaborativeNotes }}
+                    {{ messages.collaborativeNotes }}
                   </div>
                   {{ collaborationUrl }}
                 </div>
@@ -123,7 +123,7 @@ const collaborationUrl = null
               <hr class="separator">
 
               <section class="session-description">
-                <h2>{{ messages[locale].abstract }}</h2>
+                <h2>{{ messages.abstract }}</h2>
                 <div
                   v-if="session.abstract"
                   class="content-container"
@@ -131,23 +131,25 @@ const collaborationUrl = null
                 />
               </section>
 
-              <section :class="$style['cool-sponsor-horizontal-area']">
-                <a
-                  v-if="advertisement"
-                  :href="advertisement.link"
-                >
-                  <img
-                    :alt="`橫式廣告 – ${advertisement.id}`"
-                    :src="advertisement.horizontal"
+              <ClientOnly>
+                <section :class="$style['cool-sponsor-horizontal-area']">
+                  <a
+                    v-if="advertisement"
+                    :href="advertisement.link"
                   >
-                </a>
-              </section>
+                    <img
+                      :alt="`橫式廣告 – ${advertisement.id}`"
+                      :src="advertisement.horizontal"
+                    >
+                  </a>
+                </section>
+              </ClientOnly>
 
               <section
                 v-if="session.speakers.length > 0"
                 class="session-description"
               >
-                <h2>{{ messages[locale].aboutSpeaker }}</h2>
+                <h2>{{ messages.aboutSpeaker }}</h2>
                 <template
                   v-for="speaker in session.speakers"
                   :key="speaker.code"
@@ -172,19 +174,21 @@ const collaborationUrl = null
             </section>
           </div>
         </main>
-        <aside>
-          <div :class="$style['cool-sponsor-vertical-area']">
-            <a
-              v-if="advertisement"
-              :href="advertisement.link"
-            >
-              <img
-                :alt="`直式廣告 – ${advertisement.id}`"
-                :src="advertisement.vertical"
+        <ClientOnly>
+          <aside>
+            <div :class="$style['cool-sponsor-vertical-area']">
+              <a
+                v-if="advertisement"
+                :href="advertisement.link"
               >
-            </a>
-          </div>
-        </aside>
+                <img
+                  :alt="`直式廣告 – ${advertisement.id}`"
+                  :src="advertisement.vertical"
+                >
+              </a>
+            </div>
+          </aside>
+        </ClientOnly>
       </article>
     </aside>
   </div>

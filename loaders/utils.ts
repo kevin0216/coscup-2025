@@ -45,3 +45,45 @@ export async function getGoogleSheet<SheetRow extends Record<string, string>>({
 
   return result
 }
+
+/**
+ * The CDN URL for Google Drive images.
+ *
+ * If you want to self-host this, you might need to set up a
+ * [image-compress-server](https://github.com/COSCUP/image-compress-server)
+ * instance and point the `DRIVE_IMAGE_CDN` environment variable to it.
+ *
+ * Set this value to `https://drive.google.com/uc?export=view&id=` to
+ * use the Google Drive URL directly if you don't prefer a CDN.
+ */
+const driveImageCdn = process.env.DRIVE_IMAGE_CDN || 'https://coscup-2025-drive-cache.b-cdn.net/'
+
+/**
+ * Get the optimized Google Drive image URL.
+ *
+ * @param imageUrl The URL of the Google Drive image.
+ * @returns The absolute path to the optimized image.
+ */
+export async function getDriveImage(imageUrl: string): Promise<string> {
+  if (!imageUrl) {
+    return ''
+  }
+
+  const getImageID = imageUrl.match(/\/d\/([^/]+)\//)
+  const imageID = getImageID ? getImageID[1] : null
+
+  const optimizedImageUrl = `${driveImageCdn}${imageID}`
+
+  // preload this image so it will be cached, since the
+  // optimization usually takes 2+ seconds to complete
+  try {
+    const response = await fetch(optimizedImageUrl)
+    if (!response.ok) {
+      console.error(`Failed to preload image: ${response.statusText}`)
+    }
+  } catch (error) {
+    console.error('Failed to preload image:', error)
+  }
+
+  return optimizedImageUrl
+}

@@ -46,6 +46,9 @@ export default async () => {
       },
     },
     vite: {
+      build: {
+        cssMinify: 'lightningcss',
+      },
       resolve: {
         alias: {
           '/@': resolve(__dirname, '../..'),

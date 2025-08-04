@@ -51,7 +51,7 @@ interface Booths {
 }
 
 // 處理 Google Drive 圖片
-async function getDriveImage(imageUrl: string): Promise<string> {
+async function getDriveImageThumbnail(imageUrl: string): Promise<string> {
   if (!imageUrl) {
     return ''
   }
@@ -84,7 +84,7 @@ async function fetchCommunities(): Promise<Community[]> {
 
     return Promise.all(communities.map(async (communities) => ({
       ...communities,
-      image: await getDriveImage(communities.image),
+      image: await getDriveImageThumbnail(communities.image),
     })))
   } catch (error) {
     console.error('Error fetching communities:', error)
