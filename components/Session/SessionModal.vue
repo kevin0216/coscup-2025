@@ -75,21 +75,21 @@ const collaborationUrl = null
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhClock />
-                    {{ props.messages.time }}
+                    {{ messages.time }}
                   </div>
                   {{ sessionTime }}
                 </div>
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhUser />
-                    {{ props.messages.speaker }}
+                    {{ messages.speaker }}
                   </div>
                   {{ session.speakers.map(speaker => speaker.name).join(', ') }}
                 </div>
                 <div class="session-detail-row">
                   <div class="session-detail-label">
                     <IconPhMapPin />
-                    {{ props.messages.room }}
+                    {{ messages.room }}
                   </div>
                   {{ session.room.name }}
                 </div>
@@ -99,7 +99,7 @@ const collaborationUrl = null
                 >
                   <div class="session-detail-label">
                     <IconPhFileText />
-                    {{ props.messages.collaborativeNotes }}
+                    {{ messages.collaborativeNotes }}
                   </div>
                   {{ collaborationUrl }}
                 </div>
@@ -123,7 +123,7 @@ const collaborationUrl = null
               <hr class="separator">
 
               <section class="session-description">
-                <h2>{{ props.messages.abstract }}</h2>
+                <h2>{{ messages.abstract }}</h2>
                 <div
                   v-if="session.abstract"
                   class="content-container"
@@ -149,7 +149,7 @@ const collaborationUrl = null
                 v-if="session.speakers.length > 0"
                 class="session-description"
               >
-                <h2>{{ props.messages.aboutSpeaker }}</h2>
+                <h2>{{ messages.aboutSpeaker }}</h2>
                 <template
                   v-for="speaker in session.speakers"
                   :key="speaker.code"
