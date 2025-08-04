@@ -120,6 +120,8 @@ function handleTagsToggle(id: string, checked: boolean) {
   }
 }
 
+const searchQuery = useSessionStorage('search-query', '')
+
 // View state
 const selectedView = useLocalStorage<'conference' | 'bookmarked'>('selected-view', 'conference', {
   serializer: {
@@ -189,6 +191,17 @@ const displaySessions = computed(() => {
     if (selectedTags.value.size > 0) {
       const hasMatchingTag = selectedTags.value.has(`language:${session.language}`) || selectedTags.value.has(`difficulty:${session.difficulty}`)
       if (!hasMatchingTag) {
+        return false
+      }
+    }
+
+    if (searchQuery.value) {
+      const searchLower = searchQuery.value.toLowerCase()
+      if (
+        !session.title.toLowerCase().includes(searchLower) &&
+        !session.room?.name.toLowerCase().includes(searchLower) &&
+        !session.speakers?.some((speaker) => speaker.name.toLowerCase().includes(searchLower))
+      ) {
         return false
       }
     }
@@ -294,11 +307,10 @@ onMounted(() => {
             @toggle="handleTagsToggle"
           />
 
-          <!--
-        <CIconButton variant="basic">
-          <IconPhMagnifyingGlass />
-        </CIconButton>
-        -->
+          <CTextField
+            v-model="searchQuery"
+            :placeholder="messages.searchSessions || 'Search sessions…'"
+          />
         </div>
 
         <div class="toolbar-end">

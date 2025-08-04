@@ -1,5 +1,5 @@
 export type MessageKey =
-  'time' | 'speaker' | 'room' | 'collaborativeNotes' | 'track' | 'abstract' | 'aboutSpeaker' | 'advertisement' | 'unknown' | 'community' | 'tags' | 'conference' | 'bookmarked' | 'mainTrack' | 'searchCommunity' | 'searchTags' | 'noSessions'
+  'time' | 'speaker' | 'room' | 'collaborativeNotes' | 'track' | 'abstract' | 'aboutSpeaker' | 'advertisement' | 'unknown' | 'community' | 'tags' | 'conference' | 'bookmarked' | 'mainTrack' | 'searchCommunity' | 'searchTags' | 'noSessions' | 'searchSessions'
 
 export const enMessages: Record<MessageKey, string> = {
   time: 'Time',
@@ -19,6 +19,7 @@ export const enMessages: Record<MessageKey, string> = {
   searchCommunity: 'Search community…',
   searchTags: 'Search tags…',
   noSessions: 'No sessions',
+  searchSessions: 'Search sessions…',
 }
 
 export const zhTwMessages: Record<MessageKey, string> = {
@@ -39,4 +40,5 @@ export const zhTwMessages: Record<MessageKey, string> = {
   searchCommunity: '搜尋社群……',
   searchTags: '搜尋標籤……',
   noSessions: '沒有議程',
+  searchSessions: '搜尋議程……',
 }
