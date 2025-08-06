@@ -175,6 +175,10 @@ It is recommended to design your layout using A4 size. For size adjustments, ask
 
 ## Taiwan Food Guide
 
+This year at COSCUP, we've gathered a list of the food stalls currently open at the First Cafeteria of the Student Activity Center. We hope that as you enter the NTUST campus to attend COSCUP, you'll also get to enjoy the fun of having student meals again.
+
+- [Link to cafeteria info](https://github.com/COSCUP/NTUST-Foodlist)
+
 We apologize that we couldn't complete the Taiwan Food Guide before the conference this year. However, we found some good content that we hope will make your visit special, especially if you're coming from another country to attend COSCUP!
 
 - [Enjoy The Local Delights and Diverse Global Cuisines - WordCamp Asia 2024](https://asia.wordcamp.org/2024/taste-of-taiwan/)
