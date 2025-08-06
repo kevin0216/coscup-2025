@@ -94,7 +94,7 @@ You can register the BoF activity you want to initiate in [this document](https:
 
 In addition to community sessions, COSCUP also provides services to help attendees relax and rejuvenate their body and mind. Whether you're coming from afar or taking a break from your busy work schedule to join COSCUP during the weekend, we have something for you:
 
-- 「[Eve Gathering](https://volunteer.coscup.org/docs/en/about_coscup/eve_gathering/overview/#_1)」：A gathering on the evening of 8/2 before the event starts, where you can drink and talk about open source. Whether you're participating in COSCUP the next day or not, you're welcome to join!
+- 「[Pre-Party](https://volunteer.coscup.org/docs/about_coscup/eve_gathering/overview/)」：A gathering on the evening of 8/8 before the event starts, where you can drink and talk about open source. Whether you're participating in COSCUP the next day or not, you're welcome to join!
 
 :::info "Services Overview"
 
