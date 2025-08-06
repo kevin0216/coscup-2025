@@ -105,7 +105,7 @@ In addition to community sessions, COSCUP also provides services to help attende
 ## One-Day Volunteer
 
 <figure markdown="span">
-    <a href="https://volunteer.coscup.org/tasks/2024">
+    <a href="https://volunteer.coscup.org/tasks/2025">
         <img src="https://volunteer.coscup.org/img/volunteer_tasks_paper_marketing.png"
             alt="COSCUP 一日志工 One-Day Volunteer" title="COSCUP 一日志工 One-Day Volunteer"
             style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
