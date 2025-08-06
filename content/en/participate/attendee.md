@@ -184,7 +184,7 @@ We apologize that we couldn't complete the Taiwan Food Guide before the conferen
 
 <figure markdown="span">
     <a href="https://coscup.org/2025-survey/">
-        <img src="https://coscup.org/2025/assets/images/participate/2025_attendee_survey_banner.png"
+        <img src="https://coscup.org/2025-survey/assets/Attendee_survey2025.90091962.png"
             alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
             style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
     </a>
