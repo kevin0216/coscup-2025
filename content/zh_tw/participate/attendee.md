@@ -55,7 +55,7 @@ COSCUP 是由開源社群主持開源議題、議程，因此我們會在同一�
 
 你可以在[這份文件](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm)中登記你想要發起的 BoF 活動，例如：「交換紀念品：我可能在其他研討會拿的紀念品，想與大家交換！」、「[交換 PGP 簽章](https://zh.wikipedia.org/zh-tw/%E5%AF%86%E9%92%A5%E7%AD%BE%E5%90%8D%E8%81%9A%E4%BC%9A)（不過現在還有人在用 PGP 嗎？）」
 
-<VPButton href="https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm">BoF 登記與參與</VPButton>
+<VPButton href="https://s.coscup.org/bof25">BoF 登記與參與</VPButton>
 
 ## Hacking Corner
 
@@ -100,9 +100,9 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 
 - 「[前夜派對](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47)」：08/08（五）18:15 來[華山町餐酒館](https://www.openstreetmap.org/node/3810288230)與我們喝一杯、聊開源。免費入場，也歡迎購買暢飲券，協助我們折抵場地費用。
 - 「[小歇所](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/)」 ：@TR 413-2 教室中，結合按摩小棧、托育服務，並提供地墊開放參與者休息
-- 「按摩小棧」：讓平日累積的疲勞在按摩小棧放鬆吧~歡迎現場樂捐支持伊甸基金會。
-- 「托育服務」：解放你的時間！小孩開心、大人也開心！
-- 「氮氣咖啡攤位」：到TR一樓買杯咖啡，為今天的議程打氣！
+    - 「按摩小棧」：讓平日累積的疲勞在按摩小棧放鬆吧~歡迎現場樂捐支持伊甸基金會。
+    - 「托育服務」：解放你的時間！小孩開心、大人也開心！
+    - 「氮氣咖啡攤位」：到TR一樓買杯咖啡，為今天的議程打氣！
 - 「[身心平衡講座](https://coscup.org/2025/sessions/MK8KSX)」：以正念儀式培養內在平靜與自我覺知
 - 更詳細的多元友善服務及應變資源，請參考[友善參與指南](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub)
 
