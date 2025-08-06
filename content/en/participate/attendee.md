@@ -196,4 +196,4 @@ We apologize that we couldn't complete the Taiwan Food Guide before the conferen
 
 Finally, we kindly ask you to complete the [Attendee Survey](https://coscup.org/2025-survey/). This will help us better understand the profile of COSCUP attendees. Since we've moved to an open, registration-free model, conducting this type of survey has become increasingly challenging. Your assistance in completing this survey would be greatly appreciated!
 
-<VPButton href="https://coscup.org/2025-survey/">Assist in Completing the "Attendee Survey"</VPButton>
+<VPButton target="_blank" href="https://coscup.org/2025-survey/">Assist in Completing the "Attendee Survey"</VPButton>

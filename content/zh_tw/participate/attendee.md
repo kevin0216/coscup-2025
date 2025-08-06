@@ -106,7 +106,6 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 - 「[身心平衡講座](https://coscup.org/2025/sessions/MK8KSX)」：以正念儀式培養內在平靜與自我覺知
 - 更詳細的多元友善服務及應變資源，請參考[友善參與指南](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub)
 
-
 ## 二十週年企劃
 
 ### 志工回娘家
@@ -149,7 +148,6 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 如有任何問題，可以從任務列表中直接聯絡張貼人員，或在活動當天前往 TR 2 樓服務台詢問更多志工事宜。
 
 <VPButton href="https://volunteer.coscup.org/tasks/2025">捲起袖子，成為「一日志工」</VPButton>
-
 
 ## 形象照拍攝
 
@@ -201,6 +199,7 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 ## 飲食資訊
 
 今年 COSCUP 收集了學生活動中心第一餐廳有開的店，希望大家在台科大走入校園中參加 COSCUP 時，也可以再次體驗吃學餐的樂趣。
+
 - [學餐資訊連結](https://github.com/COSCUP/NTUST-Foodlist)
 
 我們還有找到一些還不錯的內容，如果您從其他國家來臺灣參與 COSCUP，希望能讓您感到特別！
@@ -220,4 +219,4 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 
 最後，再請幫我完成「[參與者調查](https://coscup.org/2025-survey/)」，以利我們描繪出參與 COSCUP 的會眾是怎樣的樣貌，在開放不用報名後，這一類型的調查越來越困難，如果能協助我們完成，會非常的感謝！
 
-<VPButton href="https://coscup.org/2025-survey/">協助完成「參與者調查」</VPButton>
+<VPButton tag="a" target="_blank" href="https://coscup.org/2025-survey/">協助完成「參與者調查」</VPButton>
