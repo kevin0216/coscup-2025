@@ -68,7 +68,6 @@ COSCUP 二日活動可以聚集會眾參與，對於社群在 COSCUP 有一個�
 - 開放文化基金會
 - JVM 台灣代表隊
 - g0v 揪松團 x 零時小學校
-- OpenBuild
 - Automotive Grade Linux
 - Free Software Foundation Europe
 - 源來適你
