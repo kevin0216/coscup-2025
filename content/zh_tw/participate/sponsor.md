@@ -4,7 +4,7 @@
 
 :::info 會眾參與
 
-如果您是第一次贊助或是參與 COSCUP，可以轉換成[會眾](./attendee.md)`TR-413-2` 志工服務台瞭解更多 COSCUP 的理念與想法。
+如果您是第一次贊助或是參與 COSCUP，可以轉換成[會眾](./attendee.md) TR 2 樓服務台 瞭解更多 COSCUP 的理念與想法。
 
 [「會眾」參與指南](./attendee.md)
 
