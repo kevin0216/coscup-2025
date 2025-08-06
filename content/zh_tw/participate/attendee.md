@@ -28,7 +28,7 @@ COSCUP 不同於一般的年會，它是由開源社群共同參與策劃的盛�
 ## 會場
 
 <figure markdown>
-  <img alt="COSCUP 會場地圖 Venue" src="/@/assets/images/participate/coscup_venue_secretary_team.svg" style="height: 500px">
+  <img alt="COSCUP 會場地圖 Venue" src="/@/assets/images/participate/coscup_venue_secretary_team.svg" style="height: 500px;">
   <figcaption>COSCUP 會場地圖</figcaption>
 </figure>
 

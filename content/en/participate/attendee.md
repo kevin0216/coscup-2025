@@ -46,7 +46,7 @@ Recommended routes to NTUST:
 ## Venue
 
 <figure markdown>
-  <img alt="COSCUP 會場地圖 Venue" src="/@/assets/images/participate/coscup_venue_secretary_team.svg" style="height: 500px">
+  <img alt="COSCUP 會場地圖 Venue" src="/@/assets/images/participate/coscup_venue_secretary_team.svg" style="height: 500px;">
   <figcaption>COSCUP Venue</figcaption>
 </figure>
 
