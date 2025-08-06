@@ -46,10 +46,10 @@ Recommended routes to NTUST:
 ## Venue
 
 <figure markdown>
-  <a href="https://volunteer.coscup.org/doc/coscup_venue.svg">
-    <img alt="COSCUP 會場地圖 Venue" src="https://volunteer.coscup.org/doc/coscup_venue.svg">
+  <a href="/@/assets/images/participate/coscup_venue_secretary_team.svg">
+    <img alt="COSCUP 會場地圖 Venue" src="/@/assets/images/participate/coscup_venue_secretary_team.svg">
   </a>
-  <figcaption>COSCUP Venue <small><a href="https://volunteer.coscup.org/doc/coscup_venue.svg">[Original]</a></small></figcaption>
+  <figcaption>COSCUP Venue <small><a href="/@/assets/images/participate/coscup_venue_secretary_team.svg">[Original]</a></small></figcaption>
 </figure>
 
 COSCUP 2025 will mainly be held across three buildings. In addition to the opening and closing ceremonies, RB will also host related sessions. TR (2nd to 5th floors) and AU will serve as event venues featuring session tracks, community booths, massage stations, volunteer homecoming, childcare services, nitrogen coffee booths, and more.
