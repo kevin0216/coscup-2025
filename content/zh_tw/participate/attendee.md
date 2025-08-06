@@ -28,10 +28,8 @@ COSCUP 不同於一般的年會，它是由開源社群共同參與策劃的盛�
 ## 會場
 
 <figure markdown>
-  <a href="/@/assets/images/participate/coscup_venue_secretary_team.svg">
-    <img alt="COSCUP 會場地圖 Venue" src="/@/assets/images/participate/coscup_venue_secretary_team.svg">
-  </a>
-  <figcaption>COSCUP 會場地圖 <small><a href="/@/assets/images/participate/coscup_venue_secretary_team.svg">[原始圖檔]</a></small></figcaption>
+  <img alt="COSCUP 會場地圖 Venue" src="/@/assets/images/participate/coscup_venue_secretary_team.svg" style="height: 500px">
+  <figcaption>COSCUP 會場地圖</figcaption>
 </figure>
 
 COSCUP 2025 主要在三個建築物舉辦活動，RB 除了大會開幕、閉幕式外，也有相關的議程舉辦於此。TR 2 樓到 5 樓與 AU 皆為活動場地，有議程軌、社群攤位、按摩小棧、志工回娘家、托育服務、氮氣咖啡攤位…等活動。
