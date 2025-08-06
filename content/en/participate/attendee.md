@@ -144,7 +144,7 @@ Feel free to take advantage of this service to leave a lasting professional impr
 
 :::info Arrive Early
 
-- This service is free of charge. Please arrive early to make a reservation or queue on-site. The photo studio is located at `TR-310-1`.
+- This service is free of charge. Please arrive early to make a reservation or queue on-site. The photo studio is located at `TR-413-1`.
   :::
 
 ## Community Bulletin Board
