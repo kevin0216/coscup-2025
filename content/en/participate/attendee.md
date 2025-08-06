@@ -56,7 +56,6 @@ COSCUP 2025 will mainly be held across three buildings. In addition to the openi
 
 The three venues are connected via the basketball court, tennis court, and Turtle Pond. If you get lost, please follow the signs along the way or ask one of our volunteers for assistance.
 
-
 :::info Conference Information
 
 - For detailed maps and venue information, please refer to the official website: ["Venue Map"](https://coscup.org/2025/event/), which includes information about session rooms, community booths, and more.
@@ -95,10 +94,12 @@ Hacking Corner is an open space at the venue (formerly known as Hacking Room) wh
 - Suitable for activities such as collaborative programming, discussions, and reviewing open-source code together
 
 ### How to Find or Promote Activities at Hacking Corner?
+
 - You can promote or check activities anytime on the [digital bulletin board](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?usp=sharing)
 - Use the hashtags #coscup or #coscup2025 on social media to reach more people
 
 ## Lightening show
+
 Share any topic, project, or even a moment of meditation in just 3 minutes!?
 When your time is up, we’ll cut off your screen and invite the audience to give a round of applause— not to rush you (X) but to cheer you on (O) 👏👏👏
 
@@ -120,11 +121,11 @@ When your time is up, we’ll cut off your screen and invite the audience to giv
 
 In addition to community sessions, COSCUP also provides services to help attendees relax and rejuvenate their body and mind. Whether you're coming from afar or taking a break from your busy work schedule to join COSCUP during the weekend, we have something for you:
 
-- [Eve Gathering](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47): On 08/08 (Fri) at 6:15 PM, join us at [Hua Shan Ding Bistro](https://www.openstreetmap.org/node/3810288230) for a drink and a chat about open source. Free entry, and you're welcome to purchase an all-you-can-drink ticket to help us cover the venue cost.
+- [Pre-Party](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47): On 08/08 (Fri) at 6:15 PM, join us at [Hua Shan Ding Bistro](https://www.openstreetmap.org/node/3810288230) for a drink and a chat about open source. Free entry, and you're welcome to purchase an all-you-can-drink ticket to help us cover the venue cost.
 - [Relaxation Zone](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/): @TR 413-2 Classroom, featuring a massage station and childcare services, with floor mats available for participants to rest.
-    - Massage Station: Relax and relieve your accumulated fatigue at the massage station~ On-site donations to support the Eden Foundation are welcome.
-    - Childcare Service: Free up your time! Happy kids, happy parents!
-    - Nitro Coffee Booth: Grab a cup of coffee on the 1st floor of TR and power up for today’s sessions!
+  - Massage Station: Relax and relieve your accumulated fatigue at the massage station~ On-site donations to support the Eden Foundation are welcome.
+  - Childcare Service: Free up your time! Happy kids, happy parents!
+  - Nitro Coffee Booth: Grab a cup of coffee on the 1st floor of TR and power up for today’s sessions!
 - [Mind-Body Balance Workshop](https://coscup.org/2025/sessions/MK8KSX): Cultivate inner peace and self-awareness through mindful rituals.
 - For more details on diverse accessibility services and support resources, please refer to the [Inclusive Participation Guide](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub).
 
