@@ -10,7 +10,7 @@ const timer = ref(null)
 const crowd = ref([])
 
 const roomStatus = computed(() => {
-  return rooms.map((room) => {
+  return Object.keys(rooms).map((room) => {
     const roomSessions = sessions[room]
     const now = currentTime.value
 
@@ -61,7 +61,7 @@ onMounted(() => {
   const query = new URLSearchParams(window.location.search)
   testMode.value = query.get('test') === 'true'
   startClock()
-  crowd.value = rooms.reduce((acc, item) => {
+  crowd.value = Object.keys(rooms).reduce((acc, item) => {
     acc[item] = Math.round(Math.random() * 100)
     return acc
   }, {})
@@ -75,7 +75,7 @@ onUnmounted(() => {
 
 function startClock() {
   if (testMode.value) {
-    currentTime.value = new Date('2024-08-03T08:30:00')
+    currentTime.value = new Date('2025-08-09T08:50:00')
 
     timer.value = setInterval(() => {
       currentTime.value = new Date(currentTime.value.getTime() + 60 * 100)
@@ -193,10 +193,10 @@ function getStatusText(type, value) {
           :style="{ '--tag-color': getColor(session.course, crowd[session.room], false) }"
           :tag-text="getStatusText(session.course, crowd[session.room])"
         >
-          {{ session.room }}
+          {{ rooms[session.room].zh }}
         </div>
         <div class="cell">
-          {{ session.type ? session_types[session.type] : session.type }}
+          {{ session.type ? session_types[session.type].zh : session.type }}
         </div>
         <div
           class="cell"

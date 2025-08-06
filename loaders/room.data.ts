@@ -77,23 +77,31 @@ interface Data {
 
 interface RoomData {
   sessions: Record<string, Session[]>
-  rooms: string[]
-  session_types: Record<string, string>
+  rooms: Record<string, { zh: string, en: string }>
+  session_types: Record<string, { zh: string, en: string }>
 }
 
 export default defineLoader({
   async load(): Promise<RoomData> {
-    const res = await fetch('https://coscup.org/2024/json/session.json')
+    const res = await fetch('https://coscup.org/2025/json/session.json')
     const data: Data = await res.json()
 
-    const session_types: Record<string, string> = data.session_types.reduce((acc: Record<string, string>, item: SessionType) => {
-      acc[item.id] = item.zh.name
+    const session_types: Record<string, { zh: string, en: string }> = data.session_types.reduce((acc: Record<string, { zh: string, en: string }>, item: SessionType) => {
+      acc[item.id] = {
+        zh: item.zh.name,
+        en: item.en.name,
+      }
       return acc
     }, {})
-    const unsorted_rooms = new Set<string>(data.sessions.map((session: Session) => session.room))
-    const rooms = [...unsorted_rooms].sort((a, b) => a.localeCompare(b))
-    const sessions: Record<string, Session[]> = rooms.reduce((acc: Record<string, Session[]>, item) => {
-      acc[item] = data.sessions.filter((session: Session) => session.room === item).sort((a: Session, b: Session) => new Date(a.start).getTime() - new Date(b.start).getTime())
+    const rooms: Record<string, { zh: string, en: string }> = data.rooms.reduce((acc: Record<string, { zh: string, en: string }>, item: Room) => {
+      acc[item.id] = {
+        zh: item.zh.name,
+        en: item.en.name,
+      }
+      return acc
+    }, {})
+    const sessions: Record<string, Session[]> = data.rooms.reduce((acc: Record<string, Session[]>, item) => {
+      acc[item.id] = data.sessions.filter((session: Session) => session.room === item.id).sort((a: Session, b: Session) => new Date(a.start).getTime() - new Date(b.start).getTime())
       return acc
     }, {})
 
