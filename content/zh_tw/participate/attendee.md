@@ -31,7 +31,7 @@ COSCUP 與其他年會不一樣的是由開源社群一起參與的年會，年�
   <figcaption>COSCUP 會場地圖 <small><a href="https://volunteer.coscup.org/doc/coscup_venue.svg">[原始圖檔]</a></small></figcaption>
 </figure>
 
-COSCUP 2025 主要在兩個建築物舉辦活動，RB 除了大會開幕、閉幕式外，也有相關的議程也舉辦於此。TR 2 樓到 5 樓與 AU 皆為活動場地，有議程軌、社群攤位、按摩小站、志工回娘家、托育服務、氮氣咖啡攤位…等活動。
+COSCUP 2025 主要在三個建築物舉辦活動，RB 除了大會開幕、閉幕式外，也有相關的議程舉辦於此。TR 2 樓到 5 樓與 AU 皆為活動場地，有議程軌、社群攤位、按摩小棧、志工回娘家、托育服務、氮氣咖啡攤位…等活動。
 
 三個會場的位置可經過籃球場、網球場、烏龜池移動。如果迷路了，可以注意路上的指引或是詢問志工夥伴尋求協助。
 
@@ -45,9 +45,7 @@ COSCUP 2025 主要在兩個建築物舉辦活動，RB 除了大會開幕、閉�
 
 COSCUP 是由開源社群主持開源議題、議程，因此我們會在同一時間、同時有 20 軌以上的議程在運作。建議在活動前花點時間瀏覽大會議程表，選定與紀錄感興趣的議程。
 
-目前有兩種呈現議程表的方式可以使用，請挑選較適合您閱讀的：
-
-[大會議程表](https://coscup.org/2025/sessions/)：適合寬銀幕使用。
+[大會議程表](https://coscup.org/2025/sessions/)：適合寬螢幕使用。
 
 <Actions :actionsList="scheduleActions" />
 
@@ -59,7 +57,7 @@ COSCUP 是由開源社群主持開源議題、議程，因此我們會在同一�
 
 <VPButton href="https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm">BoF 登記與參與</VPButton>
 
-## Hacker Corner
+## Hacking Corner
 
 ### 什麼是 Hacking Corner？
 
@@ -67,7 +65,7 @@ Hacking Corner 是現場開放空間（過去稱為 Hacking Room），讓會眾�
 
 ### 如何使用 Hacking Corner？
 
-- 地點：TR309 / TR409 外走廊（08/09–08/10）
+- 地點：TR309 / TR409 外走廊、AU 休息室（08/09–08/10）
 - 無需預約：有空位即可使用
 - 同時段可能有多個討論，請尊重他人
 - 適合程式共創、討論、打開 source code 一起研究等活動
@@ -87,10 +85,12 @@ Hacking Corner 是現場開放空間（過去稱為 Hacking Room），讓會眾�
     </a>
 </figure>
 
-COSCUP 除了社群議程之外，我們也提供給予會眾身心靈放鬆的服務，希望在活動二日，或許您遠道而來，或許您繁忙的工作在假日期間持續參與 COSCUP。
+COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠道而來、在繁忙的工作之餘持續參與開源活動，讓 COSCUP 也能成為令您休憩的所在。
 
-- 「[前夜派對](https://volunteer.coscup.org/docs/zh-TW/about_coscup/eve_gathering/overview/#_1)」：在活動前一天 8/8 晚上的一個喝酒、聊開源的聚會，不論你隔天是否參與 COSCUP，歡迎來！
-- 「[按摩小站](https://blog.coscup.org/2025/07/blog-post.html)」：提供身心靈的放鬆與恢復。
+- 「[前夜派對](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47)」：08/08（五）18:15 來[華山町餐酒館](https://www.openstreetmap.org/node/3810288230)與我們喝一杯、聊開源。免費入場，也歡迎購買暢飲券，協助我們折抵場地費用。
+
+
+- 「[按摩小棧](https://blog.coscup.org/2025/07/blog-post.html)」：提供身心靈的放鬆與恢復。
 - 「[托育服務](https://blog.coscup.org/2025/07/blog-post.html)」： 解放你的時間！小孩開心、大人也開心！
 - 「[氮氣咖啡攤位](https://blog.coscup.org/2025/07/blog-post.html)」： 來杯咖啡為今天的議程打氣
 
