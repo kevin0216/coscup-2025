@@ -98,7 +98,7 @@ In addition to community sessions, COSCUP also provides services to help attende
 
 :::info "Services Overview"
 
-- For more details, please refer to the "[Attendee Services](https://volunteer.coscup.org/docs/en/about_coscup/attendee_services/)" page. Some services require prior reservations.
+- For more details, please refer to the "[Attendee Services](https://volunteer.coscup.org/docs/about_coscup/attendee_services/)" page. Some services require prior reservations.
 
 :::
 
@@ -118,11 +118,11 @@ In addition to our core preparation team, we offer the "One-Day Volunteer" servi
 
 We currently have approximately 60 openings for "One-Day Volunteers." You can review the available positions and see how you can participate. If you have any questions, feel free to contact the administrative team or visit the "Volunteer Service Desk" on the event day for more details.
 
-<VPButton href="https://volunteer.coscup.org/tasks/2024">Join Us! "One-Day Volunteer"</VPButton>
+<VPButton href="https://volunteer.coscup.org/tasks/2025">Join Us! "One-Day Volunteer"</VPButton>
 
 :::info Contact
 
-- **Volunteer Service Desk** `TR-312`: For all volunteer service inquiries, recruitment, and promotion related to COSCUP.
+- **Volunteer Service Desk** `TR-2F Information desk`: For all volunteer service inquiries, recruitment, and promotion related to COSCUP.
 - Administrative Team Email: [secretary@coscup.org](mailto:secretary@coscup.org)
 
 :::
