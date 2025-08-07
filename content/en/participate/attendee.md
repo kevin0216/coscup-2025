@@ -27,13 +27,18 @@ Recommended routes to NTUST:
         BUS
     </template>
     <template #content-bus>
-        Get off at the "**NTU Cancer Center (Keelung Rd)**" stop.
+        Get off at the "NTU Cancer Center (Keelung Rd)" bus stop.
+        The following routes stop here:
+        1, 207, 254, 275, 672, 673, 688, 707, 905, 906, 907, 909, 913, 935, S30, BR12, BR22, G11, and the Keelung Rd. Metro Bus.
+        Please note: Some bus routes only stop here in one direction—the drop-off stop may be located across the street from NTUST.
     </template>
     <template #title-walk="{ isActive }">
         Walking
     </template>
     <template #content-walk>
-        It's quite tiring, so it's not recommended.
+        It takes about 20 minutes to walk from MRT Gongguan Station Exit 2 to the venue.
+        However, given the midsummer heat in Taipei, we don’t recommend walking.
+        If you really want to give it a try, be sure to bring an umbrella—for the scorching sun or sudden afternoon showers.
     </template>
     <template #title-drive="{ isActive }">
         Driving
@@ -56,7 +61,7 @@ The three venues are connected via the basketball court, tennis court, and Turtl
 
 :::info Conference Information
 
-- For detailed maps and venue information, please refer to the official website: ["Venue Map"](https://coscup.org/2025/event/), which includes information about session rooms, community booths, and more.
+- For detailed maps and venue information, please refer to the official website: ["Venue Map"](https://coscup.org/2025/en/venue/), which includes information about session rooms, community booths, and more.
 
 :::
 
@@ -64,9 +69,9 @@ The three venues are connected via the basketball court, tennis court, and Turtl
 
 COSCUP features open-source topics and sessions hosted by the open-source community. Therefore, at any given time, there are over 20 tracks running simultaneously. It's recommended to spend some time before the event browsing through the conference schedule and noting down the sessions that interest you.
 
-Currently, there are two ways to view the schedule. Please choose the one that suits your reading preference:
+We’ve also curated a list of [English-only sessions](https://drive.google.com/file/d/1YAENPqeSunVlXN-9dJPR0jaGAwa4rQVc/view?usp=sharing) and [program highlights](https://s.coscup.org/pro25rec) for you.
 
-1. [Offcial Schedule](https://coscup.org/2025/sessions/)：Designed for wide screens. Remember, there are more session tracks on the right side.
+Our official schedule is best viewed on a wide screen. You’ll find more session tracks listed on the right side, so be sure to scroll over and check them out.
 
 <Actions :actionsList="scheduleActions" />
 
