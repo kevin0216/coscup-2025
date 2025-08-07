@@ -7,7 +7,9 @@ const { sessions, rooms, session_types } = data
 const testMode = ref(false)
 const currentTime = ref(new Date())
 const timer = ref(null)
+const roomInterval = ref(null)
 const crowd = ref([])
+const roomsStatus = ref({})
 
 const roomStatus = computed(() => {
   return Object.keys(rooms).map((room) => {
@@ -65,13 +67,28 @@ onMounted(() => {
     acc[item] = Math.round(Math.random() * 100)
     return acc
   }, {})
+
+  roomInterval.value = setInterval(fetchRoomStatus, 10 * 1000)
 })
 
 onUnmounted(() => {
   if (timer.value !== null) {
     clearInterval(timer.value)
   }
+
+  if (roomInterval.value !== null) {
+    clearInterval(roomInterval.value)
+  }
 })
+
+function fetchRoomStatus() {
+  fetch('https://room.coscup.org')
+    .then((res) => {
+      res.json().then((data) => {
+        roomsStatus.value = data
+      })
+    })
+}
 
 function startClock() {
   if (testMode.value) {
@@ -167,12 +184,8 @@ function getColor(type, value, soft = true) {
   }
 }
 
-function getStatusText(type, value) {
-  if (typeof type === 'string' || type === null) {
-    return ''
-  }
-  const words = ['空曠', '寬敞', '適中', '熱絡', '滿座']
-  return words[Math.min(Math.round(value / 20), 4)]
+function getStatusText(room) {
+  return roomsStatus.value[room] ?? ''
 }
 </script>
 
@@ -211,7 +224,7 @@ function getStatusText(type, value) {
           class="cell"
           :style="{ 'background-color': `${getColor(session.course, crowd[session.room])}` }"
         >
-          {{ getStatusText(session.course, crowd[session.room]) }}
+          {{ getStatusText(rooms[session.room].zh) }}
         </div>
         <div class="cell session-room">
           <span
