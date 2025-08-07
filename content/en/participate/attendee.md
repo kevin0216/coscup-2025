@@ -200,8 +200,9 @@ Feel free to take advantage of this service to leave a lasting professional impr
 
 :::info Arrive Early
 
-- This service is free of charge. Please arrive early to make a reservation or queue on-site. The photo studio is located at TR-413-1.
-- If you hold a valid OSCVPass, you can claim a voucher for a printed headshot at TR-413-2.
+- Open hour: August 09-10, 10:00–16:00
+- This service is free of charge. Please arrive early to make a reservation or queue on-site. The photo studio is located at `TR-413-1`.
+- If you hold a valid OSCVPass, you can claim a voucher for a printed portrait at `TR-413-2`.
 
 :::
 
@@ -211,7 +212,7 @@ This year at COSCUP, we've gathered a list of the food stalls currently open at 
 
 - [Link to cafeteria info](https://github.com/COSCUP/NTUST-Foodlist)
 
-We apologize that we couldn't complete the Taiwan Food Guide before the conference this year. However, we found some good content that we hope will make your visit special, especially if you're coming from another country to attend COSCUP!
+We also found some good content that we hope will make your visit special, especially if you're coming from abroad to attend COSCUP!
 
 - [Enjoy The Local Delights and Diverse Global Cuisines - WordCamp Asia 2024](https://asia.wordcamp.org/2024/taste-of-taiwan/)
 - [Taiwan Tourism Administration, MOTC](https://eng.taiwan.net.tw/)
@@ -224,6 +225,15 @@ We apologize that we couldn't complete the Taiwan Food Guide before the conferen
         style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
 </figure>
 
-Finally, we kindly ask you to complete the [Attendee Survey](https://coscup.org/2025-survey/). This will help us better understand the profile of COSCUP attendees. Since we've moved to an open, registration-free model, conducting this type of survey has become increasingly challenging. Your assistance in completing this survey would be greatly appreciated!
+Fill out the [Attendee Survey](https://coscup.org/2025-survey/) and help us better understand the pattern of COSCUP attendees.
 
-<VPButton target="_blank" href="https://coscup.org/2025-survey/">Assist in Completing the "Attendee Survey"</VPButton>
+Let us know what you think — together we can make COSCUP even better!
+
+:::info Booth Reward Activity 
+
+ - Complete the Attendee Survey and install the [OPass App](https://opass.app) to collect points and redeem exclusive gifts at the Souvenir Booth.
+ - Souvenir Booth: Open daily 10:00–17:15 at RB-105 Lobby. Visit us for a variety of practical keepsakes and various COSCUP T-shirts!
+
+:::
+
+<VPButton target="_blank" href="https://coscup.org/2025-survey/">Fill out the "Attendee Survey"</VPButton>
