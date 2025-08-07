@@ -81,7 +81,7 @@ What is a BoF? **Birds of a Feather** is a phrase originating from the proverb "
 
 You can register the BoF activity you want to initiate in [this document](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm). Examples include: "Giveaways Exchange: I have some giveaways from other conferences that I'd like to swap with others!" or "[PGP Key-signing Party](https://en.wikipedia.org/wiki/Key_signing_party)" (though, is anyone still using PGP these days?).
 
-<VPButton href="https://s.coscup.org/bof25">BoF Registration and Participation</VPButton>
+<VPButton href="https://s.coscup.org/bof25">BoF Participation Guidelines</VPButton>
 
 ## Hacking Corner
 
@@ -99,18 +99,18 @@ Hacking Corner is an open space at the venue (formerly known as Hacking Room) wh
 ### How to Find or Promote Activities at Hacking Corner?
 
 - You can promote or check activities anytime on the [digital bulletin board](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?usp=sharing)
-- Use the hashtags #coscup or #coscup2025 on social media to reach more people
+- Use the hashtags #COSCUP or #COSCUP2025 on social media to reach more people
 
-## Lightening show
+## Lightening Talk
 
 Share any topic, project, or even a moment of meditation in just 3 minutes!?
 When your time is up, we’ll cut off your screen and invite the audience to give a round of applause— not to rush you (X) but to cheer you on (O) 👏👏👏
 
-- Registration period: August 9, 10:00 AM – August 10, 12:00 PM
-- Registration location: TR 2F Service Desk
-- Session time: August 10, 4:15 PM – 5:00 PM at RB105
+- Sign-up period: August 9, 10:00 AM – August 10, 12:00 PM
+- Sign-up location: TR 2F Information Desk
+- Session time: August 10, 16:15 PM – 17:00 PM at RB105
 
-<VPButton href="https://s.coscup.org/lt25">Read the Lightning Show instructions for details</VPButton>
+<VPButton href="https://s.coscup.org/lt25">Read Before Submit Your LT</VPButton>
 
 ## Attendee Services
 
