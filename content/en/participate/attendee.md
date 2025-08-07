@@ -27,18 +27,13 @@ Recommended routes to NTUST:
         BUS
     </template>
     <template #content-bus>
-        Get off at the "NTU Cancer Center (Keelung Rd)" bus stop.
-        The following routes stop here:
-        1, 207, 254, 275, 672, 673, 688, 707, 905, 906, 907, 909, 913, 935, S30, BR12, BR22, G11, and the Keelung Rd. Metro Bus.
-        Please note: Some bus routes only stop here in one direction—the drop-off stop may be located across the street from NTUST.
+        Get off at the "NTU Cancer Center (Keelung Rd)" bus stop. The following routes stop here: 1, 207, 254, 275, 672, 673, 688, 707, 905, 906, 907, 909, 913, 935, S30, BR12, BR22, G11, and the Keelung Rd. Metro Bus. ※Some bus routes only stop here in one direction—the drop-off stop may be located across the street from NTUST.
     </template>
     <template #title-walk="{ isActive }">
         Walking
     </template>
     <template #content-walk>
-        It takes about 20 minutes to walk from MRT Gongguan Station Exit 2 to the venue.
-        However, given the midsummer heat in Taipei, we don’t recommend walking.
-        If you really want to give it a try, be sure to bring an umbrella—for the scorching sun or sudden afternoon showers.
+        It takes about 20 minutes to walk in the heat from MRT Gongguan Station Exit 2 to the venue. If you really want to give it a try, be sure to bring an umbrella for the scorching sun or sudden afternoon showers.
     </template>
     <template #title-drive="{ isActive }">
         Driving
@@ -91,7 +86,7 @@ Hacking Corner is an open space at the venue (formerly known as Hacking Room) wh
 
 ### How to use Hacking Corner？
 
-- Location：TR309 / TR409 Corridor、AU lounge（08/09–08/10）
+- Location：TR309 / TR409 Corridor、AU lounge（August 9-10）
 - No reservation required: available on a first-come, first-served basis
 - Multiple discussions may take place at the same time, please be respectful of others
 - Suitable for activities such as collaborative programming, discussions, and reviewing open-source code together
@@ -124,17 +119,17 @@ When your time is up, we’ll cut off your screen and invite the audience to giv
 
 In addition to our sessions, COSCUP also provides services to help participants feel at ease. Whether you're traveling from afar or joining us after a busy workweek, we hope COSCUP can be a space for you to recharge.
 
-- [Pre-Party](https://volunteer.coscup.org/docs/about_coscup/eve_gathering/overview/): Join us on Friday, August 08 at 18:15 PM at [Hua Shan Ding Bistro](https://www.openstreetmap.org/node/3810288230) for drinks and chats about open source. Admission is free. Drink passes are also available for purchase to help us cover the venue cost.
+- [Pre-Party](https://volunteer.coscup.org/docs/about_coscup/eve_gathering/overview/): Join us on **Friday, August 8 at 18:15 PM** at [Hua Shan Ding Bistro](https://www.openstreetmap.org/node/3810288230) for drinks and chats about open source. Admission is free. Drink passes are also available for purchase to help us cover the venue cost.
 - [Pause Room](https://volunteer.coscup.org/docs/about_coscup/health_market/overview/): Located in room TR 413-2, this cozy hideout is your go-to for relaxation. It includes our massage station, childcare service, and mats where you can rest freely.
   - Massage Station: Relax and relieve your accumulated fatigue at the massage station~ On-site donations to support the Eden Foundation are welcome.
 
     Hours: August 9–10, 10:00–16:00
   - Childcare Service: Let professional caregivers take care of your little ones so you can focus on the event. Happy kids, happy adults! (Childcare services are available in Mandarin only.)
 
-    Hours: 8/9 Saturday 09:00–17:00 & 8/10 Sunday 09:00–15:30
+    Hours: August 9, 09:00–17:00 & August 10, 09:00–15:30
   - Nitro Coffee Booth: Grab a cup of coffee at the TR 1F booth and fuel up for the day’s sessions!
 
-    Hours: 8/9 Saturday 09:00–16:30 & 8/10 Sunday 09:00–15:30
+    Hours: August 9, 09:00–16:30 & August 10, 09:00–15:30
 - [Mindfulness Workshop](https://coscup.org/2025/en/sessions/MK8KSX): Cultivate inner peace and self-awareness through mindful rituals.
 - For more information on inclusive services and emergency support, please refer to the [Inclusive Participation Guide](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub).
 
@@ -142,9 +137,9 @@ In addition to our sessions, COSCUP also provides services to help participants 
 
 ### Volunteer Homecoming
 
-If you’re a former volunteer, join us for Volunteer Homecoming! You might run into old teammates, those who never left, and enjoy free nitro coffee vouchers along with a small token of appreciation. Come back and hang out with us!
+If you’re a former volunteer, join us for Volunteer Homecoming! You might run into old teammates, those who never left, and enjoy free nitro coffee vouchers along with Booth Reward Activity points of appreciation. Come back and hang out with us!
 
-- Time: 8/9, 14:00–16:00
+- Time: August 9, 14:00–16:00
 - Location: AU Lounge
 
 ### Codepecker’s Growth Wall, COSCUP 20-Year Retrospective, Wishing Lanterns, and Codepecker Shrine
@@ -153,14 +148,14 @@ This year, we’ve prepared a wall of Codepecker’s growth photos and even buil
 
 In the same space, you’ll also find our COSCUP Wishing Lantern board and a 20-year retrospective of COSCUP. Don’t miss it!
 
-- Time: 8/9–8/10, 10:00–16:00
-- Location: RB 105 1F Lobby
+- Time: August 9-10, 10:00–16:00
+- Location: RB 105 Lobby
 
 ### Former General Chairs Forum
 
 We’ve gathered several former general chairs to chat about COSCUP’s past, present, and future. If you’re curious about what COSCUP used to be like and where it’s heading, you won’t want to miss this forum!
 
-- Time: 8/10, 15:00–16:00
+- Time: August 10, 15:00–16:00
 - Location: RB 105
 
 ## One-Day Volunteer
