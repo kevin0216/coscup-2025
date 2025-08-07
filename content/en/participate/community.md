@@ -35,7 +35,7 @@ Additionally, you can use the "Community Bulletin Board" to extensively promote 
 
 Over the two days of COSCUP, attendees gather to participate. For communities, having a booth at COSCUP to recruit partners, advocate their ideas, and promote regular gatherings is the most efficient way to find like-minded community partners.
 
-The current booth information has been announced. You can refer to the [Community Booth Locations](https://drive.google.com/file/d/19ggSO_tz8ozeyH9KwgJD_WAxLcEIL4kN/view) and the [Booth Setup Guide](https://docs.google.com/presentation/d/1LYh8fVA4ef9h6Mc5sz0EqEYmZIONJgMV/).
+The current booth information has been announced. You can refer to the [Community Booth Locations](https://coscup.org/2025/en/venue/) and the [Booth Setup Guide](https://docs.google.com/presentation/d/1LYh8fVA4ef9h6Mc5sz0EqEYmZIONJgMV/).
 
 :::tip How do the booth canival games work?
 
@@ -54,7 +54,7 @@ When attendees visit your booth, you can ask them to show the QR code in their d
 
 :::
 
-:::info 2024 Community Booths
+:::info 2025 Community Booths
 
 - FOSS for All
 - VideoLAN
@@ -68,7 +68,6 @@ When attendees visit your booth, you can ask them to show the QR code in their d
 - Open Culture Foundation
 - JVM Team Taiwan
 - g0v Jothon & sh001
-- OpenBuild
 - Automotive Grade Linux
 - Free Software Foundation Europe
 - opensource4you
@@ -112,7 +111,10 @@ The event will be held in the TR building of NTUST. Each floor's bulletin board 
 
 We hope that attendees and participants will also use the bulletin boards to obtain information about open-source communities. Even if your community doesn't have a dedicated booth at this year's event, the bulletin board is an excellent alternative for promotion.
 
-Based on previous planning, approximately 20 flyers are needed to cover all bulletin boards. If you are interested in posting information, you can also refer to the Open Culture Foundation's flyer promotion methods at FOSDEM earlier this year [here](https://ocf.tw/en/p/global/fosdem-2024/).
+Based on previous planning, approximately 20 flyers are needed to cover all bulletin boards. If you are interested in posting information, you can also refer to the Open Culture Foundation's flyer promotion methods at FOSDEM earlier last year [here](https://ocf.tw/en/p/global/fosdem-2024/).
+
+:::warning Please do not post any materials anywhere in the venue except for the boards provided by COSCUP.
+:::
 
 :::info Flyer Size Recommendations
 
@@ -126,7 +128,7 @@ It is recommended to design your layout using A4 size. For size adjustments, ask
 
 ## BoF and Fringes
 
-We also encourage communities to take advantage of the time before and after COSCUP to organize their own community meetings. You can record relevant event information in [this document](https://docs.google.com/document/d/1Nn5j549QfJ-QhS2RCje91g5Qt9WVsjxxuFBvb51IpI4/edit?usp=sharing).
+We also encourage communities to take advantage of the time before and after COSCUP to organize their own community meetings. You can record relevant event information in [this document](https://s.coscup.org/bof25).
 
 ## Assistance
 
