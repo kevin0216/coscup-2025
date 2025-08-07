@@ -172,9 +172,16 @@ Every year during the volunteer recruitment for the conference, some enthusiasts
 
 In addition to our core preparation team, we offer the "One-Day Volunteer" service mechanism. This is perfect for those who want to gain more insights into how COSCUP organizes its annual conference and provides services to the community and attendees. Roll up your sleeves and join us!
 
-We currently have approximately 60 openings for "One-Day Volunteers." You can review the available positions and see how you can participate. If you have any questions, feel free to contact the administrative team or visit the TR 2F "Volunteer Service Desk" on the event day for more details.
+You can review the available positions and see how you can participate. If you have any questions, feel free to contact the task owner or visit the TR 2F Information Desk on the event day for more details.
 
 <VPButton href="https://volunteer.coscup.org/tasks/2025">Join Us! "One-Day Volunteer"</VPButton>
+
+## Individual Supporter Program
+COSCUP is entirely organized by volunteers and offers free admission to everyone without selling tickets. For the past 20 years, COSCUP has always been **a conference built by the community, for the community**.
+
+To keep this open source stage going and ensure open exchange continues, we sincerely invite you to become an individual supporter of COSCUP. Every contribution helps build the next COSCUP—and the one after that!
+
+<VPButton href="https://ocf.neticrm.tw/civicrm/contribute/transact?reset=1&id=85">Fuel COSCUP Together</VPButton>
 
 ## Professional Portrait
 
