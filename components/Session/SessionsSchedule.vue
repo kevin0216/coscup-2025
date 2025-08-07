@@ -320,6 +320,16 @@ onMounted(() => {
             :items="viewMenuItems"
           />
         </div>
+
+        <div
+          v-if="!isDesktop"
+          class="toolbar-secondary"
+        >
+          <CTextField
+            v-model="searchQuery"
+            :placeholder="messages.searchSessions || 'Search sessions…'"
+          />
+        </div>
       </div>
 
       <!-- Schedule Container -->
@@ -438,7 +448,7 @@ onMounted(() => {
   height: calc(100vh - var(--vp-nav-height));
 
   @media (width <= 40rem /* sm */) {
-    --controls-height: 3rem;
+    --controls-height: 84px;
     padding: 0 8px 8px;
   }
 
@@ -456,7 +466,9 @@ onMounted(() => {
   height: var(--controls-height);
 
   @media (width <= 40rem /* sm */) {
-    padding: 0;
+    padding: 4px 0;
+    gap: 4px;
+    flex-wrap: wrap;
   }
 
   > .toolbar-start {
@@ -469,6 +481,10 @@ onMounted(() => {
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+
+  > .toolbar-secondary {
+    width: 100%;
   }
 }
 
