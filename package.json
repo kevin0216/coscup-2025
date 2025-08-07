@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.13.1",
   "imports": {
     "#*": "./*"
   },
@@ -8,7 +8,8 @@
     "node": ">=22.14.0"
   },
   "scripts": {
-    "dev": "vitepress dev",
+    "postinstall": "openapi-ts",
+    "dev": "env-cmd -- vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
     "prepare": "husky",
@@ -19,32 +20,40 @@
   "dependencies": {
     "@iconify-json/fa-brands": "1.2.1",
     "@iconify-json/ph": "1.2.2",
-    "@vueuse/core": "13.1.0",
-    "calendar-link": "2.8.0",
+    "@vueuse/core": "13.5.0",
+    "calendar-link": "2.11.0",
     "leaflet": "1.9.4",
+    "lightningcss": "^1.30.1",
     "markdown-it": "14.1.0",
     "markdown-it-container": "4.0.0",
+    "medium-zoom": "1.1.0",
     "osmtogeojson": "3.0.0-beta.5",
-    "swiper": "11.2.6",
+    "reka-ui": "2.4.0",
+    "swiper": "11.2.10",
     "unplugin-icons": "22.1.0",
-    "unplugin-vue-components": "28.5.0",
-    "vitepress": "1.6.3",
-    "vue": "3.5.13"
+    "unplugin-vue-components": "28.8.0",
+    "vitepress": "2.0.0-alpha.9",
+    "vue": "3.5.18"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.13.0",
-    "@types/leaflet": "1.9.17",
-    "@types/node": "22.15.17",
-    "eslint": "9.26.0",
+    "@antfu/eslint-config": "4.19.0",
+    "@hey-api/openapi-ts": "0.77.0",
+    "@types/leaflet": "1.9.20",
+    "@types/markdown-it": "14.1.2",
+    "@types/node": "22.16.5",
+    "env-cmd": "10.1.0",
+    "eslint": "9.32.0",
     "eslint-plugin-format": "1.0.1",
     "husky": "9.1.7",
-    "lint-staged": "16.0.0",
+    "lint-staged": "16.1.2",
     "typescript": "5.8.3",
-    "vite": "5.4.19",
-    "vue-tsc": "2.1.4"
+    "vite": "7.0.6",
+    "vue-tsc": "3.0.4"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "vue-demi",
+      "unrs-resolver",
       "esbuild"
     ]
   },

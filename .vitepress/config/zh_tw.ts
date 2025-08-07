@@ -7,14 +7,33 @@ export const zh_tw = defineConfig({
     nav: [
       { text: '首頁', link: '/' },
       { text: '年會資訊', link: '/event' },
+      { text: '參與指南', link: '/participate/attendee' },
       { text: '關於我們', link: '/about' },
       { text: '會場狀態', link: '/room' },
+      { text: '議程表', link: '/sessions' },
+      { text: '議程主題', link: '/topics' },
+      { text: '贊助', link: '/sponsor' },
+      { text: '社群夥伴', link: '/community' },
+      { text: '工作人員', link: '/staff' },
+      { text: '會場地圖', link: '/venue' },
+      { text: '周邊活動', link: '/fringe' },
     ],
-    sidebar: {},
+    sidebar: {
+      '/participate': [
+        {
+          text: '參與指南',
+          link: '/participate/attendee',
+          items: [
+            { text: '身為「會眾」', link: '/participate/attendee' },
+            { text: '身為「社群」', link: '/participate/community' },
+            { text: '身為「贊助夥伴」', link: '/participate/sponsor' },
+          ],
+        },
+      ],
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/COSCUP' },
     ],
-
     docFooter: {
       prev: '上一頁',
       next: '下一頁',

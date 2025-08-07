@@ -2,10 +2,10 @@
 import type { CalendarEvent } from 'calendar-link'
 import { conference } from '#data/conference'
 
-const start = conference.startDate.toLocaleDateString()
-const end = conference.endDate.toLocaleDateString()
+const start = conference.startDate.toLocaleDateString('en-US', { timeZone: 'Asia/Taipei' })
+const end = conference.endDate.toLocaleDateString('en-US', { timeZone: 'Asia/Taipei' })
 
-const venueAddress = '106 台北市大安區基隆路四段 43 號'
+const venueAddress = 'No. 43 Keelung Road, Section 4, Taipei 106, Taiwan'
 
 // Supported calendar types by `calendar-link`
 type CalendarType = keyof typeof import('calendar-link')
@@ -41,30 +41,32 @@ async function addToCalendar(type: CalendarType) {
   <section class="info custom-block">
     <div class="info-section">
       <p class="custom-block-title">
-        <IconPhCalendarDots />日期
+        <IconPhCalendarDots /> Date
       </p>
-      <h2>{{ start }} – {{ end }}</h2>
+      <h2 class="text-brand">
+        {{ start }} – {{ end }} CST
+      </h2>
       <div class="actions">
         <VPButton
-          theme="alt"
+          theme="brand"
           @click="addToCalendar('google')"
         >
-          <IconPhGoogleLogo /> Google 日曆
+          <IconPhGoogleLogo /> Google Calendar
         </VPButton>
         <VPButton
-          theme="alt"
+          theme="brand"
           @click="addToCalendar('outlookMobile')"
         >
           <IconPhMicrosoftOutlookLogo /> Outlook
         </VPButton>
         <VPButton
-          theme="alt"
+          theme="brand"
           @click="addToCalendar('yahoo')"
         >
           <IconPhExclamationMark /> Yahoo
         </VPButton>
         <VPButton
-          theme="alt"
+          theme="brand"
           @click="addToCalendar('ics')"
         >
           <IconPhCalendarPlus /> ICS
@@ -76,32 +78,34 @@ async function addToCalendar(type: CalendarType) {
   <section class="info custom-block">
     <div class="info-section">
       <p class="custom-block-title">
-        <IconPhMapPin />位置
+        <IconPhMapPin /> Location
       </p>
-      <h2>國立臺灣科技大學</h2>
+      <h2 class="text-brand">
+        National Taiwan University of Science and Technology
+      </h2>
       <p>{{ venueAddress }}<CopyButton :source="venueAddress" /></p>
       <LeafletMap class="map" />
       <div class="actions">
         <VPButton
           href="https://www.openstreetmap.org/relation/5355856"
           target="_blank"
-          theme="alt"
+          theme="brand"
         >
-          <IconPhMagnifyingGlass /> 開放街圖
+          <IconPhMagnifyingGlass /> OpenStreetMap
         </VPButton>
         <VPButton
           href="https://www.google.com/maps/search/?api=1&query=國立臺灣科技大學&query_place_id=ChIJrcDEdiGqQjQRVfQp7kRe25A"
           target="_blank"
-          theme="alt"
+          theme="brand"
         >
-          <IconPhGoogleLogo /> Google 地圖
+          <IconPhGoogleLogo /> Google Maps
         </VPButton>
         <VPButton
           href="https://maps.apple.com/place?auid=1091116063745527859"
           target="_blank"
-          theme="alt"
+          theme="brand"
         >
-          <IconPhAppleLogo /> Apple 地圖
+          <IconPhAppleLogo /> Apple Maps
         </VPButton>
       </div>
     </div>

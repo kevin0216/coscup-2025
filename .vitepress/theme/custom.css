@@ -1,0 +1,51 @@
+/* custom.css - Theme Variables */
+
+:root {
+  --color-primary-50: #e5e3ff;
+  --color-primary-100: #ccc7ff;
+  --color-primary-200: #b2abfe;
+  --color-primary-300: #998ffe;
+  --color-primary-400: #7f73fe;
+  --color-primary-500: #665ccb;
+  --color-primary-600: #4c4598;
+  --color-primary-700: #332e66;
+  --color-primary-800: #191733;
+
+  --vp-color-sponsor-bg: #ffffff;
+  --vp-color-sponsor-surface: #f8f9fa;
+  --vp-color-sponsor-text: #333;
+  --vp-color-sponsor-primary: #007bff;
+  --vp-color-sponsor-border: #ddd;
+  --vp-color-sponsor-card-bg: #ffffff;
+  --vp-color-sponsor-card-border: #ddd;
+  --vp-color-sponsor-link: #007bff;
+  --vp-color-sponsor-title: #555;
+  --vp-color-sponsor-img-border: #ddd;
+}
+
+:root.dark {
+  --vp-color-sponsor-bg: #f8f9fa;
+  --vp-color-sponsor-surface: #2a2a2a;
+  --vp-color-sponsor-text: #333;
+  --vp-color-sponsor-primary: #66b2ff;
+  --vp-color-sponsor-border: #444;
+  --vp-color-sponsor-card-bg: #2a2a2a;
+  --vp-color-sponsor-card-border: #444;
+  --vp-color-sponsor-link: #4ea1ff;
+  --vp-color-sponsor-title: #eee;
+  --vp-color-sponsor-img-border: #444;
+}
+
+/* 統一贊助區塊背景與文字色 */
+.level-title {
+  color: var(--vp-color-sponsor-title);
+}
+
+.sponsor-item {
+  background-color: var(--vp-color-sponsor-bg);
+  border: 1px solid var(--vp-color-sponsor-img-border);
+}
+
+.sponsor .name {
+  color: var(--vp-c-text-2); /* 使用 VitePress 原生文字色 */
+}
