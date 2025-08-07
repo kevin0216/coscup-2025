@@ -4,7 +4,7 @@ First and foremost, thank you for sponsoring COSCUP, the Conference for Open Sou
 
 :::info Attendee Participation
 
-If this is your first time sponsoring or attending COSCUP, you might want to familiarize yourself with the services and guidelines from the [attendee's perspective](./attendee.md). We also welcome you to visit the Information Desk at `TR 2F` to learn more about COSCUP's values and ideas.
+If this is your first time sponsoring or attending COSCUP, you might want to familiarize yourself with the services and guidelines from the [attendee's perspective](./attendee.md). We also welcome you to visit the `Information Desk at TR 2F` to learn more about COSCUP's values and ideas.
 
 :::
 
