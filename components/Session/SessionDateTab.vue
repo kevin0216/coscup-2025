@@ -53,7 +53,7 @@ const formattedEndDate = computed(() => formatConferenceDate(props.endDate))
   height: var(--date-tab-height);
 
   &.mobile {
-    margin-block: 8px 12px;
+    padding-block: 8px 0;
   }
 }
 

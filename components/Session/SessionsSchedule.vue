@@ -436,10 +436,13 @@ onMounted(() => {
   min-width: 100%;
   padding: 18px 32px;
   height: calc(100vh - var(--vp-nav-height));
-}
 
-@media (min-width: 1024px) {
-  .schedule-page {
+  @media (width <= 40rem /* sm */) {
+    --controls-height: 3rem;
+    padding: 0 8px 8px;
+  }
+
+  @media (width <= 1024px) {
     --column-time-header: 68px;
     --column-width: 320px;
   }
@@ -451,6 +454,10 @@ onMounted(() => {
   align-items: center;
   padding: 16px 0;
   height: var(--controls-height);
+
+  @media (width <= 40rem /* sm */) {
+    padding: 0;
+  }
 
   > .toolbar-start {
     display: flex;
