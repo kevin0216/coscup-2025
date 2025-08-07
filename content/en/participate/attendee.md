@@ -198,32 +198,6 @@ Feel free to take advantage of this service to leave a lasting professional impr
 
 :::
 
-## Community Bulletin Board
-
-<figure markdown="span">
-    <a href="https://volunteer.coscup.org/img/2024/community_board_235x100.webp">
-        <img src="https://volunteer.coscup.org/img/2024/community_board_235x100.webp"
-            alt="COSCUP 社群佈告欄 Community Bulletin Board" title="COSCUP 社群佈告欄 Community Bulletin Board"
-            style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
-    </a>
-    <figcaption>Credit by：[海哥-A922955](https://www.flickr.com/photos/coscup/53190487467/)</figcaption>
-</figure>
-
-The event will be held in the TR building of NTUST. Each floor's bulletin board will feature a dedicated section planned by COSCUP for community use. We encourage you and your communities or companies to make good use of these bulletin boards to [post](https://www.flickr.com/photos/coscup/) information about **personal open-source projects**, **community introductions**, **event announcements**, or **even the annual schedules** of your communities — anything related to open-source promotion.
-
-We hope that attendees and participants will also use the bulletin boards to obtain information about open-source communities. Even if your community doesn't have a dedicated booth at this year's event, the bulletin board is an excellent alternative for promotion.
-
-Based on previous planning, approximately 20 flyers are needed to cover all bulletin boards. If you are interested in posting information, you can also refer to the Open Culture Foundation's flyer promotion methods at FOSDEM earlier this year [here](https://ocf.tw/en/p/global/fosdem-2024/).
-
-:::info Flyer Size Recommendations
-
-- **A4 Size**: Standard flyer, includes title, content, and QR Code link.
-- **A5 Size**: Half the size of A4, suitable for creating a four-page brochure on a single A4 sheet for project or community introductions.
-- **A6 Size**: One-quarter the size of A4, ideal for event promotion, project promotion, single-use QR Code flyers for surveys, etc.
-
-It is recommended to design your layout using A4 size. For size adjustments, ask the staff at the copying or printing shop to output the flyers in A5 or A6 size.
-:::
-
 ## Taiwan Food Guide
 
 This year at COSCUP, we've gathered a list of the food stalls currently open at the First Student Cafeteria of the Student Center. We hope that as you enter the NTUST campus to attend COSCUP, you'll also get to enjoy the fun of having student meals again.
