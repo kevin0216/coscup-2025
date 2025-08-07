@@ -38,7 +38,7 @@ COSCUP 2025 主要在三個建築物舉辦活動，RB 除了大會開幕、閉�
 
 :::info 大會資訊
 
-- 詳細的地圖、會場資訊可以參考官網：「[會場地圖](https://coscup.org/2025/event/)」
+- 詳細的地圖、會場資訊可以參考官網：「[會場地圖](https://coscup.org/2025/venue/)」
 
 :::
 
@@ -46,17 +46,17 @@ COSCUP 2025 主要在三個建築物舉辦活動，RB 除了大會開幕、閉�
 
 COSCUP 是由開源社群主持開源議題、議程，因此我們會在同一時間、同時有 20 軌以上的議程在運作。建議在活動前花點時間瀏覽大會議程表，選定與紀錄感興趣的議程。
 
-[大會議程表](https://coscup.org/2025/sessions/)：適合寬螢幕使用。
+除了適合寬螢幕的大會議程表，我們還準備了[議程集錦](https://s.coscup.org/pro25rec)！
 
 <Actions :actionsList="scheduleActions" />
 
 ## BoF
 
-什麼是 BoF？**Birds of a Feather** 這個短語源於諺語 "Birds of a feather flock together"，意思是「物以類聚，人以群分」。，BoF 是一種非正式的討論會議形式，讓擁有相似興趣或專業背景的人可以在會議期間聚集在一起，交流經驗和見解，讓參與者自由地討論各種話題。表示擁有相似興趣、特徵或背景的人通常會聚集在一起。
+什麼是 BoF？**Birds of a Feather** 這個短語源於諺語 "Birds of a feather flock together"，意思是「物以類聚，人以群分」。BoF 是一種非正式的討論會議形式，讓擁有相似興趣或專業背景的人可以在會議期間聚集在一起，交流經驗和見解，讓參與者自由地討論各種話題。表示擁有相似興趣、特徵或背景的人通常會聚集在一起。
 
 你可以在[這份文件](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?pli=1&tab=t.0#heading=h.fxmha6h81nfm)中登記你想要發起的 BoF 活動，例如：「交換紀念品：我可能在其他研討會拿的紀念品，想與大家交換！」、「[交換 PGP 簽章](https://zh.wikipedia.org/zh-tw/%E5%AF%86%E9%92%A5%E7%AD%BE%E5%90%8D%E8%81%9A%E4%BC%9A)（不過現在還有人在用 PGP 嗎？）」
 
-<VPButton href="https://s.coscup.org/bof25">BoF 登記與參與</VPButton>
+<VPButton href="https://s.coscup.org/bof25">BoF 參與辦法</VPButton>
 
 ## Hacking Corner
 
@@ -74,7 +74,7 @@ Hacking Corner 是現場開放空間（過去稱為 Hacking Room），讓會眾�
 ### 如何尋找/宣傳在 Hacking Corner 的活動？
 
 - 可隨時於[電子佈告欄](https://docs.google.com/document/d/1iKpXqZxBr7tbBynhyIz4JMkXGi9XpldIU5BTjOVlSLM/edit?usp=sharing)宣傳或查詢
-- 社群媒體標註 #coscup 或 #coscup2025 讓更多人知道
+- 社群媒體標註 #COSCUP 或 #COSCUP2025 讓更多人知道
 
 ## 閃電秀
 
@@ -100,10 +100,13 @@ Hacking Corner 是現場開放空間（過去稱為 Hacking Room），讓會眾�
 COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠道而來、在繁忙的工作之餘持續參與開源活動，讓 COSCUP 也能成為令您休憩的所在。
 
 - 「[前夜派對](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47)」：08/08（五）18:15 來[華山町餐酒館](https://www.openstreetmap.org/node/3810288230)與我們喝一杯、聊開源。免費入場，也歡迎購買暢飲券，協助我們折抵場地費用。
-- 「[小歇所](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/)」 ：@TR 413-2 教室中，結合按摩小棧、托育服務，並提供地墊開放參與者休息
+- 「[小歇所](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/)」 ：在 TR 413-2 教室裡的世外桃源，結合按摩小棧、托育服務，並提供地墊開放參與者休息
   - 「按摩小棧」：讓平日累積的疲勞在按摩小棧放鬆吧~歡迎現場樂捐支持伊甸基金會。
-  - 「托育服務」：解放你的時間！小孩開心、大人也開心！
-  - 「氮氣咖啡攤位」：到TR一樓買杯咖啡，為今天的議程打氣！
+    營業時間：每日 10:00 ~ 16:00
+  - 「托育服務」：把小孩交給專業的托育人員，解放你的時間！小孩開心、大人也開心！
+    營業時間：8/9 09:00 ~ 17:00　＆　8/10 09:00 ~ 15:30
+  - 「氮氣咖啡攤位」：到　TR　一樓買杯咖啡，為今天的議程打氣！
+  　營業時間：8/9 09:00 ~ 16:30　＆　8/10 09:00 ~ 15:30
 - 「[身心平衡講座](https://coscup.org/2025/sessions/MK8KSX)」：以正念儀式培養內在平靜與自我覺知
 - 更詳細的多元友善服務及應變資源，請參考[友善參與指南](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub)
 
@@ -146,9 +149,15 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 
 大會活動二日除了籌備團隊志工外，我們也提供「一日志工」的服務機制，想要多瞭解 COSCUP 團隊如何舉辦年會、如何提供大會服務給予社群、會眾。不如就捲起袖子，一起加入我們！
 
-如有任何問題，可以從任務列表中直接聯絡張貼人員，或在活動當天前往 TR 2 樓服務台詢問更多志工事宜。
+如有任何問題，可以從任務列表中直接聯絡任務發布人，或在活動當天前往 TR 2 樓服務台詢問更多志工事宜。
 
 <VPButton href="https://volunteer.coscup.org/tasks/2025">捲起袖子，成為「一日志工」</VPButton>
+
+## 個人贊助
+
+COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十年來始終堅持「由社群為社群打造的開源人年會」。為了讓這個開源舞台得以持續搭建、讓交流持續發生，我們誠摯邀請您加入 COSCUP 個人贊助行列，涓滴累積下一場、下下場的 COSCUP！
+
+<VPButton href="https://ocf.neticrm.tw/civicrm/contribute/transact?reset=1&id=85">你出錢，我出力，把 COSCUP 辦下去</VPButton>
 
 ## 形象照拍攝
 
@@ -170,36 +179,9 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 
 :::
 
-## 社群佈告欄
-
-<figure markdown="span">
-    <a href="https://volunteer.coscup.org/img/2024/community_board_235x100.webp">
-        <img src="https://volunteer.coscup.org/img/2024/community_board_235x100.webp"
-            alt="COSCUP 社群佈告欄" title="COSCUP 社群佈告欄"
-            style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
-    </a>
-    <figcaption>照片拍攝：<a href="https://www.flickr.com/photos/coscup/53190487467/">[海哥-A922955]</a></figcaption>
-</figure>
-
-活動場地在臺科大教學大樓內，各樓層的佈告欄都有 COSCUP 為社群規劃的專屬佈告欄，我們希望您個人或是所屬的社群、服務單位都可以好好利用佈告欄來[張貼](https://www.flickr.com/photos/coscup/)**個人開源專案**、**社群簡介**或**活動預告資訊**、甚至是您社群的年會時間表…等任何**與開源有關的宣傳事宜**。
-
-我們希望會眾、參與者也可以透過佈告欄的管道獲取開源社群資訊，或許您個人或社群今年在大會無社群攤位，佈告欄也是一個不錯的宣傳方式。
-
-往年的規劃，大約會需要 20 份左右的張貼傳單數量就可以涵蓋所有的佈告欄，如果您有興趣想要在佈告欄上面張貼訊息，也可以參考開放文化基金會去年初前往 FOSDEM 的[傳單宣傳方式](https://ocf.tw/p/global/fosdem-2024/)。
-
-:::info 傳單尺寸建議
-
-- A4 尺寸：一般傳單，包含標題、內容、QRCode 連結。
-- A5 尺寸：為 1/2 A4 尺寸，也適合將一張 A4 規劃有四頁的折頁文宣，專案或社群簡介。
-- A6 尺寸：為 1/4 A4 尺寸，活動宣傳、專案宣傳，問卷填寫…等一次性的 QRCode 傳單。
-
-建議排版都用 A4 尺寸的方式製作，尺寸調整在影印、印刷店時請店員以 A5 或 A6 方式輸出。
-
-:::
-
 ## 飲食資訊
 
-今年 COSCUP 收集了學生活動中心第一餐廳有開的店，希望大家在台科大走入校園中參加 COSCUP 時，也可以再次體驗吃學餐的樂趣。
+今年 COSCUP 收集了學生活動中心第一餐廳有開的店，希望大家走入台科大校園參加 COSCUP 時，也可以再次體驗吃學餐的樂趣。
 
 - [學餐資訊連結](https://github.com/COSCUP/NTUST-Foodlist)
 
@@ -218,6 +200,15 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
     </a>
 </figure>
 
-最後，再請幫我完成「[參與者調查](https://coscup.org/2025-survey/)」，以利我們描繪出參與 COSCUP 的會眾是怎樣的樣貌，在開放不用報名後，這一類型的調查越來越困難，如果能協助我們完成，會非常的感謝！
+最後，想讓 COSCUP 越來越好玩、越來越合你胃口嗎？
+填寫「[參與者大調查](https://coscup.org/2025-survey/)」，讓我們知道你的想法與樣貌，未來一起變更好！
 
-<VPButton tag="a" target="_blank" href="https://coscup.org/2025-survey/">協助完成「參與者調查」</VPButton>
+:::info 開源巔峰挑戰賽
+
+- 填完參與者調查並安裝 [OPass App](https://opass.app) 即可累積點數，在紀念品攤位兌換精美好禮！
+- 大會紀念品攤位：每日 10:00~17:15 在 RB-105 大廳，各種實用紀念小物和多款 T-shirt 等您光臨~
+
+:::
+
+
+<VPButton tag="a" target="_blank" href="https://coscup.org/2025-survey/">協助完成「參與者大調查」</VPButton>
