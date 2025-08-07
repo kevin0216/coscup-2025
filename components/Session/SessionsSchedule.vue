@@ -165,15 +165,15 @@ const displaySessions = computed(() => {
   const filteredSessions = props.submissions.filter((session) => {
     if (!session.start) return false
     const sessionDate = new Date(session.start)
-    const sessionDateOnly = new Date(sessionDate.getFullYear(), sessionDate.getMonth(), sessionDate.getDate())
+    const sessionDateOnly = new Date(sessionDate.getFullYear(), sessionDate.getMonth(), sessionDate.getDate()).toISOString().slice(0, 10)
 
     // Date filter
     if (selectedDate.value === 'start') {
-      const startDateOnly = new Date(conference.startDate.getFullYear(), conference.startDate.getMonth(), conference.startDate.getDate())
-      if (sessionDateOnly.getTime() !== startDateOnly.getTime()) return false
+      const startDateOnly = conference.startDate.toISOString().slice(0, 10)
+      if (sessionDateOnly !== startDateOnly) return false
     } else if (selectedDate.value === 'end') {
-      const endDateOnly = new Date(conference.endDate.getFullYear(), conference.endDate.getMonth(), conference.endDate.getDate())
-      if (sessionDateOnly.getTime() !== endDateOnly.getTime()) return false
+      const endDateOnly = new Date(conference.endDate).toISOString().slice(0, 10)
+      if (sessionDateOnly !== endDateOnly) return false
     } else {
       return false
     }
