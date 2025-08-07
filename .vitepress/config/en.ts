@@ -8,6 +8,7 @@ export const en = defineConfig({
       { text: 'Event', link: '/en/event' },
       { text: 'Participate', link: '/en/participate/attendee' },
       { text: 'About', link: '/en/about' },
+      { text: 'Room', link: '/en/room' },
       { text: 'Sessions', link: '/en/sessions' },
       { text: 'Topics', link: '/en/topics' },
       { text: 'Sponsor', link: '/en/sponsor' },
