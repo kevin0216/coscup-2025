@@ -221,4 +221,5 @@ COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十�
 
 <VPButton tag="a" target="_blank" href="https://coscup.org/2025-survey/">協助完成「參與者大調查」</VPButton>
 
-CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/zh-TW/about_coscup/how_to_participate/)
+本指南啟發自《COSCUP Volunteer 志工服務系統｜如何參與、準備 COSCUP》（CC BY 4.0，COSCUP Volunteer；Git commit 94ca882，貢獻者 Toomore）。
+本年度由 COSCUP 2025 志工協力完成，全文採 CC By 4.0 釋出。

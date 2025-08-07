@@ -134,4 +134,5 @@ We also encourage communities to take advantage of the time before and after COS
 
 If community partners have any questions, you can seek assistance from [the program team](mailto:program@coscup.org). If you are a member of the open-source community, you can first inquire with the community leader or contact person for help.
 
-CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/about_coscup/how_to_participate/)
+This guide is inspired by [“COSCUP Volunteer Service System | How to Participate & Prepare for COSCUP”] (CC BY 4.0, COSCUP Volunteer; Git commit 94ca882, contributor Toomore).
+It is collaboratively produced by the COSCUP 2025 Volunteers and released under the CC BY 4.0 license.

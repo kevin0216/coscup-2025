@@ -243,4 +243,5 @@ Let us know what you think — together we can make COSCUP even better!
 
 <VPButton target="_blank" href="https://coscup.org/2025-survey/">Fill out the "Attendee Survey"</VPButton>
 
-CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/about_coscup/how_to_participate/)
+This guide is inspired by [“COSCUP Volunteer Service System | How to Participate & Prepare for COSCUP”] (CC BY 4.0, COSCUP Volunteer; Git commit 94ca882, contributor Toomore).
+It is collaboratively produced by the COSCUP 2025 Volunteers and released under the CC BY 4.0 license.

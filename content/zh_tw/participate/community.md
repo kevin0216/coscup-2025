@@ -132,4 +132,5 @@ COSCUP 二日活動可以聚集會眾參與，對於社群在 COSCUP 有一個�
 
 社群夥伴如果有任何問題，可以先尋求[議程組](mailto:program@coscup.org)協助幫忙。如果您是開源社群的成員，可以先詢問社群負責人或是聯絡人尋求幫助。
 
-CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/zh-TW/about_coscup/how_to_participate/)
+本指南啟發自《COSCUP Volunteer 志工服務系統｜如何參與、準備 COSCUP》（CC BY 4.0，COSCUP Volunteer；Git commit 94ca882，貢獻者 Toomore）。
+本年度由 COSCUP 2025 志工協力完成，全文採 CC By 4.0 釋出。
