@@ -133,3 +133,5 @@ We also encourage communities to take advantage of the time before and after COS
 ## Assistance
 
 If community partners have any questions, you can seek assistance from [the program team](mailto:program@coscup.org). If you are a member of the open-source community, you can first inquire with the community leader or contact person for help.
+
+CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/about_coscup/how_to_participate/)

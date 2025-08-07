@@ -44,3 +44,5 @@
 
 - [會眾服務](https://coscup.org/2025/participate/attendee#%E6%9C%83%E7%9C%BE%E6%9C%8D%E5%8B%99)：包含前夜派對、按摩小站、托育服務、氮氣咖啡攤位…等活動，提供會眾身心靈的放鬆與恢復。
 - [形象照拍攝](./attendee#%E5%BD%A2%E8%B1%A1%E7%85%A7%E6%8B%8D%E6%94%9D)：由大會紀錄組搭設專業的攝影棚，免費為大家拍攝專業的形象照服務。
+
+CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/zh-TW/about_coscup/how_to_participate/)

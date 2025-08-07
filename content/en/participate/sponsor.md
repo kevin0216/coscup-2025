@@ -44,3 +44,5 @@ The following services are provided by COSCUP during the two-day conference. We 
 
 - [Attendee Services](https://coscup.org/2025/en/participate/attendee#attendee-services): Including activities such as the pre-conference party, massage station, wine yoga, therapeutic painting, sleep therapy, healing lectures, and parent-child workshops, these activities offer relaxation and rejuvenation for the body, mind, and spirit.
 - [Professional Portrait](./attendee#professional-portrait): The conference's documentation team will set up a professional photo studio to provide everyone with free professional portrait services.
+
+CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/about_coscup/how_to_participate/)

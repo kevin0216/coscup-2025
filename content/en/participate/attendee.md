@@ -242,3 +242,5 @@ Let us know what you think — together we can make COSCUP even better!
 :::
 
 <VPButton target="_blank" href="https://coscup.org/2025-survey/">Fill out the "Attendee Survey"</VPButton>
+
+CC BY 4.0 2022-2025 [Toomore](https://toomore.net/) & [COSCUP Volunteer](https://volunteer.coscup.org/docs/about_coscup/how_to_participate/)
