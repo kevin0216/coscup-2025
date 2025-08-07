@@ -122,15 +122,21 @@ When your time is up, we’ll cut off your screen and invite the audience to giv
     </a>
 </figure>
 
-In addition to community sessions, COSCUP also provides services to help attendees relax and rejuvenate their body and mind. Whether you're coming from afar or taking a break from your busy work schedule to join COSCUP during the weekend, we have something for you:
+In addition to our sessions, COSCUP also provides services to help participants feel at ease. Whether you're traveling from afar or joining us after a busy workweek, we hope COSCUP can be a space for you to recharge.
 
-- [Pre-Party](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47): On 08/08 (Fri) at 6:15 PM, join us at [Hua Shan Ding Bistro](https://www.openstreetmap.org/node/3810288230) for a drink and a chat about open source. Free entry, and you're welcome to purchase an all-you-can-drink ticket to help us cover the venue cost.
-- [Relaxation Zone](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/): @TR 413-2 Classroom, featuring a massage station and childcare services, with floor mats available for participants to rest.
+- [Pre-Party](https://volunteer.coscup.org/docs/about_coscup/eve_gathering/overview/): Join us on Friday, August 08 at 18:15 PM at [Hua Shan Ding Bistro](https://www.openstreetmap.org/node/3810288230) for drinks and chats about open source. Admission is free. Drink passes are also available for purchase to help us cover the venue cost.
+- [Pause Room](https://volunteer.coscup.org/docs/about_coscup/health_market/overview/): Located in room TR 413-2, this cozy hideout is your go-to for relaxation. It includes our massage station, childcare service, and mats where you can rest freely.
   - Massage Station: Relax and relieve your accumulated fatigue at the massage station~ On-site donations to support the Eden Foundation are welcome.
-  - Childcare Service: Free up your time! Happy kids, happy parents!
-  - Nitro Coffee Booth: Grab a cup of coffee on the 1st floor of TR and power up for today’s sessions!
-- [Mind-Body Balance Workshop](https://coscup.org/2025/sessions/MK8KSX): Cultivate inner peace and self-awareness through mindful rituals.
-- For more details on diverse accessibility services and support resources, please refer to the [Inclusive Participation Guide](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub).
+
+    Hours: August 9–10, 10:00–16:00
+  - Childcare Service: Let professional caregivers take care of your little ones so you can focus on the event. Happy kids, happy adults! (Childcare services are available in Mandarin only.)
+
+    Hours: 8/9 Saturday 09:00–17:00 & 8/10 Sunday 09:00–15:30
+  - Nitro Coffee Booth: Grab a cup of coffee at the TR 1F booth and fuel up for the day’s sessions!
+
+    Hours: 8/9 Saturday 09:00–16:30 & 8/10 Sunday 09:00–15:30
+- [Mindfulness Workshop](https://coscup.org/2025/en/sessions/MK8KSX): Cultivate inner peace and self-awareness through mindful rituals.
+- For more information on inclusive services and emergency support, please refer to the [Inclusive Participation Guide](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub).
 
 ## 20th Anniversary Events
 
