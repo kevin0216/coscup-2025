@@ -445,7 +445,7 @@ onMounted(() => {
   width: 100%;
   min-width: 100%;
   padding: 18px 32px;
-  height: calc(100vh - var(--vp-nav-height));
+  height: calc(100dvh - var(--vp-nav-height));
 
   @media (width <= 40rem /* sm */) {
     --controls-height: 84px;
