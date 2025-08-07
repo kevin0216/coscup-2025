@@ -100,16 +100,16 @@ Hacking Corner 是現場開放空間（過去稱為 Hacking Room），讓會眾�
 COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠道而來、在繁忙的工作之餘持續參與開源活動，讓 COSCUP 也能成為令您休憩的所在。
 
 - 「[前夜派對](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47)」：08/08（五）18:15 來[華山町餐酒館](https://www.openstreetmap.org/node/3810288230)與我們喝一杯、聊開源。免費入場，也歡迎購買暢飲券，協助我們折抵場地費用。
-- 「[小歇所](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/)」 ：在 TR 413-2 教室裡的世外桃源，結合按摩小棧、托育服務，並提供地墊開放參與者休息
+- 「[小歇所](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/)」 ：在 TR 413-2 教室裡的世外桃源，結合按摩小棧、托育服務，並提供地墊開放參與者自在休息
   - 「按摩小棧」：讓平日累積的疲勞在按摩小棧放鬆吧~歡迎現場樂捐支持伊甸基金會。
 
-    營業時間：每日 10:00 ~ 16:00
+    時間：8/9~8/10 10:00~16:00
   - 「托育服務」：把小孩交給專業的托育人員，解放你的時間！小孩開心、大人也開心！
 
-      營業時間：8/9 09:00 ~ 17:00　＆　8/10 09:00 ~ 15:30
+    時間：8/9（六）09:00~17:00＆8/10（日）09:00~15:30
   - 「氮氣咖啡攤位」：到　TR　一樓買杯咖啡，為今天的議程打氣！
-  
-  　  營業時間：8/9 09:00 ~ 16:30　＆　8/10 09:00 ~ 15:30
+
+    時間：8/9（六）09:00 ~ 16:30＆8/10（日）09:00 ~ 15:30
 - 「[身心平衡講座](https://coscup.org/2025/sessions/MK8KSX)」：以正念儀式培養內在平靜與自我覺知
 - 更詳細的多元友善服務及應變資源，請參考[友善參與指南](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub)
 
@@ -179,6 +179,7 @@ COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十�
 
 :::info 提早前往
 
+- 攝影棚開放時間：8/9~8/10 10:00~16:00
 - 此服務不需要費用，請提早前往預約或現場排隊，攝影棚地點在 `TR-413-1`。
 - 若持有效期內的 OSCVPass ，可至 `TR-413-2` 領取形象照實體印製兌換券。
 
