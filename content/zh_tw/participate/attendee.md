@@ -102,11 +102,14 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 - 「[前夜派對](https://ocf.neticrm.tw/civicrm/event/info?reset=1&id=47)」：08/08（五）18:15 來[華山町餐酒館](https://www.openstreetmap.org/node/3810288230)與我們喝一杯、聊開源。免費入場，也歡迎購買暢飲券，協助我們折抵場地費用。
 - 「[小歇所](https://volunteer.coscup.org/docs/zh-TW/about_coscup/health_market/overview/)」 ：在 TR 413-2 教室裡的世外桃源，結合按摩小棧、托育服務，並提供地墊開放參與者休息
   - 「按摩小棧」：讓平日累積的疲勞在按摩小棧放鬆吧~歡迎現場樂捐支持伊甸基金會。
+
     營業時間：每日 10:00 ~ 16:00
   - 「托育服務」：把小孩交給專業的托育人員，解放你的時間！小孩開心、大人也開心！
-    營業時間：8/9 09:00 ~ 17:00　＆　8/10 09:00 ~ 15:30
+
+      營業時間：8/9 09:00 ~ 17:00　＆　8/10 09:00 ~ 15:30
   - 「氮氣咖啡攤位」：到　TR　一樓買杯咖啡，為今天的議程打氣！
-  　營業時間：8/9 09:00 ~ 16:30　＆　8/10 09:00 ~ 15:30
+  
+  　  營業時間：8/9 09:00 ~ 16:30　＆　8/10 09:00 ~ 15:30
 - 「[身心平衡講座](https://coscup.org/2025/sessions/MK8KSX)」：以正念儀式培養內在平靜與自我覺知
 - 更詳細的多元友善服務及應變資源，請參考[友善參與指南](https://docs.google.com/document/d/e/2PACX-1vQ41wfyNkcv9yEVAN4MrgooT124_ZE9Xdu03vn6NRqQ75RMvBHIOI4uSVXLobEebTl98pYzC_ZNe4EL/pub)
 
@@ -155,7 +158,9 @@ COSCUP 除了議程之外，我們也提供會眾多元的服務，無論您遠�
 
 ## 個人贊助
 
-COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十年來始終堅持「由社群為社群打造的開源人年會」。為了讓這個開源舞台得以持續搭建、讓交流持續發生，我們誠摯邀請您加入 COSCUP 個人贊助行列，涓滴累積下一場、下下場的 COSCUP！
+COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十年來始終堅持「由社群為社群打造的開源人年會」。
+
+為了讓這個開源舞台得以持續搭建、讓交流持續發生，我們誠摯邀請您加入 COSCUP 個人贊助行列，涓滴累積下一場、下下場的 COSCUP！
 
 <VPButton href="https://ocf.neticrm.tw/civicrm/contribute/transact?reset=1&id=85">你出錢，我出力，把 COSCUP 辦下去</VPButton>
 
@@ -185,7 +190,7 @@ COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十�
 
 - [學餐資訊連結](https://github.com/COSCUP/NTUST-Foodlist)
 
-我們還有找到一些還不錯的內容，如果您從其他國家來臺灣參與 COSCUP，希望能讓您感到特別！
+我們還有找到一些不錯的內容，如果您從海外來臺灣參與 COSCUP，希望能讓您感到特別！
 
 - [Enjoy The Local Delights and Diverse Global Cuisines - WordCamp Asia 2024](https://asia.wordcamp.org/2024/taste-of-taiwan/)
 - [台灣交通部觀光署](https://www.taiwan.net.tw/)
@@ -201,6 +206,7 @@ COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十�
 </figure>
 
 最後，想讓 COSCUP 越來越好玩、越來越合你胃口嗎？
+
 填寫「[參與者大調查](https://coscup.org/2025-survey/)」，讓我們知道你的想法與樣貌，未來一起變更好！
 
 :::info 開源巔峰挑戰賽
