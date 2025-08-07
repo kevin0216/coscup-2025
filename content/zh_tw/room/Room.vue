@@ -116,6 +116,15 @@ function getCssVar(name, soft = true) {
     const rgba = getComputedStyle(document.documentElement).getPropertyValue(name).trim()
     const parts = rgba.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/)
 
+    if (parts === null) {
+      return {
+        r: 255,
+        g: 255,
+        b: 255,
+        a: 1,
+      }
+    }
+
     return {
       r: Number(parts[1]),
       g: Number(parts[2]),
