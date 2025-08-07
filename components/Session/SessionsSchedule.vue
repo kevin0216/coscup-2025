@@ -308,6 +308,7 @@ onMounted(() => {
           />
 
           <CTextField
+            v-if="isDesktop"
             v-model="searchQuery"
             :placeholder="messages.searchSessions || 'Search sessions…'"
           />
