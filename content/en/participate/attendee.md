@@ -232,11 +232,9 @@ We apologize that we couldn't complete the Taiwan Food Guide before the conferen
 ## Attendee Survey
 
 <figure markdown="span">
-    <a href="https://coscup.org/2025-survey/">
-        <img src="https://coscup.org/2025-survey/assets/Attendee_survey2025.90091962.png"
-            alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
-            style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
-    </a>
+    <img src="https://coscup.org/2025-survey/assets/Attendee_survey2025.90091962.png"
+        alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
+        style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
 </figure>
 
 Finally, we kindly ask you to complete the [Attendee Survey](https://coscup.org/2025-survey/). This will help us better understand the profile of COSCUP attendees. Since we've moved to an open, registration-free model, conducting this type of survey has become increasingly challenging. Your assistance in completing this survey would be greatly appreciated!

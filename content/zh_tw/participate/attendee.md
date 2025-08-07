@@ -198,11 +198,9 @@ COSCUP 由全志工籌備、不販售門票開放所有人免費參加，二十�
 ## 參與者調查
 
 <figure markdown="span">
-    <a href="https://coscup.org/2025-survey/">
-        <img src="https://coscup.org/2025-survey/assets/Attendee_survey2025.90091962.png"
-            alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
-            style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
-    </a>
+    <img src="https://coscup.org/2025-survey/assets/Attendee_survey2025.90091962.png"
+        alt="COSCUP 參與者調查 Attendee Survey" title="COSCUP 參與者調查 Attendee Survey"
+        style="border-radius: 8px;border:1px solid hsl(0, 0%, 50%);">
 </figure>
 
 最後，想讓 COSCUP 越來越好玩、越來越合你胃口嗎？
