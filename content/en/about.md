@@ -1,5 +1,10 @@
 # About Us
 
+::: info COSCUP Code of Conduct
+To ensure all participants can engage in a safe and inclusive environment, we have established a Code of Conduct.  
+Please read: [COSCUP Code of Conduct](https://hackmd.io/@coscup/cococo-en)
+:::
+
 ## About COSCUP
 
 COSCUP is an initiative led by enthusiasts of free and open-source software, dedicated to promoting the spirit and technology of open source.
