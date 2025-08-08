@@ -263,7 +263,7 @@ export default async () => {
             name: enRoom?.name ?? zhTwRoom?.name ?? '',
           },
         }
-      })
+      }).sort((a, b) => a.en.name.localeCompare(b.en.name))
 
       const allLanguages = new Set(
         enData
