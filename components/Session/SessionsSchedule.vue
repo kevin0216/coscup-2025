@@ -452,7 +452,7 @@ onMounted(() => {
     padding: 0 8px 8px;
   }
 
-  @media (width <= 1024px) {
+  @media (width > 1024px) {
     --column-time-header: 68px;
     --column-width: 320px;
   }
