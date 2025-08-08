@@ -120,6 +120,8 @@ function handleTagsToggle(id: string, checked: boolean) {
   }
 }
 
+const searchQuery = useSessionStorage('search-query', '')
+
 // View state
 const selectedView = useLocalStorage<'conference' | 'bookmarked'>('selected-view', 'conference', {
   serializer: {
@@ -189,6 +191,17 @@ const displaySessions = computed(() => {
     if (selectedTags.value.size > 0) {
       const hasMatchingTag = selectedTags.value.has(`language:${session.language}`) || selectedTags.value.has(`difficulty:${session.difficulty}`)
       if (!hasMatchingTag) {
+        return false
+      }
+    }
+
+    if (searchQuery.value) {
+      const searchLower = searchQuery.value.toLowerCase()
+      if (
+        !session.title.toLowerCase().includes(searchLower) &&
+        !session.room?.name.toLowerCase().includes(searchLower) &&
+        !session.speakers?.some((speaker) => speaker.name.toLowerCase().includes(searchLower))
+      ) {
         return false
       }
     }
@@ -294,17 +307,27 @@ onMounted(() => {
             @toggle="handleTagsToggle"
           />
 
-          <!--
-        <CIconButton variant="basic">
-          <IconPhMagnifyingGlass />
-        </CIconButton>
-        -->
+          <CTextField
+            v-if="isDesktop"
+            v-model="searchQuery"
+            :placeholder="messages.searchSessions || 'Search sessions…'"
+          />
         </div>
 
         <div class="toolbar-end">
           <CMenuBar
             v-model="selectedView"
             :items="viewMenuItems"
+          />
+        </div>
+
+        <div
+          v-if="!isDesktop"
+          class="toolbar-secondary"
+        >
+          <CTextField
+            v-model="searchQuery"
+            :placeholder="messages.searchSessions || 'Search sessions…'"
           />
         </div>
       </div>
@@ -422,11 +445,14 @@ onMounted(() => {
   width: 100%;
   min-width: 100%;
   padding: 18px 32px;
-  height: calc(100vh - var(--vp-nav-height));
-}
+  height: calc(100dvh - var(--vp-nav-height));
 
-@media (min-width: 1024px) {
-  .schedule-page {
+  @media (width <= 40rem /* sm */) {
+    --controls-height: 84px;
+    padding: 0 8px 8px;
+  }
+
+  @media (width <= 1024px) {
     --column-time-header: 68px;
     --column-width: 320px;
   }
@@ -439,6 +465,12 @@ onMounted(() => {
   padding: 16px 0;
   height: var(--controls-height);
 
+  @media (width <= 40rem /* sm */) {
+    padding: 4px 0;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
   > .toolbar-start {
     display: flex;
     align-items: center;
@@ -449,6 +481,10 @@ onMounted(() => {
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+
+  > .toolbar-secondary {
+    width: 100%;
   }
 }
 
