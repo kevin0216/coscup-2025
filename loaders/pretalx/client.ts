@@ -1,6 +1,7 @@
 import type { AnswerReadable, RoomReadable, RoomsListData, SpeakerReadable, SpeakersListData, SubmissionReadable, SubmissionsListData, SubmissionTypeReadable, SubmissionTypesListData, TalkSlotReadable, TrackReadable, TracksListData } from './oapi'
 import type { MultiLingualString, Room, Speaker, Submission, Track } from './types'
 import { BadServerSideDataException } from './exception'
+import hackmd from './hackmd'
 import { createClient } from './oapi/client'
 import { coscupSubmissionsQuestionIdMap, difficultyGeneralizeMap, languageGeneralizeMap, tagTranslations } from './pretalx-types'
 import { formatMultiLingualString, generateGravatarUrl, getAnswer } from './utils'
@@ -185,6 +186,7 @@ export class PretalxApiClient {
     type ApiSubmissionResponse = Omit<SubmissionReadable, 'answers' | 'slots'> & {
       answers: AnswerReadable[]
       slots: TalkSlotReadable[]
+      code: string
     }
     const submissions = await this.#getPaginatedResources<ApiSubmissionResponse>(url)
 
@@ -194,7 +196,7 @@ export class PretalxApiClient {
       const language = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Language)
       const languageOther = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.LanguageOther)
       const difficulty = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Difficulty)
-      const coWrite = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.CoWrite)
+      const coWrite = hackmd[submission.code]
       const qa = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Qa)
       const slide = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Slide)
       const record = getAnswer(submission.answers, coscupSubmissionsQuestionIdMap.Record)

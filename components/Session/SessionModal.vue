@@ -120,6 +120,10 @@ const collaborationUrl = null
                 </CTag>
               </section>
 
+              <section class="session-coWrite">
+                <a :href="session.co_write">議程共筆: {{ session.co_write }}</a>
+              </section>
+
               <hr class="separator">
 
               <section class="session-description">
