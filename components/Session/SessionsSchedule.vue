@@ -338,7 +338,10 @@ onMounted(() => {
         class="schedule-container"
       >
         <!-- Room Headers -->
-        <div class="room-headers">
+        <div
+          v-show="filteredRooms.length > 0"
+          class="room-headers"
+        >
           <div class="time-header" />
           <div
             v-for="room in filteredRooms"
@@ -627,12 +630,14 @@ a.session-card {
 }
 
 .no-sessions {
-  padding: 1rem;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'PingFang TC', sans-serif;
-  font-size: 16px;
+  font-size: 4rem;
   font-weight: 600;
-  color: var(--color-gray-400);
+  color: var(--color-gray-300);
   letter-spacing: 0.48px;
 }
 </style>
