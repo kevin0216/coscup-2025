@@ -10,6 +10,13 @@ const timer = ref(null)
 const roomInterval = ref(null)
 const crowd = ref([])
 const roomsStatus = ref({})
+const zh2en = {
+  空曠: 'Empty',
+  寬敞: 'Roomy',
+  適中: 'Comfortable',
+  熱絡: 'Busy',
+  滿座: 'Packed',
+}
 
 const roomStatus = computed(() => {
   return Object.keys(rooms).map((room) => {
@@ -185,7 +192,7 @@ function getColor(type, value, soft = true) {
 }
 
 function getStatusText(room) {
-  return roomsStatus.value[room] ?? ''
+  return zh2en[roomsStatus.value[room]] ?? ''
 }
 </script>
 
