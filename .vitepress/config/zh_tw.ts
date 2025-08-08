@@ -9,6 +9,7 @@ export const zh_tw = defineConfig({
       { text: '年會資訊', link: '/event' },
       { text: '參與指南', link: '/participate/attendee' },
       { text: '關於我們', link: '/about' },
+      { text: '會場狀態', link: '/room' },
       { text: '議程表', link: '/sessions' },
       { text: '議程主題', link: '/topics' },
       { text: '贊助', link: '/sponsor' },
