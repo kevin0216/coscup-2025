@@ -4,6 +4,8 @@ import mediumZoom from 'medium-zoom'
 import { inBrowser, useData, useRoute } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { nextTick, onMounted, watch, watchEffect } from 'vue'
+import { Toaster } from 'vue-sonner'
+import 'vue-sonner/style.css'
 
 const { lang } = useData()
 
@@ -52,4 +54,5 @@ watch(
       <Footer />
     </template>
   </DefaultTheme.Layout>
+  <Toaster />
 </template>

@@ -56,6 +56,9 @@ importers:
       vue:
         specifier: 3.5.18
         version: 3.5.18(typescript@5.8.3)
+      vue-sonner:
+        specifier: ^2.0.2
+        version: 2.0.2
     devDependencies:
       '@antfu/eslint-config':
         specifier: 4.19.0
@@ -3044,6 +3047,9 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
+
+  vue-sonner@2.0.2:
+    resolution: {integrity: sha512-cN6onnN6aBOZ56YWN8CMj6t4zqbz/XlenE+jx5z+mgduMMelFo6B6G+e2Q6hhxU9YFiV16MXG2MBPluZabyElQ==}
 
   vue-tsc@3.0.4:
     resolution: {integrity: sha512-kZmSEjGtROApVBuaIcoprrXZsFNGon5ggkTJokmhQ/H1hMzCFRPQ0Ed8IHYFsmYJYvHBcdmEQVGVcRuxzPzNbw==}
@@ -6242,6 +6248,8 @@ snapshots:
       semver: 7.7.2
     transitivePeerDependencies:
       - supports-color
+
+  vue-sonner@2.0.2: {}
 
   vue-tsc@3.0.4(typescript@5.8.3):
     dependencies:

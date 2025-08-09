@@ -10,7 +10,7 @@ import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, defineAsyncComponent, h, nextTick, onMounted, ref } from 'vue'
-import PhShareFat from '~icons/ph/share-fat'
+import { toast } from 'vue-sonner'
 import SessionDateTab from './SessionDateTab.vue'
 
 const props = defineProps<{
@@ -36,6 +36,11 @@ const IconPhBookmarkSimple = defineAsyncComponent({
 })
 const IconPhUsersThree = defineAsyncComponent({
   loader: () => import('~icons/ph/users-three'),
+  loadingComponent: iconPlaceholder,
+  delay: 0,
+})
+const IconPhShareFat = defineAsyncComponent({
+  loader: () => import('~icons/ph/share-fat'),
   loadingComponent: iconPlaceholder,
   delay: 0,
 })
@@ -218,13 +223,6 @@ const displaySessions = computed(() => {
     )
   }
 
-  if (params.has('filter')) {
-    const sharedSessions = params.get('filter')?.match(/.{1,6}/g)
-    return filteredSessions.filter((session) =>
-      sharedSessions?.includes(session.code),
-    )
-  }
-
   return filteredSessions
 })
 
@@ -269,24 +267,34 @@ function handleOpenSession(sessionCode: string) {
 }
 
 function shareBookmarkedSessions() {
-  const session = Array.from(bookmarkedSessions.value).toString().replace(/,/g, '')
-  const getRoute = router.route.path.replace(/\/$/, '')
-  if (session) {
-    const url = `https://coscup.org${getRoute}?filter=${session}`
-    if (typeof window !== 'undefined') {
-      window.navigator.clipboard.writeText(url)
-        .then(() => {
-        // eslint-disable-next-line no-alert
-          window.alert('Copy url success, Already to share')
+  const session = Array.from(bookmarkedSessions.value).join(',')
+
+  const currentUrl = new URL(location.href)
+  currentUrl.searchParams.set('filter', session)
+
+  if (typeof window !== 'undefined') {
+    window.navigator.clipboard.writeText(currentUrl.toString())
+      .then(() => {
+        toast.success(props.messages.bookmarkedSessionsCopied, {
+          description: props.messages.bookmarkedSessionsCopiedDescription,
         })
-        .catch((err) => {
-          console.error('Failed to copy: ', err)
-          // eslint-disable-next-line no-alert
-          window.alert('Failed to copy URL')
+      })
+      .catch((err) => {
+        toast.error(props.messages.bookmarkedSessionsCopiedFailed, {
+          description: err.message,
         })
-    }
+      })
   }
 }
+
+// Write the bookmark parameter to the local storage
+onMounted(() => {
+  const filters = params.get('filter')?.split(',')
+  if (filters) {
+    bookmarkedSessions.value = new Set(filters)
+    toast.info(props.messages.bookmarkedSessionsRestored)
+  }
+})
 
 // Restore scroll position on component mount (for page refreshes/direct links)
 onMounted(() => {
@@ -354,7 +362,7 @@ onMounted(() => {
             @click="shareBookmarkedSessions"
           >
             <template #icon>
-              <PhShareFat />
+              <IconPhShareFat />
             </template>
           </CButton>
         </div>
