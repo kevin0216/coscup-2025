@@ -273,9 +273,18 @@ function shareBookmarkedSessions() {
   const getRoute = router.route.path.replace(/\/$/, '')
   if (session) {
     const url = `https://coscup.org${getRoute}?filter=${session}`
-    window.navigator.clipboard.writeText(`${url}`)
-    // eslint-disable-next-line no-alert
-    window.alert('Copy url success, Already to share')
+    if (typeof window !== 'undefined') {
+      window.navigator.clipboard.writeText(url)
+        .then(() => {
+        // eslint-disable-next-line no-alert
+          window.alert('Copy url success, Already to share')
+        })
+        .catch((err) => {
+          console.error('Failed to copy: ', err)
+          // eslint-disable-next-line no-alert
+          window.alert('Failed to copy URL')
+        })
+    }
   }
 }
 
