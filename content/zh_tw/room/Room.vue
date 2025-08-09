@@ -190,7 +190,7 @@ function getStatusText(room) {
 </script>
 
 <template>
-  <div>
+  <ClientOnly>
     <p>現在時間：{{ formatTime(currentTime) }}</p>
     <div class="grid-table">
       <div class="header">
@@ -243,7 +243,7 @@ function getStatusText(room) {
         </div>
       </template>
     </div>
-  </div>
+  </ClientOnly>
 </template>
 
 <style scoped>
