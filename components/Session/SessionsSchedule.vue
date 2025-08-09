@@ -259,6 +259,10 @@ async function shareBookmarkedSessions() {
 
   try {
     await copy(currentUrl.toString())
+
+    // 將目前的 URL 寫入 address bar，剪貼簿可能沒有這麼直覺
+    window.history.replaceState(null, '', currentUrl)
+
     toast.success(props.messages.bookmarkedSessionsCopied, {
       description: props.messages.bookmarkedSessionsCopiedDescription,
     })
