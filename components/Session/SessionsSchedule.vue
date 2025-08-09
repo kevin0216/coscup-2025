@@ -7,9 +7,13 @@ import CMenuBar from '#/components/CMenuBar.vue'
 import { conference } from '#data/conference'
 import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#utils/session-layout.ts'
 import { validateValue } from '#utils/validate-value.ts'
-import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
+import { breakpointsTailwind, useBreakpoints, useClipboard, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
-import { computed, defineAsyncComponent, h, nextTick, onMounted, ref } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onMounted, ref } from 'vue'
+import { toast } from 'vue-sonner'
+import IconPhBookmarkSimple from '~icons/ph/bookmark-simple'
+import IconPhShareFat from '~icons/ph/share-fat'
+import IconPhUsersThree from '~icons/ph/users-three'
 import SessionDateTab from './SessionDateTab.vue'
 
 const props = defineProps<{
@@ -21,19 +25,6 @@ const props = defineProps<{
 
 const SessionFilterPopover = defineAsyncComponent({
   loader: () => import('./SessionFilterPopover.vue'),
-  delay: 0,
-})
-
-const iconPlaceholder = h('div', { style: { width: '1.2em', height: '1.2em' } }, '')
-
-const IconPhBookmarkSimple = defineAsyncComponent({
-  loader: () => import('~icons/ph/bookmark-simple'),
-  loadingComponent: iconPlaceholder,
-  delay: 0,
-})
-const IconPhUsersThree = defineAsyncComponent({
-  loader: () => import('~icons/ph/users-three'),
-  loadingComponent: iconPlaceholder,
   delay: 0,
 })
 
@@ -258,6 +249,50 @@ function handleOpenSession(sessionCode: string) {
   router.go(pathname)
 }
 
+const { copy } = useClipboard()
+
+async function shareBookmarkedSessions() {
+  const session = Array.from(bookmarkedSessions.value).join(',')
+
+  const currentUrl = new URL(location.href)
+  currentUrl.searchParams.set('filter', session)
+
+  try {
+    await copy(currentUrl.toString())
+
+    // 將目前的 URL 寫入 address bar，剪貼簿可能沒有這麼直覺
+    window.history.replaceState(null, '', currentUrl)
+
+    toast.success(props.messages.bookmarkedSessionsCopied, {
+      description: props.messages.bookmarkedSessionsCopiedDescription,
+    })
+  } catch (err) {
+    toast.error(props.messages.bookmarkedSessionsCopiedFailed, {
+      description: err instanceof Error ? err.message : 'Failed to copy to clipboard',
+    })
+  }
+}
+
+// Write the bookmark parameter to the local storage
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search)
+  const filters = params.get('filter')?.split(',')
+  const existingConfiguration = bookmarkedSessions.value
+
+  if (filters) {
+    bookmarkedSessions.value = new Set(filters)
+    toast.info(props.messages.bookmarkedSessionsRestored, {
+      description: props.messages.bookmarkedSessionsRestoredDescription,
+      action: {
+        label: props.messages.bookmarkedSessionsRestoredButton,
+        onClick: () => {
+          bookmarkedSessions.value = existingConfiguration
+        },
+      },
+    })
+  }
+})
+
 // Restore scroll position on component mount (for page refreshes/direct links)
 onMounted(() => {
   nextTick(() => {
@@ -319,6 +354,14 @@ onMounted(() => {
             v-model="selectedView"
             :items="viewMenuItems"
           />
+          <CButton
+            variant="basic"
+            @click="shareBookmarkedSessions"
+          >
+            <template #icon>
+              <IconPhShareFat />
+            </template>
+          </CButton>
         </div>
 
         <div
