@@ -23,8 +23,6 @@ const props = defineProps<{
   messages: Record<MessageKey, string>
 }>()
 
-const params = new URLSearchParams(window.location.search)
-
 const SessionFilterPopover = defineAsyncComponent({
   loader: () => import('./SessionFilterPopover.vue'),
   delay: 0,
@@ -273,6 +271,7 @@ async function shareBookmarkedSessions() {
 
 // Write the bookmark parameter to the local storage
 onMounted(() => {
+  const params = new URLSearchParams(window.location.search)
   const filters = params.get('filter')?.split(',')
   const existingConfiguration = bookmarkedSessions.value
 
