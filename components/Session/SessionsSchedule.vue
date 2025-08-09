@@ -7,7 +7,7 @@ import CMenuBar from '#/components/CMenuBar.vue'
 import { conference } from '#data/conference'
 import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#utils/session-layout.ts'
 import { validateValue } from '#utils/validate-value.ts'
-import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
+import { breakpointsTailwind, useBreakpoints, useClipboard, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, defineAsyncComponent, h, nextTick, onMounted, ref } from 'vue'
 import { toast } from 'vue-sonner'
@@ -266,24 +266,23 @@ function handleOpenSession(sessionCode: string) {
   router.go(pathname)
 }
 
-function shareBookmarkedSessions() {
+const { copy } = useClipboard()
+
+async function shareBookmarkedSessions() {
   const session = Array.from(bookmarkedSessions.value).join(',')
 
   const currentUrl = new URL(location.href)
   currentUrl.searchParams.set('filter', session)
 
-  if (typeof window !== 'undefined') {
-    window.navigator.clipboard.writeText(currentUrl.toString())
-      .then(() => {
-        toast.success(props.messages.bookmarkedSessionsCopied, {
-          description: props.messages.bookmarkedSessionsCopiedDescription,
-        })
-      })
-      .catch((err) => {
-        toast.error(props.messages.bookmarkedSessionsCopiedFailed, {
-          description: err.message,
-        })
-      })
+  try {
+    await copy(currentUrl.toString())
+    toast.success(props.messages.bookmarkedSessionsCopied, {
+      description: props.messages.bookmarkedSessionsCopiedDescription,
+    })
+  } catch (err) {
+    toast.error(props.messages.bookmarkedSessionsCopiedFailed, {
+      description: err instanceof Error ? err.message : 'Failed to copy to clipboard',
+    })
   }
 }
 
