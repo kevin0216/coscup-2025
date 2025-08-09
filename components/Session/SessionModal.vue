@@ -30,8 +30,6 @@ const sessionTime = computed(() => {
 
   return formatTimeRange(startDateString, endDateString, true)
 })
-
-const collaborationUrl = null
 </script>
 
 <template>
@@ -94,14 +92,14 @@ const collaborationUrl = null
                   {{ session.room.name }}
                 </div>
                 <div
-                  v-if="collaborationUrl"
+                  v-if="session.co_write"
                   class="session-detail-row"
                 >
                   <div class="session-detail-label">
                     <IconPhFileText />
                     {{ messages.collaborativeNotes }}
                   </div>
-                  {{ collaborationUrl }}
+                  <a :href="session.co_write">{{ session.co_write }}</a>
                 </div>
               </section>
 
@@ -118,10 +116,6 @@ const collaborationUrl = null
                 <CTag variant="primary">
                   {{ session.track.name }}
                 </CTag>
-              </section>
-
-              <section class="session-coWrite">
-                <a :href="session.co_write">議程共筆: {{ session.co_write }}</a>
               </section>
 
               <hr class="separator">
@@ -383,6 +377,10 @@ const collaborationUrl = null
         align-items: center;
         gap: 2px;
         color: var(--color-gray-400);
+      }
+
+      > a {
+        text-decoration: underline !important;
       }
     }
   }
