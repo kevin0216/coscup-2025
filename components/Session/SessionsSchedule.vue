@@ -10,6 +10,7 @@ import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
 import { computed, defineAsyncComponent, h, nextTick, onMounted, ref } from 'vue'
+import PhShareFat from '~icons/ph/share-fat'
 import SessionDateTab from './SessionDateTab.vue'
 
 const props = defineProps<{
@@ -18,6 +19,8 @@ const props = defineProps<{
   openedSession: SubmissionResponse | null
   messages: Record<MessageKey, string>
 }>()
+
+const params = new URLSearchParams(window.location.search)
 
 const SessionFilterPopover = defineAsyncComponent({
   loader: () => import('./SessionFilterPopover.vue'),
@@ -215,6 +218,13 @@ const displaySessions = computed(() => {
     )
   }
 
+  if (params.has('filter')) {
+    const sharedSessions = params.get('filter')?.match(/.{1,6}/g)
+    return filteredSessions.filter((session) =>
+      sharedSessions?.includes(session.code),
+    )
+  }
+
   return filteredSessions
 })
 
@@ -256,6 +266,17 @@ function handleOpenSession(sessionCode: string) {
 
   const pathname = new URL(sessionCode, location.href).pathname
   router.go(pathname)
+}
+
+function shareBookmarkedSessions() {
+  const session = Array.from(bookmarkedSessions.value).toString().replace(/,/g, '')
+  const getRoute = router.route.path.replace(/\/$/, '')
+  if (session) {
+    const url = `https://coscup.org${getRoute}?filter=${session}`
+    window.navigator.clipboard.writeText(`${url}`)
+    // eslint-disable-next-line no-alert
+    window.alert('Copy url success, Already to share')
+  }
 }
 
 // Restore scroll position on component mount (for page refreshes/direct links)
@@ -319,6 +340,14 @@ onMounted(() => {
             v-model="selectedView"
             :items="viewMenuItems"
           />
+          <CButton
+            variant="basic"
+            @click="shareBookmarkedSessions"
+          >
+            <template #icon>
+              <PhShareFat />
+            </template>
+          </CButton>
         </div>
 
         <div
