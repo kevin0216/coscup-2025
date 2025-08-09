@@ -290,9 +290,19 @@ function shareBookmarkedSessions() {
 // Write the bookmark parameter to the local storage
 onMounted(() => {
   const filters = params.get('filter')?.split(',')
+  const existingConfiguration = bookmarkedSessions.value
+
   if (filters) {
     bookmarkedSessions.value = new Set(filters)
-    toast.info(props.messages.bookmarkedSessionsRestored)
+    toast.info(props.messages.bookmarkedSessionsRestored, {
+      description: props.messages.bookmarkedSessionsRestoredDescription,
+      action: {
+        label: props.messages.bookmarkedSessionsRestoredButton,
+        onClick: () => {
+          bookmarkedSessions.value = existingConfiguration
+        },
+      },
+    })
   }
 })
 
