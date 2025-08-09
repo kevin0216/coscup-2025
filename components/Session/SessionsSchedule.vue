@@ -9,8 +9,11 @@ import { END_HOUR, SessionScheduleLayout, START_HOUR, TIME_SLOT_HEIGHT } from '#
 import { validateValue } from '#utils/validate-value.ts'
 import { breakpointsTailwind, useBreakpoints, useClipboard, useLocalStorage, useSessionStorage } from '@vueuse/core'
 import { useRouter } from 'vitepress'
-import { computed, defineAsyncComponent, h, nextTick, onMounted, ref } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onMounted, ref } from 'vue'
 import { toast } from 'vue-sonner'
+import IconPhBookmarkSimple from '~icons/ph/bookmark-simple'
+import IconPhShareFat from '~icons/ph/share-fat'
+import IconPhUsersThree from '~icons/ph/users-three'
 import SessionDateTab from './SessionDateTab.vue'
 
 const props = defineProps<{
@@ -24,24 +27,6 @@ const params = new URLSearchParams(window.location.search)
 
 const SessionFilterPopover = defineAsyncComponent({
   loader: () => import('./SessionFilterPopover.vue'),
-  delay: 0,
-})
-
-const iconPlaceholder = h('div', { style: { width: '1.2em', height: '1.2em' } }, '')
-
-const IconPhBookmarkSimple = defineAsyncComponent({
-  loader: () => import('~icons/ph/bookmark-simple'),
-  loadingComponent: iconPlaceholder,
-  delay: 0,
-})
-const IconPhUsersThree = defineAsyncComponent({
-  loader: () => import('~icons/ph/users-three'),
-  loadingComponent: iconPlaceholder,
-  delay: 0,
-})
-const IconPhShareFat = defineAsyncComponent({
-  loader: () => import('~icons/ph/share-fat'),
-  loadingComponent: iconPlaceholder,
   delay: 0,
 })
 
