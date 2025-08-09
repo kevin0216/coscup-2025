@@ -562,6 +562,10 @@ onMounted(() => {
 .time-header {
   width: var(--column-time-header);
   border-right: 1px solid var(--color-gray-200);
+  position: sticky;
+  left: 0;
+  z-index: 15;
+  background: var(--color-gray-50);
 }
 
 .room-header {
@@ -587,7 +591,9 @@ onMounted(() => {
   width: var(--column-time-header);
   background: var(--color-gray-50);
   border-right: 1px solid var(--color-gray-200);
-  position: relative;
+  position: sticky;
+  left: 0;
+  z-index: 5;
 }
 
 .time-slot {
@@ -602,7 +608,9 @@ onMounted(() => {
   font-size: 12px;
   font-weight: 600;
   color: var(--color-gray-400);
-  position: relative;
+  position: sticky;
+  left: 0;
+  z-index: 10;
 }
 
 .sessions-area {
