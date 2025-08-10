@@ -4,7 +4,7 @@ import type { MessageKey } from './session-messages'
 import CTag from '#components/CTag.vue'
 import { formatTimeRange } from '#utils/format-time.ts'
 import { markdownToHtml } from '#utils/markdown.ts'
-import { computedAsync } from '@vueuse/core'
+import { breakpointsTailwind, computedAsync, useBreakpoints } from '@vueuse/core'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -15,6 +15,10 @@ const props = defineProps<{
 defineEmits<{
   (e: 'close'): void
 }>()
+
+// Reactive state for mobile view
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isDesktop = breakpoints.greater('sm')
 
 const advertisement = computedAsync(async () => {
   const { getAdvertisement } = await import('./advertisement')
@@ -50,21 +54,25 @@ const sessionTime = computed(() => {
         <main class="content-col">
           <div class="dialog-header">
             <div class="header-spacer" />
-            <button
+            <CButton
+              v-if="isDesktop"
               class="dialog-close"
+              variant="secondary"
               @click="$emit('close')"
             >
-              <IconPhX style="color: var(--color-gray-500);" />
-            </button>
-            <button
+              <IconPhX />
+            </CButton>
+            <CButton
+              v-else
               class="dialog-close-mobile"
+              variant="primary"
               @click="$emit('close')"
             >
-              <IconPhX style="color: var(--color-white); font-size: var(--text-lg);" />
-              <span class="dialog-close-mobile-text">
-                {{ messages.close }}
-              </span>
-            </button>
+              <template #icon>
+                <IconPhX />
+              </template>
+              {{ messages.close }}
+            </CButton>
           </div>
           <div class="main-content">
             <h1
@@ -269,7 +277,6 @@ const sessionTime = computed(() => {
   box-shadow:
     0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease-in-out;
   top: 0;
   bottom: 0;
   right: 0;
@@ -281,10 +288,6 @@ const sessionTime = computed(() => {
   overflow-y: auto;
   padding: 0;
   margin: 0;
-}
-
-.dialog-close-mobile {
-  display: none;
 }
 
 @media (min-width: 500px) {
@@ -324,72 +327,12 @@ const sessionTime = computed(() => {
   position: absolute;
   right: auto;
   top: auto;
-  border: 1px solid var(--color-gray-300);
-  border-radius: 0.25rem;
-  opacity: 1;
-  transition: opacity 0.2s;
-  outline: none;
-  box-shadow: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem;
-  backdrop-filter: blur(10px);
 }
 
-.dialog-close:hover {
-  opacity: 1;
-}
-
-.dialog-close:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ring-color, #3b82f6);
-}
-
-.dialog-close:disabled {
-  pointer-events: none;
-}
-
-@media (max-width: 500px) {
-  .dialog-close {
-    display: none;
-  }
-
-  .dialog-close-mobile {
-    position: absolute;
-    bottom: 1rem;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--background, var(--color-primary-400));
-    gap: 0.25rem;
-    border: none;
-    border-radius: 0.25rem;
-    opacity: 1;
-    transition: opacity 0.2s;
-    outline: none;
-    box-shadow: 0 0 10px 1px var(--color-gray-400);
-    padding: 0.4rem;
-    margin: 0 1.5rem;
-    transition: all 0.2s;
-  }
-
-  .dialog-close-mobile:active {
-    scale: 0.95;
-  }
-
-  .dialog-close-mobile:disabled {
-    pointer-events: none;
-  }
-
-  .dialog-close-mobile-text {
-    font-size: var(--text-lg);
-    font-weight: 400;
-    color: var(--color-white);
-  }
+.dialog-close-mobile {
+  position: absolute;
+  bottom: 1rem;
+  width: 90% !important;
 }
 
 @media (min-width: 900px) {
