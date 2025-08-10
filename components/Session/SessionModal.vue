@@ -56,6 +56,15 @@ const sessionTime = computed(() => {
             >
               <IconPhX style="color: var(--color-gray-500);" />
             </button>
+            <button
+              class="dialog-close-mobile"
+              @click="$emit('close')"
+            >
+              <IconPhX style="color: var(--color-white); font-size: var(--text-lg);" />
+              <span class="dialog-close-mobile-text">
+                {{ messages.close }}
+              </span>
+            </button>
           </div>
           <div class="main-content">
             <h1
@@ -276,6 +285,10 @@ const sessionTime = computed(() => {
   margin: 0;
 }
 
+.dialog-close-mobile {
+  display: none;
+}
+
 @media (min-width: 500px) {
   .dialog {
     width: clamp(500px, 75vw, 800px);
@@ -310,21 +323,21 @@ const sessionTime = computed(() => {
 }
 
 .dialog-close {
-  position: static;
+  position: absolute;
   right: auto;
   top: auto;
+  border: 1px solid var(--color-gray-300);
   border-radius: 0.25rem;
-  opacity: 0.7;
+  opacity: 1;
   transition: opacity 0.2s;
   outline: none;
-  background: none;
-  border: none;
   box-shadow: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
+  padding: 0.65rem;
+  backdrop-filter: blur(10px);
 }
 
 .dialog-close:hover {
@@ -338,6 +351,47 @@ const sessionTime = computed(() => {
 
 .dialog-close:disabled {
   pointer-events: none;
+}
+
+@media (max-width: 500px) {
+  .dialog-close {
+    display: none;
+  }
+
+  .dialog-close-mobile {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background, var(--color-primary-400));
+    gap: 0.25rem;
+    border: none;
+    border-radius: 0.25rem;
+    opacity: 1;
+    transition: opacity 0.2s;
+    outline: none;
+    box-shadow: 0 0 10px 1px var(--color-gray-400);
+    padding: 0.4rem;
+    margin: 0 1.5rem;
+    transition: all 0.2s;
+  }
+
+  .dialog-close-mobile:active {
+    scale: 0.95;
+  }
+
+  .dialog-close-mobile:disabled {
+    pointer-events: none;
+  }
+
+  .dialog-close-mobile-text {
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-white);
+  }
 }
 
 @media (min-width: 900px) {
