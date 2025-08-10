@@ -262,7 +262,8 @@ const sessionTime = computed(() => {
 
 .dialog-content {
   display: flex;
-  height: 100%;
+  position: relative;
+  height: 100dvh;
   width: 100%;
   background: var(--background, #fff);
   box-shadow:
@@ -272,10 +273,7 @@ const sessionTime = computed(() => {
   top: 0;
   bottom: 0;
   right: 0;
-  height: 100%;
-  width: 100%;
   max-width: 100%;
-  max-height: 100%;
   border: none;
   border-left: 1px solid #e5e7eb;
   animation-duration: 0.5s;
@@ -377,6 +375,12 @@ const sessionTime = computed(() => {
     padding: 0.4rem;
     margin: 0 1.5rem;
     transition: all 0.2s;
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    .dialog-close-mobile {
+      bottom: 1rem;
+    }
   }
 
   .dialog-close-mobile:active {
