@@ -287,6 +287,7 @@ const sessionTime = computed(() => {
   flex-direction: column;
   flex: 1 1 0%;
   min-width: 0;
+  overflow-y: auto;
 }
 
 .dialog-header {
