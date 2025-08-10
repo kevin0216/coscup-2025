@@ -11,9 +11,7 @@ const user_lang = lang.value === 'en-US' ? 'en' : 'zh-TW'
 </script>
 
 <template>
-  <div
-    class="community-card"
-  >
+  <div class="community-card">
     <div class="community-image-wrap">
       <a :href="community.link">
         <img
@@ -173,6 +171,7 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: left;
+  word-break: break-word;
 }
 
 div.community-content-wrap {
