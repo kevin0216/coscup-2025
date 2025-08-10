@@ -377,12 +377,6 @@ const sessionTime = computed(() => {
     transition: all 0.2s;
   }
 
-  @supports (-webkit-touch-callout: none) {
-    .dialog-close-mobile {
-      bottom: 1rem;
-    }
-  }
-
   .dialog-close-mobile:active {
     scale: 0.95;
   }
